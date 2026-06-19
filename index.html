@@ -1,0 +1,675 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>L'IA souveraine pour les PME suisses — Arkneys Agency</title>
+<meta name="description" content="Arkneys Agency — Studio IA Suisse pour PME premium romandes. 7 familles d'agents IA. Hébergement Infomaniak Suisse, conformité nLPD documentée.">
+<meta property="og:title" content="L'IA souveraine pour les PME suisses — Arkneys Agency">
+<meta property="og:description" content="Arkneys Agency — Studio IA Suisse pour PME premium romandes. 7 familles d'agents IA. Hébergement Infomaniak Suisse, conformité nLPD documentée.">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" sizes="32x32" href="favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="favicon-16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+<style>
+:root{
+  --ark-bg:#080c14; --ark-bg-alt:#0c1320;
+  --ark-cyan:#22d3ee; --ark-cyan-light:#67e8f9; --ark-cyan-bright:#a5f3fc;
+  --ark-text:#e7eef7; --ark-text-mid:rgba(231,238,247,0.72); --ark-text-dim:rgba(231,238,247,0.5);
+  --ark-border:rgba(125,211,252,0.18); --ark-border-strong:rgba(125,211,252,0.35);
+  --ark-surface:rgba(15,23,42,0.55);
+  --ark-emerald:#4ade80;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Now Var','Inter','Segoe UI',sans-serif;background:var(--ark-bg);color:var(--ark-text);min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* === BACKGROUND VIDEO === */
+.ark-bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.5}
+.ark-bg-overlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(8,12,20,0.45) 0%,rgba(8,12,20,0.75) 100%);z-index:1;pointer-events:none}
+
+/* === NAV === */
+.ark-nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:rgba(8,12,20,0.4);backdrop-filter:blur(12px);border-bottom:1px solid var(--ark-border)}
+.ark-brand{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ark-text);transition:opacity 0.2s}
+.ark-brand:hover{opacity:0.85}
+.ark-brand-symbol{width:28px;height:28px;color:var(--ark-text);flex-shrink:0}
+.ark-brand-text{display:inline-flex;align-items:baseline;line-height:1}
+.ark-nav-links{display:flex;gap:36px;align-items:center}
+.ark-nav-link{font-size:11px;letter-spacing:0.08em;color:var(--ark-text-mid);font-weight:500;text-transform:uppercase;transition:color 0.2s;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.ark-nav-link:hover,.ark-nav-link.active{color:var(--ark-cyan-light)}
+.ark-nav-link[data-megamenu]:after{content:'';width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;margin-left:4px;opacity:0.5}
+
+/* === MEGA-MENU === */
+.ark-megamenu{position:fixed;top:68px;left:0;right:0;background:linear-gradient(180deg,rgba(8,12,20,0.96),rgba(12,19,32,0.96));backdrop-filter:blur(20px);border-bottom:1px solid var(--ark-border);padding:36px 32px 36px 32px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;z-index:55;box-shadow:0 16px 48px rgba(0,0,0,0.4)}
+.ark-megamenu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.ark-megamenu-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.ark-megamenu-section{display:flex;flex-direction:column;gap:4px}
+.ark-megamenu-title{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--ark-cyan-light);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--ark-border)}
+.ark-megamenu-item{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;margin:0 -12px;border-radius:10px;transition:background 0.15s;cursor:pointer}
+.ark-megamenu-item:hover{background:rgba(34,211,238,0.06)}
+.ark-megamenu-icon{width:32px;height:32px;border-radius:8px;background:rgba(34,211,238,0.1);border:1px solid var(--ark-border);display:flex;align-items:center;justify-content:center;color:var(--ark-cyan-light);flex-shrink:0}
+.ark-megamenu-content{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ark-megamenu-label{font-size:13px;font-weight:600;color:var(--ark-text);letter-spacing:-0.005em}
+.ark-megamenu-desc{font-size:11px;color:var(--ark-text-dim);line-height:1.4}
+
+/* === LANG + CTA === */
+.ark-nav-right{display:flex;gap:16px;align-items:center}
+.ark-lang{display:flex;gap:4px;border:1px solid var(--ark-border);padding:3px;border-radius:999px;background:rgba(15,23,42,0.5)}
+.ark-lang button{font-size:10px;font-weight:600;letter-spacing:0.06em;padding:5px 12px;border-radius:999px;background:transparent;border:none;color:var(--ark-text-mid);cursor:pointer;font-family:inherit;transition:all 0.2s}
+.ark-lang button:hover{color:var(--ark-text)}
+.ark-lang button.active{color:#050b16;background:var(--ark-cyan-light)}
+
+.ark-btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--ark-cyan-bright);color:#050b16;padding:11px 22px;border-radius:999px;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:none;transition:all 0.2s;font-family:inherit}
+.ark-btn-primary:hover{background:var(--ark-cyan-light);transform:translateY(-1px);box-shadow:0 8px 24px rgba(34,211,238,0.25)}
+.ark-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ark-text);padding:11px 22px;border-radius:999px;font-weight:600;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:1px solid var(--ark-border-strong);transition:all 0.2s;font-family:inherit}
+.ark-btn-secondary:hover{background:rgba(34,211,238,0.08);border-color:var(--ark-cyan);color:var(--ark-cyan-light)}
+
+/* === FADE-UP === */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* === SECTIONS WRAPPER === */
+.ark-page{position:relative;z-index:2;padding-top:88px}
+.ark-section-pad{padding:90px 32px}
+.ark-container{max-width:1400px;margin:0 auto}
+
+/* === TYPOGRAPHY === */
+.ark-h1{font-size:clamp(36px,5vw,64px);font-weight:700;line-height:1.05;letter-spacing:-0.025em;color:var(--ark-text);margin:0}
+.ark-h2{font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.08;letter-spacing:-0.02em;color:var(--ark-text);margin:0 0 24px}
+.ark-h3{font-size:22px;font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:var(--ark-text);margin:0 0 12px}
+.ark-tag{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ark-cyan-light);display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border:1px solid var(--ark-cyan);border-radius:999px;background:rgba(34,211,238,0.05)}
+.ark-lead{font-size:18px;line-height:1.6;color:var(--ark-text-mid);max-width:640px}
+.ark-counter{font-size:11px;font-weight:600;color:var(--ark-cyan-light);letter-spacing:0.15em;font-family:'SF Mono',Monaco,'Geist Mono',monospace}
+
+/* === CARDS === */
+.ark-card{background:linear-gradient(180deg,rgba(15,24,40,0.7) 0%,rgba(12,19,32,0.7) 100%);border:1px solid var(--ark-border);border-radius:16px;backdrop-filter:blur(8px);transition:all 0.25s;overflow:hidden}
+.ark-card:hover{border-color:var(--ark-border-strong);transform:translateY(-2px)}
+.ark-card-clickable{cursor:pointer}
+.ark-card-clickable:hover{border-color:var(--ark-cyan);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(34,211,238,0.15)}
+
+/* === FOOTER === */
+.ark-footer{position:relative;z-index:3;background:rgba(8,12,20,0.85);backdrop-filter:blur(6px);padding:60px 32px 32px;border-top:1px solid var(--ark-border);margin-top:0}
+.ark-footer-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:48px;margin-bottom:48px}
+.ark-footer-col-title{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ark-cyan-light);font-weight:700;margin-bottom:16px}
+.ark-footer-link{display:block;font-size:13px;color:var(--ark-text-mid);padding:5px 0;transition:color 0.15s;cursor:pointer}
+.ark-footer-link:hover{color:var(--ark-cyan-light)}
+.ark-footer-bottom{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:24px;border-top:1px solid var(--ark-border);font-size:11px;color:var(--ark-text-dim);letter-spacing:0.05em}
+
+/* === COOKIES BANNER === */
+.ark-cookies{position:fixed;bottom:20px;left:20px;right:20px;background:rgba(8,12,20,0.95);backdrop-filter:blur(12px);border:1px solid var(--ark-border);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;z-index:80;max-width:920px;margin:0 auto;box-shadow:0 12px 40px rgba(0,0,0,0.4)}
+.ark-cookies.hidden{display:none}
+.ark-cookies-text{flex:1;font-size:12.5px;color:var(--ark-text-mid);line-height:1.5;min-width:240px}
+.ark-cookies-btn{background:var(--ark-cyan-bright);color:#050b16;border:none;padding:9px 20px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:0.05em;cursor:pointer;text-transform:uppercase;font-family:inherit}
+
+/* === MODAL === */
+.ark-modal{position:fixed;inset:0;background:rgba(8,12,20,0.92);backdrop-filter:blur(8px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;animation:fadeIn 0.2s ease}
+.ark-modal.show{display:flex}
+.ark-modal-box{background:linear-gradient(180deg,#0c1320 0%,#080c14 100%);border:1px solid var(--ark-border);border-radius:20px;max-width:620px;width:100%;max-height:85vh;overflow-y:auto;padding:32px 28px 24px;position:relative}
+.ark-modal-box h2{font-size:1.6rem;font-weight:700;margin:0 0 16px;color:var(--ark-text);letter-spacing:-0.01em}
+.ark-modal-box h3{font-size:11px;font-weight:600;color:var(--ark-cyan-light);margin:18px 0 6px;letter-spacing:0.1em;text-transform:uppercase}
+.ark-modal-box p{font-size:0.9rem;line-height:1.65;color:var(--ark-text-mid);margin:0 0 12px}
+.ark-modal-close{position:absolute;top:12px;right:12px;background:rgba(125,211,252,0.08);border:1px solid var(--ark-border);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ark-text-mid);font-size:15px;font-family:inherit}
+.ark-modal-close:hover{background:rgba(34,211,238,0.15);color:var(--ark-cyan-light)}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* === RESPONSIVE === */
+@media (max-width:980px){
+  .ark-nav{padding:16px 18px}
+  .ark-nav-links{display:none}
+  .ark-megamenu-inner{grid-template-columns:1fr 1fr}
+  .ark-footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .ark-section-pad{padding:60px 18px}
+  .ark-h1{font-size:clamp(28px,8vw,42px)}
+  .ark-h2{font-size:clamp(24px,6vw,36px)}
+  .ark-brand{font-size:12px;gap:8px}
+  .ark-brand-symbol{width:24px;height:24px}
+}
+
+
+/* === V2 — Spécifique 7 agents === */
+.ark-grid-7{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ark-grid-7 > *:nth-child(5),
+.ark-grid-7 > *:nth-child(6),
+.ark-grid-7 > *:nth-child(7){grid-column:span 1}
+@media (max-width:1100px){.ark-grid-7{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:780px){.ark-grid-7{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.ark-grid-7{grid-template-columns:1fr}}
+
+.ark-agent-card{padding:24px 22px;display:flex;flex-direction:column;gap:12px;min-height:220px;text-decoration:none}
+.ark-agent-card-icon{width:44px;height:44px;border-radius:11px;background:rgba(34,211,238,0.1);border:1px solid var(--ark-border);display:flex;align-items:center;justify-content:center;color:var(--ark-cyan-light)}
+.ark-agent-card .ark-tag{font-size:9px;padding:3px 9px}
+.ark-agent-card h3{font-size:17px;font-weight:700;color:var(--ark-text);margin:0;letter-spacing:-0.01em}
+.ark-agent-card p{font-size:12.5px;color:var(--ark-text-mid);line-height:1.55;margin:0;flex:1}
+.ark-agent-card-link{font-size:11px;color:var(--ark-cyan-light);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:auto;display:inline-flex;align-items:center;gap:6px}
+
+/* Avant/Avec schéma */
+.ark-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch}
+.ark-vs-box{background:linear-gradient(180deg,rgba(15,24,40,0.7),rgba(12,19,32,0.7));border:1px solid var(--ark-border);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.ark-vs-box.avant{border-left:3px solid #f87171}
+.ark-vs-box.avec{border-left:3px solid var(--ark-cyan)}
+.ark-vs-label{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--ark-text-dim)}
+.ark-vs-box.avant .ark-vs-label{color:#fca5a5}
+.ark-vs-box.avec .ark-vs-label{color:var(--ark-cyan-light)}
+.ark-vs-box p{margin:0;font-size:14px;color:var(--ark-text-mid);line-height:1.6}
+.ark-vs-arrow{display:flex;align-items:center;justify-content:center;color:var(--ark-cyan);font-size:24px}
+@media (max-width:760px){.ark-vs{grid-template-columns:1fr;gap:12px} .ark-vs-arrow{transform:rotate(90deg)}}
+
+/* Cas d'usage list */
+.ark-usecases{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px}
+.ark-usecases li{padding:10px 0;font-size:14px;color:var(--ark-text-mid);line-height:1.55;display:flex;gap:12px;border-bottom:1px solid var(--ark-border)}
+.ark-usecases li:before{content:"→";color:var(--ark-cyan-light);font-weight:700;flex-shrink:0}
+@media (max-width:760px){.ark-usecases{grid-template-columns:1fr}}
+
+/* Quote/exemple highlight */
+.ark-exemple{padding:28px 32px;background:rgba(34,211,238,0.04);border-left:3px solid var(--ark-cyan);border-radius:0 14px 14px 0}
+.ark-exemple-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ark-cyan-light);font-weight:700;margin-bottom:10px}
+.ark-exemple p{margin:0;font-size:15px;line-height:1.65;color:var(--ark-text)}
+</style>
+</head>
+<body>
+
+<!-- BACKGROUND VIDEO -->
+<video class="ark-bg-video" autoplay muted loop playsinline preload="auto">
+  <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260514_135830_bb6491d1-9b66-4aec-9722-13b4dfe3fb46.mp4" type="video/mp4">
+</video>
+<div class="ark-bg-overlay"></div>
+
+<!-- NAV -->
+<nav class="ark-nav">
+  <a href="index.html" class="ark-brand" aria-label="Arkneys Agency - Accueil">
+    <svg class="ark-brand-symbol" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <path d="M 45,7 L 55,7 L 95,93 L 5,93 Z M 50,26 L 60,55 L 40,55 Z M 36,65 L 64,65 L 79,93 L 21,93 Z" fill="currentColor" fill-rule="evenodd"/>
+    </svg>
+    <span class="ark-brand-text">
+      <span data-i18n="brand">Arkneys</span><span style="color:var(--ark-cyan-light);margin-left:4px">Agency</span>
+    </span>
+  </a>
+  
+  <div class="ark-nav-links">
+    <a class="ark-nav-link active" href="index.html" data-i18n="nav.home">Accueil</a>
+    <span class="ark-nav-link" data-megamenu="agents">Agents IA</span>
+    <a class="ark-nav-link" href="secteurs.html">Secteurs</a>
+    <a class="ark-nav-link" href="a-propos.html" data-i18n="nav.about">À propos</a>
+    <a class="ark-nav-link" href="contact.html" data-i18n="nav.contact">Contact</a>
+  </div>
+  
+  <div class="ark-nav-right">
+    <div class="ark-lang">
+      <button onclick="setLang('fr')" id="lang-fr" class="active">FR</button>
+      <button onclick="setLang('en')" id="lang-en">EN</button>
+      <button onclick="setLang('de')" id="lang-de">DE</button>
+    </div>
+    <a href="contact.html" class="ark-btn-primary" data-i18n="nav.cta">Réserver un Audit</a>
+  </div>
+</nav>
+
+<!-- MEGA MENU AGENTS (7 familles) -->
+<div class="ark-megamenu" id="megamenu-agents">
+  <div class="ark-megamenu-inner" style="grid-template-columns:repeat(4,1fr)">
+    
+    <div class="ark-megamenu-section" style="grid-column:1 / span 3">
+      <div class="ark-megamenu-title">Les 7 familles d'agents IA</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 -12px">
+        
+      <a href="agent-conversation.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:messages-square" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Conversation</span>
+          <span class="ark-megamenu-desc">Avis · Conciergerie · Support</span>
+        </div>
+      </a>
+      <a href="agent-documents.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:scan-text" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Documents</span>
+          <span class="ark-megamenu-desc">Factures · Contrats · KYC</span>
+        </div>
+      </a>
+      <a href="agent-veille.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:radar" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Veille</span>
+          <span class="ark-megamenu-desc">Produits · Concurrence · Sourcing</span>
+        </div>
+      </a>
+      <a href="agent-commerciaux.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:briefcase" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Commerciaux</span>
+          <span class="ark-megamenu-desc">Leads · Relances · Pipeline</span>
+        </div>
+      </a>
+      <a href="agent-analytiques.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:line-chart" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Analytiques</span>
+          <span class="ark-megamenu-desc">Reporting · KPI · Tableaux de bord</span>
+        </div>
+      </a>
+      <a href="agent-traduction.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:languages" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Traduction</span>
+          <span class="ark-megamenu-desc">Contenu · Documents · Web</span>
+        </div>
+      </a>
+      <a href="agent-sur-mesure.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:wrench" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Sur mesure</span>
+          <span class="ark-megamenu-desc">Cas atypiques · Intégrations complexes</span>
+        </div>
+      </a>
+      </div>
+    </div>
+    
+    <div class="ark-megamenu-section">
+      <div class="ark-megamenu-title">Pour aller plus loin</div>
+      
+      <a href="agents.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:layout-grid" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Vue d'ensemble</span>
+          <span class="ark-megamenu-desc">Les 7 familles + méthode</span>
+        </div>
+      </a>
+      
+      <a href="agents.html#methode" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:map" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Notre méthode</span>
+          <span class="ark-megamenu-desc">Audit → Cadrage → Déploiement → Suivi</span>
+        </div>
+      </a>
+      
+      <a href="contact.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:calendar-plus" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label">Réserver un Audit</span>
+          <span class="ark-megamenu-desc">3 jours sur place, livrable papier</span>
+        </div>
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+
+<main class="ark-page">
+
+<section class="ark-section-pad" style="padding-top:120px;padding-bottom:60px">
+  <div class="ark-container">
+    <h1 class="ark-h1 fade-up" style="margin:32px 0 24px;max-width:880px">
+      L'IA souveraine<br>pour les <span style="color:var(--ark-cyan-light)">PME suisses</span>.
+    </h1>
+    <p class="ark-lead fade-up" style="margin-bottom:36px">
+      Nous déployons des agents IA calibrés sur votre métier en quatre semaines. Hébergement Suisse, conformité nLPD documentée, méthode mesurable. Sans verrou propriétaire, sortie possible chaque trimestre.
+    </p>
+    <div class="fade-up" style="display:flex;gap:12px;flex-wrap:wrap">
+      <a href="contact.html" class="ark-btn-primary">Réserver un audit</a>
+      <a href="agents.html" class="ark-btn-secondary">Voir les 7 agents</a>
+    </div>
+  </div>
+</section>
+
+<!-- 7 AGENTS -->
+<section class="ark-section-pad" style="padding-top:40px">
+  <div class="ark-container">
+    <h2 class="ark-h2 fade-up" style="max-width:680px">Sept familles d'agents.<br>Une méthode unique.</h2>
+    <p class="ark-lead fade-up" style="margin-bottom:48px">Quel que soit votre métier, chaque agent partage les mêmes principes : calibration sur votre activité, hébergement Suisse, validation humaine systématique au démarrage.</p>
+    
+    <div class="ark-grid-7">
+      
+      <a href="agent-conversation.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
+        <div class="ark-agent-card-icon">
+          <iconify-icon icon="lucide:messages-square" width="22"></iconify-icon>
+        </div>
+        <div class="ark-tag" style="align-self:flex-start">
+          <iconify-icon icon="lucide:shield-check" width="9"></iconify-icon>
+          Souveraineté
+        </div>
+        <h3>Conversation</h3>
+        <p>Avis · Conciergerie · Support</p>
+        <span class="ark-agent-card-link">Voir le détail →</span>
+      </a>
+      <a href="agent-documents.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
+        <div class="ark-agent-card-icon">
+          <iconify-icon icon="lucide:scan-text" width="22"></iconify-icon>
+        </div>
+        <div class="ark-tag" style="align-self:flex-start">
+          <iconify-icon icon="lucide:file-check-2" width="9"></iconify-icon>
+          Conformité
+        </div>
+        <h3>Documents</h3>
+        <p>Factures · Contrats · KYC</p>
+        <span class="ark-agent-card-link">Voir le détail →</span>
+      </a>
+      <a href="agent-veille.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
+        <div class="ark-agent-card-icon">
+          <iconify-icon icon="lucide:radar" width="22"></iconify-icon>
+        </div>
+        <div class="ark-tag" style="align-self:flex-start">
+          <iconify-icon icon="lucide:bar-chart-3" width="9"></iconify-icon>
+          Mesurable
+        </div>
+        <h3>Veille</h3>
+        <p>Produits · Concurrence · Sourcing</p>
+        <span class="ark-agent-card-link">Voir le détail →</span>
+      </a>
+      <a href="agent-commerciaux.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
+        <div class="ark-agent-card-icon">
+          <iconify-icon icon="lucide:briefcase" width="22"></iconify-icon>
+        </div>
+        <div class="ark-tag" style="align-self:flex-start">
+          <iconify-icon icon="lucide:trending-up" width="9"></iconify-icon>
+          Mesurable
+        </div>
+        <h3>Commerciaux</h3>
+        <p>Leads · Relances · Pipeline</p>
+        <span class="ark-agent-card-link">Voir le détail →</span>
+      </a>
+      <a href="agent-analytiques.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
+        <div class="ark-agent-card-icon">
+          <iconify-icon icon="lucide:line-chart" width="22"></iconify-icon>
+        </div>
+        <div class="ark-tag" style="align-self:flex-start">
+          <iconify-icon icon="lucide:bar-chart-3" width="9"></iconify-icon>
+          Mesurable
+        </div>
+        <h3>Analytiques</h3>
+        <p>Reporting · KPI · Tableaux de bord</p>
+        <span class="ark-agent-card-link">Voir le détail →</span>
+      </a>
+      <a href="agent-traduction.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
+        <div class="ark-agent-card-icon">
+          <iconify-icon icon="lucide:languages" width="22"></iconify-icon>
+        </div>
+        <div class="ark-tag" style="align-self:flex-start">
+          <iconify-icon icon="lucide:lock" width="9"></iconify-icon>
+          Discrétion
+        </div>
+        <h3>Traduction</h3>
+        <p>Contenu · Documents · Web</p>
+        <span class="ark-agent-card-link">Voir le détail →</span>
+      </a>
+      <a href="agent-sur-mesure.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
+        <div class="ark-agent-card-icon">
+          <iconify-icon icon="lucide:wrench" width="22"></iconify-icon>
+        </div>
+        <div class="ark-tag" style="align-self:flex-start">
+          <iconify-icon icon="lucide:shield-check" width="9"></iconify-icon>
+          Souveraineté
+        </div>
+        <h3>Sur mesure</h3>
+        <p>Cas atypiques · Intégrations complexes</p>
+        <span class="ark-agent-card-link">Voir le détail →</span>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- SECTEURS -->
+<section class="ark-section-pad">
+  <div class="ark-container">
+    <h2 class="ark-h2 fade-up" style="max-width:640px">Calibré pour<br>votre secteur.</h2>
+    <p class="ark-lead fade-up" style="margin-bottom:48px">Nous nous concentrons sur deux secteurs où nos méthodes ont déjà fait leurs preuves. Mais nous accompagnons toute PME premium romande qui ne se permet pas l'à-peu-près.</p>
+    
+    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
+      <a href="secteurs.html#hotellerie" class="ark-card ark-card-clickable fade-up" style="padding:28px">
+        <iconify-icon icon="lucide:hotel" width="32" style="color:var(--ark-cyan-light);margin-bottom:16px"></iconify-icon>
+        <h3 class="ark-h3" style="font-size:18px">Hôtellerie 4-5★</h3>
+        <p style="color:var(--ark-text-mid);line-height:1.6;font-size:13px">Tri d'avis multilingues, conciergerie 24/7, FAQ collaborateurs.</p>
+      </a>
+      <a href="secteurs.html#fiduciaires" class="ark-card ark-card-clickable fade-up" style="padding:28px">
+        <iconify-icon icon="lucide:calculator" width="32" style="color:var(--ark-cyan-light);margin-bottom:16px"></iconify-icon>
+        <h3 class="ark-h3" style="font-size:18px">Fiduciaires 15-50p</h3>
+        <p style="color:var(--ark-text-mid);line-height:1.6;font-size:13px">Saisie automatique factures fournisseurs, Bexio, Abacus.</p>
+      </a>
+      <a href="secteurs.html#autres" class="ark-card ark-card-clickable fade-up" style="padding:28px">
+        <iconify-icon icon="lucide:building-2" width="32" style="color:var(--ark-cyan-light);margin-bottom:16px"></iconify-icon>
+        <h3 class="ark-h3" style="font-size:18px">Autres secteurs</h3>
+        <p style="color:var(--ark-text-mid);line-height:1.6;font-size:13px">Juridique, santé, immobilier, retail premium. Sur étude.</p>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- 4 ENGAGEMENTS -->
+<section class="ark-section-pad" style="background:rgba(8,12,20,0.55);border-top:1px solid var(--ark-border);border-bottom:1px solid var(--ark-border)">
+  <div class="ark-container">
+    <h2 class="ark-h2 fade-up" style="max-width:680px">Quatre engagements<br>qui vous protègent.</h2>
+    
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px;margin-top:48px" class="ark-services-grid">
+      <div class="fade-up">
+        <iconify-icon icon="lucide:shield-check" width="24" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
+        <h3 style="font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ark-text);margin:0 0 8px">Souveraineté</h3>
+        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">Hébergement Infomaniak Suisse exclusif. Vos données ne quittent pas le territoire.</p>
+      </div>
+      <div class="fade-up">
+        <iconify-icon icon="lucide:scale" width="24" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
+        <h3 style="font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ark-text);margin:0 0 8px">Conformité</h3>
+        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">DPA signé avant tout démarrage. nLPD + RGPD. Auditable par le PFPDT.</p>
+      </div>
+      <div class="fade-up">
+        <iconify-icon icon="lucide:lock" width="24" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
+        <h3 style="font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ark-text);margin:0 0 8px">Discrétion</h3>
+        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">Confidentialité bancaire. Aucun client cité sans accord écrit.</p>
+      </div>
+      <div class="fade-up">
+        <iconify-icon icon="lucide:bar-chart-3" width="24" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
+        <h3 style="font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ark-text);margin:0 0 8px">Mesurable</h3>
+        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">ROI mesuré dès le 2e mois. Rapport trimestriel chiffré.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ark-section-pad" style="text-align:center">
+  <div class="ark-container" style="max-width:720px">
+    <h2 class="ark-h2 fade-up">Démarrer une conversation.</h2>
+    <p class="ark-lead fade-up" style="margin:24px auto 40px">Décrivez-nous votre activité et la difficulté que vous cherchez à résoudre. Réponse sous 24 heures avec une proposition de RDV de cadrage de 30 minutes.</p>
+    <div class="fade-up" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="contact.html" class="ark-btn-primary">Réserver un échange</a>
+      <a href="https://wa.me/41783520697?text=Bonjour%20ibrahim%2C" target="_blank" rel="noopener" class="ark-btn-secondary">
+        <iconify-icon icon="mdi:whatsapp" width="16"></iconify-icon>
+        WhatsApp
+      </a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ark-footer">
+  <div class="ark-footer-grid">
+    <div>
+      <a href="index.html" class="ark-brand" style="margin-bottom:16px">
+        <svg class="ark-brand-symbol" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <path d="M 45,7 L 55,7 L 95,93 L 5,93 Z M 50,26 L 60,55 L 40,55 Z M 36,65 L 64,65 L 79,93 L 21,93 Z" fill="currentColor" fill-rule="evenodd"/>
+        </svg>
+        <span class="ark-brand-text">Arkneys<span style="color:var(--ark-cyan-light);margin-left:4px">Agency</span></span>
+      </a>
+      <p style="font-size:13px;color:var(--ark-text-mid);line-height:1.6;margin:16px 0 0;max-width:300px" data-i18n="footer.about">Studio IA Suisse pour PME premium romandes — hôtellerie, fiduciaires, services. Constituée le 9 janvier 2025 · Siège Zurich.</p>
+    </div>
+    
+    <div>
+      <div class="ark-footer-col-title">Solution</div>
+      <a href="agents.html#conversationnels" class="ark-footer-link">Agents conversationnels</a>
+      <a href="agents.html#documentaires" class="ark-footer-link">Agents documentaires</a>
+      <a href="agents.html#sourcing" class="ark-footer-link">Audit & sourcing IA</a>
+      <a href="agents.html#methode" class="ark-footer-link">Méthode</a>
+    </div>
+    
+    <div>
+      <div class="ark-footer-col-title">Secteurs</div>
+      <a href="secteurs.html#hotellerie" class="ark-footer-link">Hôtellerie 4-5★</a>
+      <a href="secteurs.html#fiduciaires" class="ark-footer-link">Fiduciaires</a>
+      <a href="secteurs.html#autres" class="ark-footer-link">Autres secteurs</a>
+    </div>
+    
+    <div>
+      <div class="ark-footer-col-title">Entreprise</div>
+      <a href="a-propos.html" class="ark-footer-link">À propos</a>
+      <a href="a-propos.html#engagements" class="ark-footer-link">Engagements</a>
+      <a href="contact.html" class="ark-footer-link">Contact</a>
+      <a href="https://wa.me/41783520697?text=Bonjour%20ibrahim%2C" target="_blank" rel="noopener" class="ark-footer-link">WhatsApp</a>
+    </div>
+    
+    <div>
+      <div class="ark-footer-col-title">Légal</div>
+      <span class="ark-footer-link" onclick="openModal('legal')">Mentions légales</span>
+      <span class="ark-footer-link" onclick="openModal('privacy')">Confidentialité</span>
+    </div>
+  </div>
+  
+  <div class="ark-footer-bottom">
+    <div data-i18n="footer.copyright">© 2026 Arkneys Agency · Tous droits réservés</div>
+    <div>contact@arkneysagency.ch · arkneysagency.ch</div>
+  </div>
+</footer>
+
+<!-- COOKIES BANNER -->
+<div id="cookies-banner" class="ark-cookies hidden">
+  <div class="ark-cookies-text" data-i18n="cookies.text">Ce site utilise uniquement un cookie essentiel pour mémoriser votre préférence de langue. Aucun tracker tiers.</div>
+  <button onclick="acceptCookies()" class="ark-cookies-btn" data-i18n="cookies.btn">Compris</button>
+</div>
+
+<!-- LEGAL MODAL -->
+<div id="modal-legal" class="ark-modal" onclick="if(event.target===this)closeModal('legal')">
+  <div class="ark-modal-box">
+    <button class="ark-modal-close" onclick="closeModal('legal')">✕</button>
+    <h2 data-i18n="legal.title">Mentions légales</h2>
+    <h3 data-i18n="legal.editor">Éditeur du site</h3>
+    <p data-i18n="legal.editor_text">Arkneys Agency — Raison individuelle. Fondateur : ibrahim Ghomm. Siège : Zurich, Suisse. Constituée le 9 janvier 2025. Activité commerciale : Romandie. IDE : en cours d'inscription au registre du commerce.</p>
+    <h3 data-i18n="legal.contact">Contact</h3>
+    <p data-i18n="legal.contact_text">contact@arkneysagency.ch · arkneysagency.ch</p>
+    <h3 data-i18n="legal.hosting">Hébergement</h3>
+    <p data-i18n="legal.hosting_text">Site marketing hébergé chez Hostinger International Ltd. Les données traitées dans les agents IA déployés chez les clients sont hébergées en Suisse (Infomaniak).</p>
+    <h3 data-i18n="legal.ip">Propriété intellectuelle</h3>
+    <p data-i18n="legal.ip_text">L'ensemble du contenu du site (textes, images, code) est la propriété d'Arkneys Agency. Toute reproduction sans accord écrit est interdite.</p>
+  </div>
+</div>
+
+<!-- PRIVACY MODAL -->
+<div id="modal-privacy" class="ark-modal" onclick="if(event.target===this)closeModal('privacy')">
+  <div class="ark-modal-box">
+    <button class="ark-modal-close" onclick="closeModal('privacy')">✕</button>
+    <h2 data-i18n="privacy.title">Politique de confidentialité</h2>
+    <p data-i18n="privacy.intro">Arkneys Agency respecte la nLPD révisée du 1er septembre 2023 et le RGPD (UE 2016/679).</p>
+    <h3 data-i18n="privacy.collected">Données collectées sur ce site</h3>
+    <p data-i18n="privacy.collected_text">Aucune donnée personnelle n'est collectée automatiquement. Seul un cookie technique mémorise votre préférence de langue (FR/EN/DE). Aucun tracker tiers, aucun analytics, aucune publicité.</p>
+    <h3 data-i18n="privacy.email">Si vous nous contactez</h3>
+    <p data-i18n="privacy.email_text">Votre adresse email et le contenu de votre message sont reçus uniquement par contact@arkneysagency.ch et conservés au plus 24 mois.</p>
+    <h3 data-i18n="privacy.rights">Vos droits</h3>
+    <p data-i18n="privacy.rights_text">Vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition. Écrivez à contact@arkneysagency.ch. Réponse sous 30 jours.</p>
+  </div>
+</div>
+
+<script>
+const I18N = {
+  "brand":{fr:"Arkneys",en:"Arkneys",de:"Arkneys"},
+  "nav.home":{fr:"Accueil",en:"Home",de:"Home"},
+  "nav.about":{fr:"À propos",en:"About",de:"Über uns"},
+  "nav.contact":{fr:"Contact",en:"Contact",de:"Kontakt"},
+  "nav.cta":{fr:"Réserver un Audit",en:"Book an Audit",de:"Audit buchen"},
+  "footer.about":{fr:"Studio IA Suisse pour PME premium romandes — hôtellerie, fiduciaires, services. Constituée le 9 janvier 2025 · Siège Zurich.",en:"Swiss AI studio for premium SMEs. Incorporated 9 January 2025 · Zurich.",de:"Schweizer KI-Studio für Premium-KMU. Gegründet 9. Januar 2025 · Zürich."},
+  "footer.copyright":{fr:"© 2026 Arkneys Agency · Tous droits réservés",en:"© 2026 Arkneys Agency · All rights reserved",de:"© 2026 Arkneys Agency · Alle Rechte vorbehalten"},
+  "cookies.text":{fr:"Ce site utilise uniquement un cookie essentiel pour mémoriser votre préférence de langue. Aucun tracker tiers.",en:"This site uses only one essential cookie to remember your language preference. No third-party trackers.",de:"Diese Website verwendet nur ein essentielles Cookie für Ihre Spracheinstellung."},
+  "cookies.btn":{fr:"Compris",en:"Got it",de:"Verstanden"},
+  "legal.title":{fr:"Mentions légales",en:"Legal notice",de:"Impressum"},
+  "legal.editor":{fr:"Éditeur du site",en:"Site editor",de:"Herausgeber"},
+  "legal.editor_text":{fr:"Arkneys Agency — Raison individuelle. Fondateur : ibrahim Ghomm. Siège : Zurich, Suisse. Constituée le 9 janvier 2025. Activité commerciale : Romandie. IDE : en cours d'inscription au registre du commerce.",en:"Arkneys Agency — Sole proprietorship. Founder: ibrahim Ghomm. Zurich, Switzerland. Incorporated 9 January 2025.",de:"Arkneys Agency — Einzelunternehmen. Gründer: ibrahim Ghomm. Zürich."},
+  "legal.contact":{fr:"Contact",en:"Contact",de:"Kontakt"},
+  "legal.contact_text":{fr:"contact@arkneysagency.ch · arkneysagency.ch",en:"contact@arkneysagency.ch · arkneysagency.ch",de:"contact@arkneysagency.ch"},
+  "legal.hosting":{fr:"Hébergement",en:"Hosting",de:"Hosting"},
+  "legal.hosting_text":{fr:"Site marketing hébergé chez Hostinger International Ltd. Les données traitées dans les agents IA déployés chez les clients sont hébergées en Suisse (Infomaniak).",en:"Marketing site hosted by Hostinger. Client AI agent data hosted in Switzerland (Infomaniak).",de:"Marketing-Website bei Hostinger. KI-Daten in der Schweiz (Infomaniak)."},
+  "legal.ip":{fr:"Propriété intellectuelle",en:"Intellectual property",de:"Geistiges Eigentum"},
+  "legal.ip_text":{fr:"L'ensemble du contenu du site (textes, images, code) est la propriété d'Arkneys Agency. Toute reproduction sans accord écrit est interdite.",en:"All site content is the property of Arkneys Agency.",de:"Alle Inhalte sind Eigentum von Arkneys Agency."},
+  "privacy.title":{fr:"Politique de confidentialité",en:"Privacy policy",de:"Datenschutz"},
+  "privacy.intro":{fr:"Arkneys Agency respecte la nLPD révisée du 1er septembre 2023 et le RGPD (UE 2016/679).",en:"Arkneys Agency complies with Swiss FADP and EU GDPR.",de:"Arkneys Agency erfüllt das revidierte DSG und die DSGVO."},
+  "privacy.collected":{fr:"Données collectées sur ce site",en:"Data collected on this site",de:"Erfasste Daten"},
+  "privacy.collected_text":{fr:"Aucune donnée personnelle n'est collectée automatiquement. Seul un cookie technique mémorise votre préférence de langue (FR/EN/DE). Aucun tracker tiers, aucun analytics, aucune publicité.",en:"No personal data collected automatically. Only one cookie for language. No third-party trackers.",de:"Keine personenbezogenen Daten automatisch erfasst."},
+  "privacy.email":{fr:"Si vous nous contactez",en:"If you contact us",de:"Wenn Sie uns kontaktieren"},
+  "privacy.email_text":{fr:"Votre adresse email et le contenu de votre message sont reçus uniquement par contact@arkneysagency.ch et conservés au plus 24 mois.",en:"Your email and message are received only by contact@arkneysagency.ch, kept max 24 months.",de:"Ihre E-Mail wird max. 24 Monate aufbewahrt."},
+  "privacy.rights":{fr:"Vos droits",en:"Your rights",de:"Ihre Rechte"},
+  "privacy.rights_text":{fr:"Vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition. Écrivez à contact@arkneysagency.ch. Réponse sous 30 jours.",en:"Rights of access, rectification, deletion. Write to contact@arkneysagency.ch.",de:"Recht auf Auskunft, Berichtigung, Löschung."}
+};
+
+function applyLang(lang){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(I18N[key]&&I18N[key][lang]){
+      if(el.children.length===0){el.textContent=I18N[key][lang]}
+      else if(el.tagName==='BUTTON'||el.tagName==='A'){el.textContent=I18N[key][lang]}
+    }
+  });
+  document.querySelectorAll('.ark-lang button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('lang-'+lang).classList.add('active');
+}
+function setLang(lang){localStorage.setItem('ark_lang',lang);applyLang(lang)}
+function openModal(name){document.getElementById('modal-'+name).classList.add('show');document.body.style.overflow='hidden'}
+function closeModal(name){document.getElementById('modal-'+name).classList.remove('show');document.body.style.overflow=''}
+function acceptCookies(){localStorage.setItem('ark_cookies','1');document.getElementById('cookies-banner').classList.add('hidden')}
+
+// Mega menu
+let megaTimeout;
+document.querySelectorAll('[data-megamenu]').forEach(trigger=>{
+  const menu=document.getElementById('megamenu-'+trigger.dataset.megamenu);
+  if(!menu)return;
+  const open=()=>{clearTimeout(megaTimeout);document.querySelectorAll('.ark-megamenu').forEach(m=>m.classList.remove('open'));menu.classList.add('open')};
+  const close=()=>{megaTimeout=setTimeout(()=>menu.classList.remove('open'),200)};
+  trigger.addEventListener('mouseenter',open);
+  trigger.addEventListener('mouseleave',close);
+  menu.addEventListener('mouseenter',()=>clearTimeout(megaTimeout));
+  menu.addEventListener('mouseleave',close);
+});
+
+// Fade-up
+const fadeObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fadeObs.unobserve(e.target)}});
+},{threshold:0.12});
+document.querySelectorAll('.fade-up').forEach(el=>fadeObs.observe(el));
+
+// Init
+const savedLang=localStorage.getItem('ark_lang')||'fr';
+applyLang(savedLang);
+if(!localStorage.getItem('ark_cookies'))setTimeout(()=>document.getElementById('cookies-banner').classList.remove('hidden'),1000);
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.ark-modal.show').forEach(m=>m.classList.remove('show'));
+    document.body.style.overflow='';
+  }
+});
+</script>
+</body>
+</html>
