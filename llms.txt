@@ -1,0 +1,22 @@
+# Arkneys Agency
+
+> Studio IA suisse pour PME premium romandes (hôtellerie 4-5★, fiduciaires 15-50 personnes, services premium). Agents IA calibrés sur votre métier, déployés en 4 semaines, hébergés exclusivement en Suisse (Infomaniak), conformes nLPD et RGPD. DPA signé avant tout démarrage. Sortie possible chaque trimestre, sans verrou propriétaire. Fondée par ibrahim Ghommiss, constituée le 9 janvier 2025, siège à Zurich, activité commerciale en Suisse romande.
+
+## Offre
+- 7 familles d'agents IA : Conversation (avis, conciergerie, support), Documents (factures, contrats, KYC), Veille, Commerciaux, Analytiques, Traduction, Sur mesure.
+- Méthode : Audit (3 jours sur place) → Cadrage → Déploiement (4 à 12 semaines) → Suivi (rapport trimestriel chiffré).
+- Quatre engagements : Souveraineté, Conformité, Discrétion, Mesurable.
+
+## Pages prioritaires
+- [Accueil](https://arkneysagency.ch/) : agents IA souverains pour PME premium romandes
+- [Agents IA](https://arkneysagency.ch/agents) : les 7 familles d'agents et la méthode
+- [Secteurs](https://arkneysagency.ch/secteurs) : hôtellerie 4-5★, fiduciaires 15-50p, autres secteurs premium
+- [À propos](https://arkneysagency.ch/a-propos) : parcours du fondateur et engagements
+- [Contact](https://arkneysagency.ch/contact) : réserver un audit, RDV de cadrage 30 min, FAQ
+
+## Secteurs cœur
+- Hôtellerie 4-5★ : tri et réponse aux avis Booking/Google/TripAdvisor en 4 langues, conciergerie 24/7, FAQ collaborateurs.
+- Fiduciaires : extraction de factures fournisseurs (TVA, IBAN, échéances) vers Bexio ou Abacus, classification de contrats, KYC, conforme nLPD.
+
+## Contact
+contact@arkneysagency.ch · WhatsApp +41 78 352 06 97 · Suisse romande
