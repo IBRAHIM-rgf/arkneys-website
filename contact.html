@@ -194,8 +194,8 @@ a{color:inherit;text-decoration:none}
   
   <div class="ark-nav-links">
     <a class="ark-nav-link" href="index.html" data-i18n="nav.home">Accueil</a>
-    <span class="ark-nav-link" data-megamenu="agents">Agents IA</span>
-    <a class="ark-nav-link" href="secteurs.html">Secteurs</a>
+    <span class="ark-nav-link" data-megamenu="agents" data-i18n="nav.agents">Agents IA</span>
+    <a class="ark-nav-link" href="secteurs.html" data-i18n="nav.sectors">Secteurs</a>
     <a class="ark-nav-link" href="a-propos.html" data-i18n="nav.about">À propos</a>
     <a class="ark-nav-link active" href="contact.html" data-i18n="nav.contact">Contact</a>
   </div>
@@ -734,6 +734,34 @@ const I18N = {
   "agent.cta.lead":{fr:"L'Audit Express vous remet en main propre un livrable papier de 8 à 12 pages avec les cas d'usage spécifiques à votre activité, chiffrés.",en:"The Express Audit hands you a printed 8-12 page deliverable with quantified use cases specific to your activity.",de:"Das Express-Audit übergibt Ihnen ein gedrucktes Deliverable."},
   "agent.tariff.title":{fr:"Tarification",en:"Pricing",de:"Preise"},
   "common.on_quote":{fr:"Sur devis",en:"Quote on request",de:"Auf Anfrage"},
+  "sectors.hotellerie.card1.title":{fr:"Tri d'avis multilingues",en:"Multilingual review sorting",de:"Mehrsprachige Bewertungssortierung"},
+  "sectors.hotellerie.card1.desc":{fr:"Booking, Google, TripAdvisor. Quatre langues. Réponses calibrées sur votre Brand Bible, validées par votre équipe.",en:"Booking, Google, TripAdvisor. Four languages. Responses calibrated on your Brand Bible, validated by your team.",de:"Booking, Google, TripAdvisor. Vier Sprachen. Antworten kalibriert auf Ihre Brand Bible, von Ihrem Team validiert."},
+  "sectors.hotellerie.card2.title":{fr:"Conciergerie 24/7",en:"24/7 Concierge",de:"24/7-Concierge"},
+  "sectors.hotellerie.card2.desc":{fr:"Chat multilingue sur votre site. Escalade humaine intelligente pour les demandes complexes. Aucune donnée hors Suisse.",en:"Multilingual chat on your site. Smart human escalation for complex requests. No data outside Switzerland.",de:"Mehrsprachiger Chat auf Ihrer Website. Intelligente menschliche Eskalation für komplexe Anfragen. Keine Daten außerhalb der Schweiz."},
+  "sectors.hotellerie.card3.title":{fr:"FAQ collaborateurs",en:"Staff FAQ",de:"Mitarbeiter-FAQ"},
+  "sectors.hotellerie.card3.desc":{fr:"Procédures, RH, fournisseurs. Vos managers gagnent 30 % du temps consacré aux questions répétitives.",en:"Procedures, HR, suppliers. Your managers gain 30% of time spent on repetitive questions.",de:"Verfahren, HR, Lieferanten. Ihre Manager sparen 30 % der Zeit für wiederkehrende Fragen."},
+  "sectors.hotellerie.obs.label":{fr:"Une observation terrain :",en:"A field observation:",de:"Eine Praxisbeobachtung:"},
+  "sectors.hotellerie.obs.text":{fr:"sur les hôtels romands que j'ai approchés, le tri des avis multilingues consomme l'équivalent d'un demi-poste à temps plein. C'est du travail qui n'apporte rien à l'expérience client mais qui ne peut pas être ignoré.",en:"on the French-speaking Swiss hotels I have approached, sorting multilingual reviews consumes the equivalent of a half-time position. Work that adds nothing to the customer experience but cannot be ignored.",de:"Bei den von mir kontaktierten Hotels in der Romandie verbraucht das Sortieren mehrsprachiger Bewertungen das Äquivalent einer Halbtagsstelle. Arbeit, die nichts zum Kundenerlebnis beiträgt, aber nicht ignoriert werden kann."},
+  "sectors.hotellerie.cta":{fr:"Réserver un Audit Hôtellerie",en:"Book a Hospitality Audit",de:"Hotellerie-Audit buchen"},
+  "sectors.fiduciaires.lead":{fr:"800 à 1'200 heures par mois consacrées à la saisie de factures fournisseurs. Pour un cabinet à 25 collaborateurs, cela représente 5 à 7 postes équivalents temps plein qui font du recopiage. Conforme nLPD documenté.",en:"800 to 1'200 hours per month on supplier invoice entry. For a 25-person firm, that's 5-7 full-time equivalents doing data entry. FADP-compliant documented.",de:"800 bis 1'200 Stunden pro Monat für Lieferantenrechnungserfassung. Für eine 25-Personen-Firma 5-7 Vollzeitstellen. DSG-konform."},
+  "sectors.fiduciaires.card1.title":{fr:"Factures fournisseurs",en:"Supplier invoices",de:"Lieferantenrechnungen"},
+  "sectors.fiduciaires.card1.desc":{fr:"Extraction TVA, IBAN, échéances. Export Bexio ou Abacus. Journal d'audit complet, conforme registre des traitements.",en:"VAT, IBAN, due date extraction. Export to Bexio or Abacus. Full audit log, compliant with processing register.",de:"Extraktion von MwSt., IBAN, Fälligkeiten. Export zu Bexio oder Abacus. Vollständiges Audit-Log."},
+  "sectors.fiduciaires.card2.title":{fr:"Contrats clients",en:"Client contracts",de:"Kundenverträge"},
+  "sectors.fiduciaires.card2.desc":{fr:"Lecture, classification, extraction des parties, dates, clauses. Indexation automatique pour recherche rapide.",en:"Reading, classification, extraction of parties, dates, clauses. Automatic indexing for fast search.",de:"Lesen, Klassifizierung, Extraktion von Parteien, Daten, Klauseln. Automatische Indizierung."},
+  "sectors.fiduciaires.card3.title":{fr:"KYC & dossiers",en:"KYC & files",de:"KYC & Akten"},
+  "sectors.fiduciaires.card3.desc":{fr:"Formulaires KYC, déclarations fiscales, dossiers d'assurance. Pas d'entraînement de modèle tiers sur vos données.",en:"KYC forms, tax declarations, insurance files. No third-party model training on your data.",de:"KYC-Formulare, Steuererklärungen, Versicherungsakten. Kein Drittmodelltraining auf Ihren Daten."},
+  "sectors.fiduciaires.obs.text":{fr:"les associés des fiduciaires romandes que je rencontre me décrivent souvent la même réalité — ils savent que 5 à 7 ETP de saisie pure peuvent être économisés, mais la conformité nLPD les retient. C'est précisément ce blocage que nous levons avec un DPA signé avant tout démarrage.",en:"the partners of French-speaking Swiss trust firms I meet often describe the same reality — they know 5 to 7 FTE of pure data entry could be saved, but FADP compliance holds them back. That's precisely the blocker we lift with a DPA signed before any start.",de:"Die Partner von Treuhandfirmen in der Romandie beschreiben mir oft dieselbe Realität — sie wissen, dass 5 bis 7 VZÄ reiner Dateneingabe eingespart werden könnten, aber die DSG-Konformität hält sie zurück."},
+  "sectors.fiduciaires.cta":{fr:"Réserver un Audit Fiduciaire",en:"Book a Trust Firm Audit",de:"Treuhand-Audit buchen"},
+  "sectors.autres.lead":{fr:"Nous étudions toute demande émanant d'une PME premium romande de 5 à 100 collaborateurs, dans un secteur où la qualité prime sur le volume.",en:"We study any request from a 5-100 person premium SME in a sector where quality matters more than volume.",de:"Wir prüfen jede Anfrage von Premium-KMU mit 5-100 Mitarbeitenden in qualitätsorientierten Branchen."},
+  "sectors.autres.card1.title":{fr:"Juridique",en:"Legal",de:"Recht"},
+  "sectors.autres.card1.desc":{fr:"Études d'avocats premium. Lecture contrats, indexation jurisprudence.",en:"Premium law firms. Contract reading, case law indexing.",de:"Premium-Anwaltskanzleien. Vertragsanalyse, Rechtsprechungsindex."},
+  "sectors.autres.card2.title":{fr:"Santé",en:"Health",de:"Gesundheit"},
+  "sectors.autres.card2.desc":{fr:"Cliniques privées, médecins indépendants. Gestion rendez-vous, secret médical respecté.",en:"Private clinics, independent doctors. Appointment management, medical secrecy respected.",de:"Privatkliniken, unabhängige Ärzte. Terminverwaltung, ärztliche Schweigepflicht."},
+  "sectors.autres.card3.title":{fr:"Immobilier",en:"Real estate",de:"Immobilien"},
+  "sectors.autres.card3.desc":{fr:"Régies, courtiers haut de gamme. Suivi mandats, rédaction baux.",en:"Property management, high-end brokers. Mandate tracking, lease drafting.",de:"Verwaltungen, gehobene Makler. Mandatverfolgung, Mietvertragserstellung."},
+  "sectors.autres.card4.title":{fr:"Retail premium",en:"Premium retail",de:"Premium-Einzelhandel"},
+  "sectors.autres.card4.desc":{fr:"Horlogerie, joaillerie, gastronomie. Veille produits, conciergerie multilingue.",en:"Watchmaking, jewelry, gastronomy. Product monitoring, multilingual concierge.",de:"Uhrmacherei, Schmuck, Gastronomie. Produktüberwachung, mehrsprachiger Concierge."},
+  "sectors.autres.cta":{fr:"Mon secteur n'est pas listé",en:"My sector is not listed",de:"Meine Branche ist nicht aufgeführt"},
 };
 
 function applyLang(lang){
