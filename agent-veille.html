@@ -355,14 +355,14 @@ a{color:inherit;text-decoration:none}
   <div class="ark-container">
     <div class="ark-vs">
       <div class="ark-vs-box avant fade-up">
-        <div class="ark-vs-label">Sans agent</div>
+        <div class="ark-vs-label" data-i18n="agent.avant.label">Sans agent</div>
         <p>L'équipe scrolle TikTok et AliExpress 2-3h/jour pour trouver des produits viraux. Souvent trop tard quand on les trouve. Pas de scoring objectif.</p>
       </div>
       <div class="ark-vs-arrow fade-up">
         <iconify-icon icon="lucide:arrow-right" width="32"></iconify-icon>
       </div>
       <div class="ark-vs-box avec fade-up">
-        <div class="ark-vs-label">Avec l'agent Arkneys</div>
+        <div class="ark-vs-label" data-i18n="agent.avec.label">Avec l'agent Arkneys</div>
         <p>L'agent surveille en continu, score chaque produit selon vos critères, vous remonte uniquement le top du jour. Vous testez 3-5x plus de produits avec 1/10 du temps.</p>
       </div>
     </div>
@@ -373,7 +373,7 @@ a{color:inherit;text-decoration:none}
 <section class="ark-section-pad" style="padding-top:32px;padding-bottom:48px">
   <div class="ark-container">
     <div class="ark-exemple fade-up">
-      <div class="ark-exemple-label">Exemple terrain</div>
+      <div class="ark-exemple-label" data-i18n="agent.exemple.label">Exemple terrain</div>
       <p>Pour un e-commerçant français en cosmétique masculine que nous accompagnons, l'agent identifie chaque matin 8 à 15 produits qualifiés sur 3 sources, scorés selon ses marges historiques. Temps de recherche manuel passé de 14h/semaine à 30 minutes de validation quotidienne.</p>
     </div>
   </div>
@@ -382,7 +382,7 @@ a{color:inherit;text-decoration:none}
 <!-- CAS D'USAGE COMPLETS -->
 <section class="ark-section-pad" style="background:rgba(8,12,20,0.55);border-top:1px solid var(--ark-border);border-bottom:1px solid var(--ark-border)">
   <div class="ark-container">
-    <h2 class="ark-h2 fade-up" style="max-width:680px;margin-bottom:36px">Huit cas d'usage<br>concrets.</h2>
+    <h2 class="ark-h2 fade-up" style="max-width:680px;margin-bottom:36px"><span data-i18n="agent.usecases.h2">Huit cas d'usage</span><br><span data-i18n="agent.usecases.h2b">concrets.</span></h2>
     
     <ul class="ark-usecases">
         <li>Détection de produits gagnants sur TikTok Ads, Meta Ads, AliExpress</li>
@@ -402,11 +402,11 @@ a{color:inherit;text-decoration:none}
   <div class="ark-container">
     <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start" class="ark-services-grid">
       <div class="fade-up">
-        <h2 class="ark-h2" style="margin-bottom:24px">Méthode Arkneys<br>pour cet agent.</h2>
+        <h2 class="ark-h2" style="margin-bottom:24px"><span data-i18n="agent.method.h2">Méthode Arkneys</span><br><span data-i18n="agent.method.h2b">pour cet agent.</span></h2>
         <p style="color:var(--ark-text-mid);font-size:15px;line-height:1.7;margin:0">Calibration sur votre niche, vos seuils de marge, vos fournisseurs préférés. Alertes Slack/Discord/WhatsApp temps réel. Rapport hebdomadaire + point mensuel de calibration. Scoring qui apprend de vos retours.</p>
       </div>
       <div class="ark-card fade-up" style="padding:32px">
-        <h3 style="font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ark-cyan-light);margin:0 0 18px">Tarification</h3>
+        <h3 style="font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ark-cyan-light);margin:0 0 18px" data-i18n="agent.tariff.title">Tarification</h3>
         <div style="font-size:28px;font-weight:700;color:var(--ark-cyan-light);letter-spacing:-0.01em;margin-bottom:8px">Sur devis</div>
         <p style="font-size:13px;color:var(--ark-text-dim);margin:0 0 24px;line-height:1.5">Tarification adaptée à votre périmètre. Communiquée après un premier échange de cadrage. Sortie possible chaque trimestre.</p>
         <a href="start.html?agent=veille" class="ark-btn-primary" style="width:100%;justify-content:center;margin-bottom:10px">
@@ -447,8 +447,8 @@ a{color:inherit;text-decoration:none}
 <!-- CTA -->
 <section class="ark-section-pad" style="text-align:center">
   <div class="ark-container" style="max-width:720px">
-    <h2 class="ark-h2 fade-up">Et pour vous,<br>concrètement ?</h2>
-    <p class="ark-lead fade-up" style="margin:24px auto 40px">L'Audit Express vous remet en main propre un livrable papier de 8 à 12 pages avec les cas d'usage spécifiques à votre activité, chiffrés.</p>
+    <h2 class="ark-h2 fade-up"><span data-i18n="agent.cta.h2">Et pour vous,</span><br><span data-i18n="agent.cta.h2b">concrètement ?</span></h2>
+    <p class="ark-lead fade-up" style="margin:24px auto 40px" data-i18n="agent.cta.lead">L'Audit Express vous remet en main propre un livrable papier de 8 à 12 pages avec les cas d'usage spécifiques à votre activité, chiffrés.</p>
     <div class="fade-up" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <a href="start.html?agent=veille" class="ark-btn-primary">
         <iconify-icon icon="lucide:rocket" width="14"></iconify-icon>
@@ -592,7 +592,7 @@ const I18N = {
   "home.hero.cta2":{fr:"Voir les 7 agents",en:"See the 7 agents",de:"Die 7 Agenten sehen"},
   "home.agents.h2_part1":{fr:"Sept familles d'agents.",en:"Seven families of agents.",de:"Sieben Agentenfamilien."},
   "home.agents.h2_part2":{fr:"Une méthode unique.",en:"One unique method.",de:"Eine einzigartige Methode."},
-  "home.agents.lead":{fr:"Quel que soit votre métier, chaque agent partage les mêmes principes : calibration sur votre activité, hébergement Suisse, validation humaine systématique au démarrage.",en:"Whatever your business, each agent shares the same principles: calibration to your activity, Swiss hosting, systematic human validation at start.",de:"Unabhängig von Ihrem Geschäft teilen alle Agenten dieselben Prinzipien: Kalibrierung auf Ihre Aktivität, Schweizer Hosting, systematische menschliche Validierung beim Start."},
+  "home.agents.lead":{fr:"<span data-i18n="home.agents.lead">Quel que soit votre métier, chaque agent partage les mêmes principes : calibration sur votre activité, hébergement Suisse, validation humaine systématique au démarrage.</span>",en:"Whatever your business, each agent shares the same principles: calibration to your activity, Swiss hosting, systematic human validation at start.",de:"Unabhängig von Ihrem Geschäft teilen alle Agenten dieselben Prinzipien: Kalibrierung auf Ihre Aktivität, Schweizer Hosting, systematische menschliche Validierung beim Start."},
   "home.sectors.h2_part1":{fr:"Calibré pour",en:"Calibrated for",de:"Kalibriert für"},
   "home.sectors.h2_part2":{fr:"votre secteur.",en:"your sector.",de:"Ihre Branche."},
   "home.sectors.lead":{fr:"Nous nous concentrons sur deux secteurs où nos méthodes ont déjà fait leurs preuves. Mais nous accompagnons toute PME premium romande qui ne se permet pas l'à-peu-près.",en:"We focus on two sectors where our methods have proven themselves. But we support any premium SME that does not allow approximation.",de:"Wir konzentrieren uns auf zwei Branchen, in denen sich unsere Methoden bewährt haben. Aber wir unterstützen jedes Premium-KMU, das keine Annäherung zulässt."},
@@ -676,6 +676,82 @@ const I18N = {
   "contact.hero.h1_part2":{fr:"une",en:"a",de:"ein"},
   "contact.hero.h1_part3":{fr:"conversation",en:"conversation",de:"Gespräch"},
   "contact.hero.lead":{fr:"Décrivez-nous votre activité et la difficulté que vous cherchez à résoudre. Réponse sous 24 heures avec une proposition de RDV de cadrage de 30 minutes.",en:"Describe your activity and the problem you want to solve. Response within 24 hours with a 30-minute scoping meeting proposal.",de:"Beschreiben Sie Ihre Aktivität und das Problem, das Sie lösen möchten. Antwort innerhalb von 24 Stunden mit einem 30-minütigen Scoping-Meeting-Vorschlag."},
+
+  "contact.deroulement.tag":{fr:"Le déroulé",en:"How it works",de:"Der Ablauf"},
+  "contact.deroulement.h2":{fr:"Voici ce qui vous attend.",en:"Here is what to expect.",de:"Das erwartet Sie."},
+  "contact.step1.title":{fr:"Réponse sous 24h",en:"Response within 24h",de:"Antwort innerhalb von 24h"},
+  "contact.step1.desc":{fr:"Je vous propose deux ou trois créneaux pour un RDV visio de 30 minutes. Pas de questionnaire automatisé, pas de chatbot. Réponse personnelle.",en:"I'll propose 2-3 time slots for a 30-minute video meeting. No automated form, no chatbot. Personal response.",de:"Ich schlage 2-3 Termine für ein 30-minütiges Videogespräch vor. Kein automatisiertes Formular, kein Chatbot. Persönliche Antwort."},
+  "contact.step2.title":{fr:"Visio de cadrage",en:"Scoping video call",de:"Scoping-Videogespräch"},
+  "contact.step2.desc":{fr:"30 minutes. Je vous écoute, vous m'expliquez votre contexte, je vous dis si on est aligné ou pas. Honnêtement, parfois je dis non.",en:"30 minutes. I listen, you explain your context, I tell you if we are aligned. Honestly, sometimes I say no.",de:"30 Minuten. Ich höre zu, Sie erklären Ihren Kontext, ich sage Ihnen, ob wir übereinstimmen. Ehrlich gesagt, manchmal sage ich nein."},
+  "contact.step3.title":{fr:"Proposition d'Audit",en:"Audit proposal",de:"Audit-Vorschlag"},
+  "contact.step3.desc":{fr:"Si on est aligné, je vous propose un Audit Express sur trois jours. Sans engagement de suite. Forfait communiqué après le cadrage.",en:"If aligned, I propose a 3-day Express Audit. No follow-up commitment. Flat fee disclosed after scoping.",de:"Bei Übereinstimmung schlage ich ein 3-tägiges Express-Audit vor. Keine Folgeverpflichtung. Pauschalpreis nach dem Scoping."},
+  "contact.location.title":{fr:"Localisation",en:"Location",de:"Standort"},
+  "contact.location.text":{fr:"Siège : Zurich (CH). Activité commerciale : Romandie. Déplacements : 3 jours / semaine en Romandie sur les phases de cadrage et déploiement.",en:"HQ: Zurich (CH). Business: French-speaking Switzerland. Travel: 3 days/week in Romandie for scoping and deployment phases.",de:"Hauptsitz: Zürich (CH). Geschäft: Romandie. Reisen: 3 Tage/Woche in der Romandie für Scoping und Einsatz."},
+  "contact.location.note":{fr:"Sur les mandats hôteliers et fiduciaires, je viens systématiquement sur place lors des phases clés.",en:"For hospitality and trust firm mandates, I systematically come on-site during key phases.",de:"Bei Hotellerie- und Treuhandmandaten komme ich systematisch vor Ort bei Schlüsselphasen."},
+  "contact.availability.title":{fr:"Disponibilité",en:"Availability",de:"Verfügbarkeit"},
+  "contact.availability.text":{fr:"RDV visio : mardi, mercredi, jeudi entre 09h et 17h. Réponse email sous 24h ouvrées. Maximum 5 mandats simultanés.",en:"Video meetings: Tue, Wed, Thu 9am-5pm. Email response within 24 business hours. Max 5 simultaneous mandates.",de:"Videogespräche: Di, Mi, Do 9-17 Uhr. E-Mail-Antwort innerhalb von 24 Geschäftsstunden. Max. 5 gleichzeitige Mandate."},
+  "contact.faq.h2":{fr:"Questions fréquentes.",en:"Frequently asked questions.",de:"Häufige Fragen."},
+  "contact.voie1.tag":{fr:"Voie 1",en:"Option 1",de:"Option 1"},
+  "contact.voie1.title":{fr:"Par email",en:"By email",de:"Per E-Mail"},
+  "contact.voie1.desc":{fr:"Envoyez-nous quelques lignes sur votre contexte et la difficulté que vous cherchez à résoudre. Réponse sous 24 heures.",en:"Send us a few lines about your context and the problem you want to solve. Response within 24 hours.",de:"Senden Sie uns einige Zeilen über Ihren Kontext und das zu lösende Problem. Antwort innerhalb von 24 Stunden."},
+  "contact.voie1.note":{fr:"Email reçu directement par ibrahim Ghomm. Conservé au maximum 24 mois conformément à notre politique de confidentialité.",en:"Email received directly by ibrahim Ghomm. Kept for max 24 months per our privacy policy.",de:"E-Mail direkt von ibrahim Ghomm empfangen. Max. 24 Monate gemäß Datenschutzrichtlinie aufbewahrt."},
+  "contact.voie2.tag":{fr:"Voie 2",en:"Option 2",de:"Option 2"},
+  "contact.voie2.title":{fr:"Sur WhatsApp",en:"On WhatsApp",de:"Auf WhatsApp"},
+  "contact.voie2.desc":{fr:"Pour un échange direct et immédiat. Réponse personnelle d'ibrahim sous quelques heures (heures ouvrées). Pratique si vous voulez poser une question avant un RDV.",en:"For a direct and immediate exchange. Personal response from ibrahim within a few hours (business hours). Useful if you want to ask a question before a meeting.",de:"Für einen direkten und sofortigen Austausch. Persönliche Antwort von ibrahim innerhalb weniger Stunden (Geschäftsstunden). Nützlich für Fragen vor einem Termin."},
+  "contact.voie2.btn":{fr:"Ouvrir WhatsApp",en:"Open WhatsApp",de:"WhatsApp öffnen"},
+  "contact.voie2.note":{fr:"Message déjà rédigé. Vous le relisez, vous envoyez.",en:"Pre-written message. You review it, you send.",de:"Vorgefertigte Nachricht. Sie überprüfen, Sie senden."},
+  "contact.voie1.btn":{fr:"contact@arkneysagency.ch",en:"contact@arkneysagency.ch",de:"contact@arkneysagency.ch"},
+  "faq.audit.q":{fr:"Combien coûte un Audit Express ?",en:"How much is an Express Audit?",de:"Was kostet ein Express-Audit?"},
+  "faq.audit.a":{fr:"Le forfait est communiqué après un premier échange de 30 minutes — précisément pour que le chiffre ait du sens dans votre contexte. Sans engagement de suite. Si vous décidez ensuite de déployer un projet, l'audit est déduit du setup.",en:"The flat fee is disclosed after a 30-minute initial exchange — precisely so the number makes sense in your context. No follow-up commitment. If you decide to deploy a project, the audit is deducted from setup.",de:"Der Pauschalpreis wird nach einem 30-minütigen ersten Gespräch mitgeteilt — damit die Zahl in Ihrem Kontext Sinn ergibt. Keine Folgeverpflichtung. Bei einem Projekt wird das Audit vom Setup abgezogen."},
+  "faq.roi.q":{fr:"Combien de temps avant le ROI ?",en:"How long until ROI?",de:"Wie lange bis zum ROI?"},
+  "faq.roi.a":{fr:"ROI typiquement mesurable dès le 2e mois. Rapport chiffré au mois 3 et au mois 6 avec indicateurs définis ensemble en kick-off.",en:"ROI typically measurable from month 2. Quantified report at months 3 and 6 with indicators defined together at kick-off.",de:"ROI typischerweise ab Monat 2 messbar. Quantifizierter Bericht in Monat 3 und 6 mit gemeinsam beim Kick-off definierten Indikatoren."},
+  "faq.data.q":{fr:"Où sont hébergées mes données ?",en:"Where is my data hosted?",de:"Wo werden meine Daten gehostet?"},
+  "faq.data.a":{fr:"Exclusivement chez Infomaniak en Suisse. Aucune donnée ne transite par les États-Unis ou un pays tiers. Le DPA documente précisément les flux.",en:"Exclusively at Infomaniak in Switzerland. No data transits via the US or a third country. The DPA precisely documents the flows.",de:"Ausschließlich bei Infomaniak in der Schweiz. Keine Daten gehen über die USA oder ein Drittland. Der DPA dokumentiert die Flüsse präzise."},
+  "faq.exit.q":{fr:"Que se passe-t-il si je veux arrêter ?",en:"What if I want to stop?",de:"Was, wenn ich aufhören möchte?"},
+  "faq.exit.a":{fr:"Sortie possible chaque trimestre après l'engagement initial de 12 mois. Restitution complète Brand Bible et historiques. Aucun verrou propriétaire.",en:"Quarterly exit option after the initial 12-month engagement. Full Brand Bible and history handover. No vendor lock-in.",de:"Vierteljährliche Austrittsoption nach der ersten 12-monatigen Verpflichtung. Vollständige Übergabe von Brand Bible und Verlauf. Keine Anbieterbindung."},
+  "sectors.hotellerie.wave":{fr:"Cible Wave 1 · 54 prospects",en:"Wave 1 target · 54 prospects",de:"Wave 1 Ziel · 54 Prospects"},
+  "sectors.hotellerie.h2":{fr:"Hôtellerie 4-5★ romande",en:"4-5★ French-speaking Swiss hospitality",de:"4-5★ Hotellerie Romandie"},
+  "sectors.hotellerie.lead":{fr:"Vos équipes de réception passent 1 à 2 heures par jour à trier et répondre aux avis Booking, Google et TripAdvisor — souvent en 3 langues. Temps qui pourrait aller à l'accueil, au surclassement intelligent, au service.",en:"Your reception teams spend 1-2 hours daily sorting and responding to Booking, Google and TripAdvisor reviews — often in 3 languages. Time that could go to welcoming, smart upgrades, service.",de:"Ihr Empfangsteam verbringt täglich 1-2 Stunden mit der Bearbeitung von Booking-, Google- und TripAdvisor-Bewertungen — oft in 3 Sprachen. Zeit, die für den Empfang oder Service besser genutzt würde."},
+  "sectors.fiduciaires.wave":{fr:"Cible Wave 1 · 35 prospects",en:"Wave 1 target · 35 prospects",de:"Wave 1 Ziel · 35 Prospects"},
+  "sectors.fiduciaires.h2":{fr:"Fiduciaires 15 à 50 personnes",en:"Trust firms 15 to 50 people",de:"Treuhandfirmen 15 bis 50 Personen"},
+  "sectors.fiduciaires.lead":{fr:"800 à 1'200 heures par mois consacrées à la saisie de factures fournisseurs. Pour un cabinet à 25 collaborateurs, cela représente 5 à 7 postes équivalents temps plein qui font du recopiage. Conforme nLPD documenté.",en:"800 to 1'200 hours per month spent on supplier invoice entry. For a 25-person firm, that's 5-7 full-time equivalents doing data entry. FADP-compliant documented.",de:"800 bis 1'200 Stunden pro Monat für die Erfassung von Lieferantenrechnungen. Für eine 25-Personen-Firma sind das 5-7 Vollzeitstellen. DSG-konform dokumentiert."},
+  "sectors.autres.h2":{fr:"Autres secteurs.",en:"Other sectors.",de:"Andere Branchen."},
+  "sectors.autres.h2b":{fr:"Sur étude.",en:"On request.",de:"Auf Anfrage."},
+  "sectors.autres.lead":{fr:"Nous étudions toute demande émanant d'une PME premium romande de 5 à 100 collaborateurs, dans un secteur où la qualité prime sur le volume.",en:"We study any request from a 5-100 person premium SME in a sector where quality matters more than volume.",de:"Wir prüfen jede Anfrage von Premium-KMU mit 5-100 Mitarbeitenden, in Branchen mit Qualität vor Volumen."},
+  "about.parcours.tag":{fr:"Parcours",en:"Career path",de:"Werdegang"},
+  "about.parcours.h2":{fr:"ibrahim Ghomm,",en:"ibrahim Ghomm,",de:"ibrahim Ghomm,"},
+  "about.parcours.h2b":{fr:"fondateur.",en:"founder.",de:"Gründer."},
+  "about.parcours.desc":{fr:"Né de l'observation que les PME premium suisses ont besoin d'IA — mais d'une IA qui leur ressemble. Pas un produit générique américain. Pas un consultant hors sol. Quelqu'un qui comprend le terrain.",en:"Born from observing that premium Swiss SMEs need AI — but AI that resembles them. Not a generic American product. Not a disconnected consultant. Someone who understands the field.",de:"Aus der Beobachtung entstanden, dass Schweizer Premium-KMU KI brauchen — aber KI, die ihnen ähnelt. Kein generisches amerikanisches Produkt. Kein abgehobener Berater. Jemand, der das Feld versteht."},
+  "about.pourquoi.tag":{fr:"Pourquoi nous existons",en:"Why we exist",de:"Warum wir existieren"},
+  "about.pourquoi.h2":{fr:"Une vérité terrain.",en:"A field truth.",de:"Eine Feldwahrheit."},
+  "about.engagements.tag":{fr:"Engagements",en:"Commitments",de:"Verpflichtungen"},
+  "about.engagements.h2":{fr:"Quatre engagements",en:"Four commitments",de:"Vier Verpflichtungen"},
+  "about.engagements.h2b":{fr:"opposables.",en:"binding.",de:"verbindlich."},
+  "agent.method.h2":{fr:"Méthode Arkneys",en:"Arkneys Method",de:"Arkneys-Methode"},
+  "agent.method.h2b":{fr:"pour cet agent.",en:"for this agent.",de:"für diesen Agenten."},
+  "agent.usecases.tag":{fr:"Cas d'usage",en:"Use cases",de:"Anwendungsfälle"},
+  "agent.usecases.h2":{fr:"Huit cas d'usage",en:"Eight use cases",de:"Acht Anwendungsfälle"},
+  "agent.usecases.h2b":{fr:"concrets.",en:"concrete.",de:"konkrete."},
+  "agent.avant.label":{fr:"Sans agent",en:"Without agent",de:"Ohne Agent"},
+  "agent.avec.label":{fr:"Avec l'agent Arkneys",en:"With Arkneys agent",de:"Mit Arkneys-Agent"},
+  "agent.exemple.label":{fr:"Exemple terrain",en:"Field example",de:"Praxisbeispiel"},
+  "agent.cta.h2":{fr:"Et pour vous,",en:"And for you,",de:"Und für Sie,"},
+  "agent.cta.h2b":{fr:"concrètement ?",en:"concretely?",de:"konkret?"},
+  "agent.cta.lead":{fr:"L'Audit Express vous remet en main propre un livrable papier de 8 à 12 pages avec les cas d'usage spécifiques à votre activité, chiffrés.",en:"The Express Audit hands you a printed 8-12 page deliverable with quantified use cases specific to your activity.",de:"Das Express-Audit übergibt Ihnen ein gedrucktes 8-12-seitiges Deliverable mit quantifizierten Anwendungsfällen für Ihre Aktivität."},
+  "agent.tariff.title":{fr:"Tarification",en:"Pricing",de:"Preise"},
+  "agent.nav.previous":{fr:"Précédent",en:"Previous",de:"Zurück"},
+  "agent.nav.next":{fr:"Suivant",en:"Next",de:"Weiter"},
+  "agents.method.tag":{fr:"Méthode",en:"Method",de:"Methode"},
+  "agents.cta.h2":{fr:"Lequel correspond à votre besoin ?",en:"Which fits your need?",de:"Welcher entspricht Ihrem Bedarf?"},
+  "agents.cta.lead":{fr:"Si vous hésitez entre plusieurs — c'est précisément ce que l'Audit Express permet de clarifier en 3 jours.",en:"If you're unsure between several — that's exactly what the Express Audit clarifies in 3 days.",de:"Wenn Sie zwischen mehreren unsicher sind — das klärt das Express-Audit in 3 Tagen."},
+  "agents.cta.book":{fr:"Réserver un Audit",en:"Book an Audit",de:"Audit buchen"},
+  "agents.cta.sectors":{fr:"Voir les secteurs",en:"See sectors",de:"Branchen ansehen"},
+  "home.cta.tag":{fr:"Démarrer",en:"Start",de:"Starten"},
+  "common.discuss":{fr:"Discuter d'abord",en:"Talk first",de:"Erst sprechen"},
+  "common.start_with_agent":{fr:"Démarrer avec cet agent",en:"Start with this agent",de:"Mit diesem Agenten starten"},
+  "common.all_agents":{fr:"Tous les agents",en:"All agents",de:"Alle Agenten"},
+  "common.breadcrumb_home":{fr:"Accueil",en:"Home",de:"Start"},
+  "common.breadcrumb_agents":{fr:"Agents IA",en:"AI Agents",de:"KI-Agenten"},
 };
 
 function applyLang(lang){
