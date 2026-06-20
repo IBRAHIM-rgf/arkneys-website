@@ -16,6 +16,8 @@
     + '    border-bottom:1px solid rgba(125,211,252,0.12);font-size:14px;width:100%;'
     + '    text-transform:uppercase;letter-spacing:0.06em}'
     + '  .ark-nav.ark-open .ark-nav-links .ark-nav-link:last-child{border-bottom:none}'
+    + '  .ark-megamenu{display:none!important}'
+    + '  .ark-nav-link[data-megamenu]:after{display:none!important}'
     + '}';
   var st = document.createElement('style');
   st.textContent = css;
