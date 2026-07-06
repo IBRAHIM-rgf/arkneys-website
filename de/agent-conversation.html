@@ -1,0 +1,804 @@
+<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Konversations-Agent — Arkneys Agency</title>
+<meta name="description" content="Arkneys Konversations-Agenten — Bewertungen · Concierge · Support. Repetitive Kunden- und Mitarbeiterkommunikation auffangen, mehrsprachig, ohne dass Daten die Schweiz verlassen.">
+<meta property="og:title" content="Konversations-Agent — Arkneys Agency">
+<meta property="og:description" content="Arkneys Konversations-Agenten — Bewertungen · Concierge · Support. Repetitive Kunden- und Mitarbeiterkommunikation auffangen, mehrsprachig, ohne dass Daten die Schweiz verlassen.">
+<meta property="og:type" content="website">
+
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="../favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+<style>
+:root{
+  --ark-bg:#080c14; --ark-bg-alt:#0c1320;
+  --ark-cyan:#22d3ee; --ark-cyan-light:#67e8f9; --ark-cyan-bright:#a5f3fc;
+  --ark-text:#e7eef7; --ark-text-mid:rgba(231,238,247,0.72); --ark-text-dim:rgba(231,238,247,0.5);
+  --ark-border:rgba(125,211,252,0.18); --ark-border-strong:rgba(125,211,252,0.35);
+  --ark-surface:rgba(15,23,42,0.55);
+  --ark-emerald:#4ade80;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Now Var','Inter','Segoe UI',sans-serif;background:var(--ark-bg);color:var(--ark-text);min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+/* === BACKGROUND VIDEO === */
+.ark-bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.5}
+.ark-bg-overlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(8,12,20,0.45) 0%,rgba(8,12,20,0.75) 100%);z-index:1;pointer-events:none}
+
+/* === NAV === */
+.ark-nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:rgba(8,12,20,0.4);backdrop-filter:blur(12px);border-bottom:1px solid var(--ark-border)}
+.ark-brand{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ark-text);transition:opacity 0.2s}
+.ark-brand:hover{opacity:0.85}
+.ark-brand-symbol{width:28px;height:28px;color:var(--ark-text);flex-shrink:0}
+.ark-brand-text{display:inline-flex;align-items:baseline;line-height:1}
+.ark-nav-links{display:flex;gap:36px;align-items:center}
+.ark-nav-link{font-size:11px;letter-spacing:0.08em;color:var(--ark-text-mid);font-weight:500;text-transform:uppercase;transition:color 0.2s;cursor:pointer;display:inline-flex;align-items:center;gap:4px}
+.ark-nav-link:hover,.ark-nav-link.active{color:var(--ark-cyan-light)}
+.ark-nav-link[data-megamenu]:after{content:'';width:0;height:0;border-left:3px solid transparent;border-right:3px solid transparent;border-top:4px solid currentColor;margin-left:4px;opacity:0.5}
+
+/* === MEGA-MENU === */
+.ark-megamenu{position:fixed;top:68px;left:0;right:0;background:linear-gradient(180deg,rgba(8,12,20,0.96),rgba(12,19,32,0.96));backdrop-filter:blur(20px);border-bottom:1px solid var(--ark-border);padding:36px 32px 36px 32px;opacity:0;visibility:hidden;transform:translateY(-8px);transition:opacity 0.18s,transform 0.18s,visibility 0.18s;z-index:55;box-shadow:0 16px 48px rgba(0,0,0,0.4)}
+.ark-megamenu.open{opacity:1;visibility:visible;transform:translateY(0)}
+.ark-megamenu-inner{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:repeat(4,1fr);gap:32px}
+.ark-megamenu-section{display:flex;flex-direction:column;gap:4px}
+.ark-megamenu-title{font-size:9px;letter-spacing:0.14em;text-transform:uppercase;font-weight:700;color:var(--ark-cyan-light);margin-bottom:14px;padding-bottom:8px;border-bottom:1px solid var(--ark-border)}
+.ark-megamenu-item{display:flex;align-items:flex-start;gap:12px;padding:10px 12px;margin:0 -12px;border-radius:10px;transition:background 0.15s;cursor:pointer}
+.ark-megamenu-item:hover{background:rgba(34,211,238,0.06)}
+.ark-megamenu-icon{width:32px;height:32px;border-radius:8px;background:rgba(34,211,238,0.1);border:1px solid var(--ark-border);display:flex;align-items:center;justify-content:center;color:var(--ark-cyan-light);flex-shrink:0}
+.ark-megamenu-content{display:flex;flex-direction:column;gap:2px;min-width:0}
+.ark-megamenu-label{font-size:13px;font-weight:600;color:var(--ark-text);letter-spacing:-0.005em}
+.ark-megamenu-desc{font-size:11px;color:var(--ark-text-dim);line-height:1.4}
+
+/* === LANG + CTA === */
+.ark-nav-right{display:flex;gap:16px;align-items:center}
+.ark-lang{display:flex;gap:4px;border:1px solid var(--ark-border);padding:3px;border-radius:999px;background:rgba(15,23,42,0.5)}
+.ark-lang button{font-size:10px;font-weight:600;letter-spacing:0.06em;padding:5px 12px;border-radius:999px;background:transparent;border:none;color:var(--ark-text-mid);cursor:pointer;font-family:inherit;transition:all 0.2s}
+.ark-lang button:hover{color:var(--ark-text)}
+.ark-lang button.active{color:#050b16;background:var(--ark-cyan-light)}
+
+.ark-btn-primary{display:inline-flex;align-items:center;gap:8px;background:var(--ark-cyan-bright);color:#050b16;padding:11px 22px;border-radius:999px;font-weight:700;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:none;transition:all 0.2s;font-family:inherit}
+.ark-btn-primary:hover{background:var(--ark-cyan-light);transform:translateY(-1px);box-shadow:0 8px 24px rgba(34,211,238,0.25)}
+.ark-btn-secondary{display:inline-flex;align-items:center;gap:8px;background:transparent;color:var(--ark-text);padding:11px 22px;border-radius:999px;font-weight:600;font-size:11px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:1px solid var(--ark-border-strong);transition:all 0.2s;font-family:inherit}
+.ark-btn-secondary:hover{background:rgba(34,211,238,0.08);border-color:var(--ark-cyan);color:var(--ark-cyan-light)}
+
+/* === FADE-UP === */
+.fade-up{opacity:0;transform:translateY(20px);transition:opacity 0.7s cubic-bezier(0.16,1,0.3,1),transform 0.7s cubic-bezier(0.16,1,0.3,1)}
+.fade-up.visible{opacity:1;transform:translateY(0)}
+
+/* === SECTIONS WRAPPER === */
+.ark-page{position:relative;z-index:2;padding-top:88px}
+.ark-section-pad{padding:90px 32px}
+.ark-container{max-width:1400px;margin:0 auto}
+
+/* === TYPOGRAPHY === */
+.ark-h1{font-size:clamp(36px,5vw,64px);font-weight:700;line-height:1.05;letter-spacing:-0.025em;color:var(--ark-text);margin:0}
+.ark-h2{font-size:clamp(28px,4vw,48px);font-weight:700;line-height:1.08;letter-spacing:-0.02em;color:var(--ark-text);margin:0 0 24px}
+.ark-h3{font-size:22px;font-weight:700;line-height:1.2;letter-spacing:-0.01em;color:var(--ark-text);margin:0 0 12px}
+.ark-tag{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ark-cyan-light);display:inline-flex;align-items:center;gap:8px;padding:5px 14px;border:1px solid var(--ark-cyan);border-radius:999px;background:rgba(34,211,238,0.05)}
+.ark-lead{font-size:18px;line-height:1.6;color:var(--ark-text-mid);max-width:640px}
+.ark-counter{font-size:11px;font-weight:600;color:var(--ark-cyan-light);letter-spacing:0.15em;font-family:'SF Mono',Monaco,'Geist Mono',monospace}
+
+/* === CARDS === */
+.ark-card{background:linear-gradient(180deg,rgba(15,24,40,0.7) 0%,rgba(12,19,32,0.7) 100%);border:1px solid var(--ark-border);border-radius:16px;backdrop-filter:blur(8px);transition:all 0.25s;overflow:hidden}
+.ark-card:hover{border-color:var(--ark-border-strong);transform:translateY(-2px)}
+.ark-card-clickable{cursor:pointer}
+.ark-card-clickable:hover{border-color:var(--ark-cyan);box-shadow:0 12px 40px rgba(0,0,0,0.4),0 0 0 1px rgba(34,211,238,0.15)}
+
+/* === FOOTER === */
+.ark-footer{position:relative;z-index:3;background:rgba(8,12,20,0.85);backdrop-filter:blur(6px);padding:60px 32px 32px;border-top:1px solid var(--ark-border);margin-top:0}
+.ark-footer-grid{max-width:1400px;margin:0 auto;display:grid;grid-template-columns:1.5fr repeat(4,1fr);gap:48px;margin-bottom:48px}
+.ark-footer-col-title{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ark-cyan-light);font-weight:700;margin-bottom:16px}
+.ark-footer-link{display:block;font-size:13px;color:var(--ark-text-mid);padding:5px 0;transition:color 0.15s;cursor:pointer}
+.ark-footer-link:hover{color:var(--ark-cyan-light)}
+.ark-footer-bottom{max-width:1400px;margin:0 auto;display:flex;justify-content:space-between;align-items:center;flex-wrap:wrap;gap:16px;padding-top:24px;border-top:1px solid var(--ark-border);font-size:11px;color:var(--ark-text-dim);letter-spacing:0.05em}
+
+/* === COOKIES BANNER === */
+.ark-cookies{position:fixed;bottom:20px;left:20px;right:20px;background:rgba(8,12,20,0.95);backdrop-filter:blur(12px);border:1px solid var(--ark-border);border-radius:14px;padding:18px 22px;display:flex;align-items:center;gap:18px;flex-wrap:wrap;z-index:80;max-width:920px;margin:0 auto;box-shadow:0 12px 40px rgba(0,0,0,0.4)}
+.ark-cookies.hidden{display:none}
+.ark-cookies-text{flex:1;font-size:12.5px;color:var(--ark-text-mid);line-height:1.5;min-width:240px}
+.ark-cookies-btn{background:var(--ark-cyan-bright);color:#050b16;border:none;padding:9px 20px;border-radius:999px;font-weight:600;font-size:12px;letter-spacing:0.05em;cursor:pointer;text-transform:uppercase;font-family:inherit}
+
+/* === MODAL === */
+.ark-modal{position:fixed;inset:0;background:rgba(8,12,20,0.92);backdrop-filter:blur(8px);z-index:100;display:none;align-items:center;justify-content:center;padding:20px;animation:fadeIn 0.2s ease}
+.ark-modal.show{display:flex}
+.ark-modal-box{background:linear-gradient(180deg,#0c1320 0%,#080c14 100%);border:1px solid var(--ark-border);border-radius:20px;max-width:620px;width:100%;max-height:85vh;overflow-y:auto;padding:32px 28px 24px;position:relative}
+.ark-modal-box h2{font-size:1.6rem;font-weight:700;margin:0 0 16px;color:var(--ark-text);letter-spacing:-0.01em}
+.ark-modal-box h3{font-size:11px;font-weight:600;color:var(--ark-cyan-light);margin:18px 0 6px;letter-spacing:0.1em;text-transform:uppercase}
+.ark-modal-box p{font-size:0.9rem;line-height:1.65;color:var(--ark-text-mid);margin:0 0 12px}
+.ark-modal-close{position:absolute;top:12px;right:12px;background:rgba(125,211,252,0.08);border:1px solid var(--ark-border);border-radius:50%;width:32px;height:32px;display:flex;align-items:center;justify-content:center;cursor:pointer;color:var(--ark-text-mid);font-size:15px;font-family:inherit}
+.ark-modal-close:hover{background:rgba(34,211,238,0.15);color:var(--ark-cyan-light)}
+
+@keyframes fadeIn{from{opacity:0}to{opacity:1}}
+
+/* === RESPONSIVE === */
+@media (max-width:980px){
+  .ark-nav{padding:16px 18px}
+  .ark-nav-links{display:none}
+  .ark-megamenu-inner{grid-template-columns:1fr 1fr}
+  .ark-footer-grid{grid-template-columns:1fr 1fr;gap:32px}
+  .ark-section-pad{padding:60px 18px}
+  .ark-h1{font-size:clamp(28px,8vw,42px)}
+  .ark-h2{font-size:clamp(24px,6vw,36px)}
+  .ark-brand{font-size:12px;gap:8px}
+  .ark-brand-symbol{width:24px;height:24px}
+}
+
+
+/* === V2 — Spécifique 7 agents === */
+.ark-grid-7{display:grid;grid-template-columns:repeat(4,1fr);gap:18px}
+.ark-grid-7 > *:nth-child(5),
+.ark-grid-7 > *:nth-child(6),
+.ark-grid-7 > *:nth-child(7){grid-column:span 1}
+@media (max-width:1100px){.ark-grid-7{grid-template-columns:repeat(3,1fr)}}
+@media (max-width:780px){.ark-grid-7{grid-template-columns:repeat(2,1fr)}}
+@media (max-width:480px){.ark-grid-7{grid-template-columns:1fr}}
+
+.ark-agent-card{padding:24px 22px;display:flex;flex-direction:column;gap:12px;min-height:220px;text-decoration:none}
+.ark-agent-card-icon{width:44px;height:44px;border-radius:11px;background:rgba(34,211,238,0.1);border:1px solid var(--ark-border);display:flex;align-items:center;justify-content:center;color:var(--ark-cyan-light)}
+.ark-agent-card .ark-tag{font-size:9px;padding:3px 9px}
+.ark-agent-card h3{font-size:17px;font-weight:700;color:var(--ark-text);margin:0;letter-spacing:-0.01em}
+.ark-agent-card p{font-size:12.5px;color:var(--ark-text-mid);line-height:1.55;margin:0;flex:1}
+.ark-agent-card-link{font-size:11px;color:var(--ark-cyan-light);font-weight:700;letter-spacing:0.08em;text-transform:uppercase;margin-top:auto;display:inline-flex;align-items:center;gap:6px}
+
+/* Avant/Avec schéma */
+.ark-vs{display:grid;grid-template-columns:1fr auto 1fr;gap:24px;align-items:stretch}
+.ark-vs-box{background:linear-gradient(180deg,rgba(15,24,40,0.7),rgba(12,19,32,0.7));border:1px solid var(--ark-border);border-radius:16px;padding:28px;display:flex;flex-direction:column;gap:14px}
+.ark-vs-box.avant{border-left:3px solid #f87171}
+.ark-vs-box.avec{border-left:3px solid var(--ark-cyan)}
+.ark-vs-label{font-size:10px;letter-spacing:0.16em;text-transform:uppercase;font-weight:700;color:var(--ark-text-dim)}
+.ark-vs-box.avant .ark-vs-label{color:#fca5a5}
+.ark-vs-box.avec .ark-vs-label{color:var(--ark-cyan-light)}
+.ark-vs-box p{margin:0;font-size:14px;color:var(--ark-text-mid);line-height:1.6}
+.ark-vs-arrow{display:flex;align-items:center;justify-content:center;color:var(--ark-cyan);font-size:24px}
+@media (max-width:760px){.ark-vs{grid-template-columns:1fr;gap:12px} .ark-vs-arrow{transform:rotate(90deg)}}
+
+/* Cas d'usage list */
+.ark-usecases{list-style:none;padding:0;margin:0;display:grid;grid-template-columns:repeat(2,1fr);gap:8px 24px}
+.ark-usecases li{padding:10px 0;font-size:14px;color:var(--ark-text-mid);line-height:1.55;display:flex;gap:12px;border-bottom:1px solid var(--ark-border)}
+.ark-usecases li:before{content:"→";color:var(--ark-cyan-light);font-weight:700;flex-shrink:0}
+@media (max-width:760px){.ark-usecases{grid-template-columns:1fr}}
+
+/* Quote/exemple highlight */
+.ark-exemple{padding:28px 32px;background:rgba(34,211,238,0.04);border-left:3px solid var(--ark-cyan);border-radius:0 14px 14px 0}
+.ark-exemple-label{font-size:10px;letter-spacing:0.14em;text-transform:uppercase;color:var(--ark-cyan-light);font-weight:700;margin-bottom:10px}
+.ark-exemple p{margin:0;font-size:15px;line-height:1.65;color:var(--ark-text)}
+</style>
+<link rel="canonical" href="https://arkneysagency.ch/agent-conversation">
+<script type="application/ld+json">
+{"@context":"https://schema.org","@graph":[{"@type":"WebPage","url":"https://arkneysagency.ch/agent-conversation","isPartOf":{"@id":"https://arkneysagency.ch/#website"},"about":{"@type":"Organization","@id":"https://arkneysagency.ch/#organization","name":"Arkneys Agency","url":"https://arkneysagency.ch/"}}]}
+</script>
+<script src="/mobile-nav.js" defer></script>
+<link rel="alternate" hreflang="fr-CH" href="https://arkneysagency.ch/agent-conversation.html">
+<link rel="alternate" hreflang="en" href="https://arkneysagency.ch/en/agent-conversation.html">
+<link rel="alternate" hreflang="de-CH" href="https://arkneysagency.ch/de/agent-conversation.html">
+<link rel="alternate" hreflang="x-default" href="https://arkneysagency.ch/agent-conversation.html">
+</head>
+<body>
+
+<!-- BACKGROUND VIDEO -->
+<video class="ark-bg-video" autoplay muted loop playsinline preload="auto">
+  <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260514_135830_bb6491d1-9b66-4aec-9722-13b4dfe3fb46.mp4" type="video/mp4">
+</video>
+<div class="ark-bg-overlay"></div>
+
+<!-- NAV -->
+<nav class="ark-nav">
+  <a href="index.html" class="ark-brand" aria-label="Arkneys Agency - Startseite">
+    <svg class="ark-brand-symbol" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <image href="../logo-arkneys.png" x="0" y="0" width="100" height="100"/>
+    </svg>
+    <span class="ark-brand-text">
+      <span data-i18n="brand">Arkneys</span><span style="color:var(--ark-cyan-light);margin-left:4px">Agency</span>
+    </span>
+  </a>
+  
+  <div class="ark-nav-links">
+    <a class="ark-nav-link" href="index.html" data-i18n="nav.home">Startseite</a>
+    <span class="ark-nav-link active" data-megamenu="agents" data-i18n="nav.agents">KI-Agenten</span>
+    <a class="ark-nav-link" href="secteurs.html" data-i18n="nav.sectors">Branchen</a>
+    <a class="ark-nav-link" href="a-propos.html" data-i18n="nav.about">Über uns</a>
+    <a class="ark-nav-link" href="contact.html" data-i18n="nav.contact">Kontakt</a>
+  </div>
+  
+  <div class="ark-nav-right">
+    <div class="ark-lang-switch" style="display:flex;align-items:center;gap:7px;margin-right:14px"><a href="../agent-conversation.html" style="color:#8b9bb4;text-decoration:none;font-size:12px;letter-spacing:1px" hreflang="fr">FR</a><span style="color:#3a4a63;font-size:12px">/</span><a href="../en/agent-conversation.html" style="color:#8b9bb4;text-decoration:none;font-size:12px;letter-spacing:1px" hreflang="en">EN</a><span style="color:#3a4a63;font-size:12px">/</span><span style="color:#22d3ee;text-decoration:none;font-size:12px;letter-spacing:1px;font-weight:700">DE</span></div>
+    <a href="contact.html" class="ark-btn-primary" data-i18n="nav.cta">Audit buchen</a>
+  </div>
+</nav>
+
+<!-- MEGA MENU AGENTS (7 familles) -->
+<div class="ark-megamenu" id="megamenu-agents">
+  <div class="ark-megamenu-inner" style="grid-template-columns:repeat(4,1fr)">
+    
+    <div class="ark-megamenu-section" style="grid-column:1 / span 3">
+      <div class="ark-megamenu-title" data-i18n="mega.agents_title">Die 7 Familien von KI-Agenten</div>
+      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 -12px">
+        
+      <a href="agent-conversation.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:messages-square" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="agent.conversation.label">Konversation</span>
+          <span class="ark-megamenu-desc" data-i18n="agent.conversation.sub">Bewertungen · Concierge · Support</span>
+        </div>
+      </a>
+      <a href="agent-documents.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:scan-text" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="agent.documents.label">Dokumente</span>
+          <span class="ark-megamenu-desc" data-i18n="agent.documents.sub">Rechnungen · Verträge · KYC</span>
+        </div>
+      </a>
+      <a href="agent-veille.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:radar" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="agent.veille.label">Monitoring</span>
+          <span class="ark-megamenu-desc" data-i18n="agent.veille.sub">Produkte · Konkurrenz · Sourcing</span>
+        </div>
+      </a>
+      <a href="agent-commerciaux.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:briefcase" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="agent.commerciaux.label">Vertrieb</span>
+          <span class="ark-megamenu-desc" data-i18n="agent.commerciaux.sub">Leads · Nachfassen · Pipeline</span>
+        </div>
+      </a>
+      <a href="agent-analytiques.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:line-chart" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="agent.analytiques.label">Analytik</span>
+          <span class="ark-megamenu-desc" data-i18n="agent.analytiques.sub">Reporting · KPI · Dashboards</span>
+        </div>
+      </a>
+      <a href="agent-traduction.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:languages" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="agent.traduction.label">Übersetzung</span>
+          <span class="ark-megamenu-desc" data-i18n="agent.traduction.sub">Content · Dokumente · Web</span>
+        </div>
+      </a>
+      <a href="agent-sur-mesure.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:wrench" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="agent.surmesure.label">Massgeschneidert</span>
+          <span class="ark-megamenu-desc">Sonderfälle · Komplexe Integrationen</span>
+        </div>
+      </a>
+      </div>
+    </div>
+    
+    <div class="ark-megamenu-section">
+      <div class="ark-megamenu-title" data-i18n="mega.more_title">Mehr erfahren</div>
+      
+      <a href="agents.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:layout-grid" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="mega.overview">Übersicht</span>
+          <span class="ark-megamenu-desc" data-i18n="mega.overview_desc">Die 7 Familien + Methode</span>
+        </div>
+      </a>
+      
+      <a href="agents.html#methode" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:map" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="mega.method">Unsere Methode</span>
+          <span class="ark-megamenu-desc" data-i18n="mega.method_desc">Audit → Konzeption → Umsetzung → Begleitung</span>
+        </div>
+      </a>
+      
+      <a href="contact.html" class="ark-megamenu-item">
+        <div class="ark-megamenu-icon">
+          <iconify-icon icon="lucide:calendar-plus" width="16"></iconify-icon>
+        </div>
+        <div class="ark-megamenu-content">
+          <span class="ark-megamenu-label" data-i18n="mega.book">Audit buchen</span>
+          <span class="ark-megamenu-desc" data-i18n="mega.book_desc">Per Video oder vor Ort, klares Ergebnis</span>
+        </div>
+      </a>
+    </div>
+    
+  </div>
+</div>
+
+
+<main class="ark-page">
+
+<!-- HERO -->
+<section class="ark-section-pad" style="padding-top:120px;padding-bottom:48px">
+  <div class="ark-container">
+    <div class="fade-up" style="display:flex;align-items:center;gap:10px;font-size:11px;color:var(--ark-text-dim);letter-spacing:0.08em;text-transform:uppercase;margin-bottom:18px">
+      <a href="index.html" style="color:var(--ark-text-dim)">Startseite</a>
+      <span>→</span>
+      <a href="agents.html" style="color:var(--ark-text-dim)">KI-Agenten</a>
+      <span>→</span>
+      <span style="color:var(--ark-cyan-light)">Konversation</span>
+    </div>
+    
+    <div style="display:flex;align-items:center;gap:18px;margin-bottom:24px" class="fade-up">
+      <div style="width:64px;height:64px;border-radius:16px;background:rgba(34,211,238,0.1);border:1px solid var(--ark-border);display:flex;align-items:center;justify-content:center;color:var(--ark-cyan-light)">
+        <iconify-icon icon="lucide:messages-square" width="32"></iconify-icon>
+      </div>
+      <div class="ark-tag">
+        <iconify-icon icon="lucide:shield-check" width="11"></iconify-icon>
+        Souveränität
+      </div>
+    </div>
+    
+    <h1 class="ark-h1 fade-up" style="margin:0 0 24px;max-width:920px">Konversations-Agenten.</h1>
+    <p class="ark-lead fade-up">Um die repetitive Arbeit der Kunden- und Mitarbeiterkommunikation aufzufangen, in mehreren Sprachen, ohne dass Ihre Daten je die Schweiz verlassen.</p>
+  </div>
+</section>
+
+<!-- AVANT / AVEC -->
+<section class="ark-section-pad" style="padding-top:32px;padding-bottom:48px">
+  <div class="ark-container">
+    <div class="ark-vs">
+      <div class="ark-vs-box avant fade-up">
+        <div class="ark-vs-label" data-i18n="agent.avant.label">Ohne Agent</div>
+        <p>Das Team wendet 8–12 Std./Woche für das Sortieren und Beantworten mehrsprachiger Bewertungen auf. Der Ton variiert je nach Mitarbeitenden. Antworten brauchen 24–72 Std.</p>
+      </div>
+      <div class="ark-vs-arrow fade-up">
+        <iconify-icon icon="lucide:arrow-right" width="32"></iconify-icon>
+      </div>
+      <div class="ark-vs-box avec fade-up">
+        <div class="ark-vs-label" data-i18n="agent.avec.label">Mit dem Arkneys-Agenten</div>
+        <p>Der Agent bereitet 90% der Antworten im richtigen Ton und in der richtigen Sprache innert 15 Minuten vor. Der Manager prüft in 2 Minuten. Perfekte Konsistenz, Durchlaufzeit durch 10 geteilt.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- EXEMPLE TERRAIN -->
+<section class="ark-section-pad" style="padding-top:32px;padding-bottom:48px">
+  <div class="ark-container">
+    <div class="ark-exemple fade-up">
+      <div class="ark-exemple-label" data-i18n="agent.exemple.label">Beispiel aus der Praxis</div>
+      <p>In den von uns begleiteten 4–5★-Hotels der Romandie verbringt das Empfangsteam im Schnitt 1 Std. 45 Min. pro Tag mit dem Sortieren und Beantworten von Bewertungen. Ein auf die Brand Bible kalibrierter Agent übernimmt 70% dieses Volumens mit menschlicher Validierung — und schafft Zeit für Empfang und Service.</p>
+    </div>
+  </div>
+</section>
+
+<!-- CAS D'USAGE COMPLETS -->
+<section class="ark-section-pad" style="background:rgba(8,12,20,0.55);border-top:1px solid var(--ark-border);border-bottom:1px solid var(--ark-border)">
+  <div class="ark-container">
+    <h2 class="ark-h2 fade-up" style="max-width:680px;margin-bottom:36px"><span data-i18n="agent.usecases.h2">Acht Anwendungsfälle,</span><br><span data-i18n="agent.usecases.h2b">konkret.</span></h2>
+    
+    <ul class="ark-usecases">
+        <li>Sortieren und Beantworten von Booking-, Google- und TripAdvisor-Bewertungen in 4 Sprachen</li>
+        <li>24/7-Concierge auf Ihrer Website (mehrsprachiger Chat, menschliche Eskalation)</li>
+        <li>Interne FAQ für Mitarbeitende (Prozesse, HR, Lieferanten)</li>
+        <li>First-Level-Support mit Weiterleitung an die richtige Person</li>
+        <li>Antworten auf einfache Offertanfragen mit Informationsaufnahme</li>
+        <li>Vorqualifizierung eingehender Leads vor der Übergabe an den Vertrieb</li>
+        <li>Personalisierte Terminerinnerungen und -bestätigungen</li>
+        <li>Zufriedenheitsumfragen nach der Leistung</li>
+    </ul>
+  </div>
+</section>
+
+<!-- MÉTHODE -->
+<section class="ark-section-pad">
+  <div class="ark-container">
+    <div style="display:grid;grid-template-columns:1.3fr 1fr;gap:48px;align-items:start" class="ark-services-grid">
+      <div class="fade-up">
+        <h2 class="ark-h2" style="margin-bottom:24px"><span data-i18n="agent.method.h2">Arkneys-Methode</span><br><span data-i18n="agent.method.h2b">für diesen Agenten.</span></h2>
+        <p style="color:var(--ark-text-mid);font-size:15px;line-height:1.7;margin:0">Kalibrierung auf Ihre Brand Bible (Ton, Tabuwörter, Hausformulierungen). Systematische menschliche Validierung in den ersten 4 Wochen, danach angepasste Quote. Dashboard: autonome Lösungsquote, gesparte Stunden pro Woche, Kundenzufriedenheit.</p>
+      </div>
+      <div class="ark-card fade-up" style="padding:32px">
+        <h3 style="font-size:14px;font-weight:700;letter-spacing:0.08em;text-transform:uppercase;color:var(--ark-cyan-light);margin:0 0 18px" data-i18n="agent.tariff.title">Preise</h3>
+        <div style="font-size:28px;font-weight:700;color:var(--ark-cyan-light);letter-spacing:-0.01em;margin-bottom:8px">Auf Anfrage</div>
+        <p style="font-size:13px;color:var(--ark-text-dim);margin:0 0 24px;line-height:1.5">Preise nach Umfang Ihres Projekts. Mitgeteilt nach einem ersten Kadrierungsgespräch. Ausstieg jedes Quartal möglich.</p>
+        <a href="start.html?agent=conversation" class="ark-btn-primary" style="width:100%;justify-content:center;margin-bottom:10px">
+          <iconify-icon icon="lucide:rocket" width="14"></iconify-icon>
+          Mit diesem Agenten starten
+        </a>
+        <a href="contact.html" class="ark-btn-secondary" style="width:100%;justify-content:center;margin-bottom:10px">Zuerst sprechen</a>
+        <a href="agents.html" class="ark-btn-secondary" style="width:100%;justify-content:center">Weitere Agenten ansehen</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- NAV PRECEDENT / SUIVANT -->
+<section class="ark-section-pad" style="background:rgba(8,12,20,0.55);border-top:1px solid var(--ark-border);padding-top:40px;padding-bottom:40px">
+  <div class="ark-container">
+    <div style="display:grid;grid-template-columns:1fr 1fr;gap:24px" class="ark-services-grid">
+      <a href="agent-sur-mesure.html" class="ark-card ark-card-clickable fade-up" style="padding:24px;display:flex;align-items:center;gap:16px">
+        <iconify-icon icon="lucide:arrow-left" width="20" style="color:var(--ark-cyan-light);flex-shrink:0"></iconify-icon>
+        <div>
+          <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ark-text-dim);font-weight:600;margin-bottom:4px">Zurück</div>
+          <div style="font-size:16px;font-weight:600;color:var(--ark-text)">Massgeschneidert</div>
+          <div style="font-size:12px;color:var(--ark-text-mid)">Sonderfälle · Komplexe Integrationen</div>
+        </div>
+      </a>
+      <a href="agent-documents.html" class="ark-card ark-card-clickable fade-up" style="padding:24px;display:flex;align-items:center;gap:16px;text-align:right;justify-content:flex-end">
+        <div>
+          <div style="font-size:10px;letter-spacing:0.12em;text-transform:uppercase;color:var(--ark-text-dim);font-weight:600;margin-bottom:4px">Weiter</div>
+          <div style="font-size:16px;font-weight:600;color:var(--ark-text)">Dokumente</div>
+          <div style="font-size:12px;color:var(--ark-text-mid)">Rechnungen · Verträge · KYC</div>
+        </div>
+        <iconify-icon icon="lucide:arrow-right" width="20" style="color:var(--ark-cyan-light);flex-shrink:0"></iconify-icon>
+      </a>
+    </div>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="ark-section-pad" style="text-align:center">
+  <div class="ark-container" style="max-width:720px">
+    <h2 class="ark-h2 fade-up"><span data-i18n="agent.cta.h2">Und für Sie,</span><br><span data-i18n="agent.cta.h2b">ganz konkret?</span></h2>
+    <p class="ark-lead fade-up" style="margin:24px auto 40px" data-i18n="agent.cta.lead">Das Express-Audit übergibt Ihnen persönlich ein 8- bis 12-seitiges Dokument mit den für Ihr Geschäft spezifischen Anwendungsfällen — beziffert.</p>
+    <div class="fade-up" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
+      <a href="start.html?agent=conversation" class="ark-btn-primary">
+        <iconify-icon icon="lucide:rocket" width="14"></iconify-icon>
+        Mit diesem Agenten starten
+      </a>
+      <a href="contact.html" class="ark-btn-secondary">Audit buchen</a>
+      <a href="agents.html" class="ark-btn-secondary">Alle Agenten</a>
+    </div>
+  </div>
+</section>
+
+</main>
+
+<footer class="ark-footer">
+  <div class="ark-footer-grid">
+    <div>
+      <a href="index.html" class="ark-brand" style="margin-bottom:16px">
+        <svg class="ark-brand-symbol" viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <image href="../logo-arkneys.png" x="0" y="0" width="100" height="100"/>
+        </svg>
+        <span class="ark-brand-text">Arkneys<span style="color:var(--ark-cyan-light);margin-left:4px">Agency</span></span>
+      </a>
+      <p style="font-size:13px;color:var(--ark-text-mid);line-height:1.6;margin:16px 0 0;max-width:300px" data-i18n="footer.about">Schweizer KI-Studio für Premium-KMU der Romandie — Hotellerie, Treuhand, Dienstleistungen. Gegründet am 9. Januar 2025 · Sitz Zürich.</p>
+    </div>
+    
+    <div>
+      <div class="ark-footer-col-title" data-i18n="footer.solution">Lösung</div>
+      <a href="agents.html#conversationnels" class="ark-footer-link">Konversations-Agenten</a>
+      <a href="agents.html#documentaires" class="ark-footer-link">Dokumenten-Agenten</a>
+      <a href="agents.html#sourcing" class="ark-footer-link">Audit & sourcing IA</a>
+      <a href="agents.html#methode" class="ark-footer-link">Methode</a>
+    </div>
+    
+    <div>
+      <div class="ark-footer-col-title" data-i18n="footer.sectors">Branchen</div>
+      <a href="secteurs.html#hotellerie" class="ark-footer-link">Hotellerie 4–5★</a>
+      <a href="secteurs.html#fiduciaires" class="ark-footer-link">Treuhand</a>
+      <a href="secteurs.html#autres" class="ark-footer-link">Weitere Branchen</a>
+    </div>
+    
+    <div>
+      <div class="ark-footer-col-title" data-i18n="footer.company">Unternehmen</div>
+      <a href="a-propos.html" class="ark-footer-link">Über uns</a>
+      <a href="a-propos.html#engagements" class="ark-footer-link">Versprechen</a>
+      <a href="contact.html" class="ark-footer-link">Kontakt</a>
+      <a href="https://wa.me/41783520697?text=Bonjour%20ibrahim%2C" target="_blank" rel="noopener" class="ark-footer-link">WhatsApp</a>
+    </div>
+    
+    <div>
+      <div class="ark-footer-col-title" data-i18n="footer.legal">Rechtliches</div>
+      <span class="ark-footer-link" onclick="openModal('legal')" data-i18n="footer.mentions">Impressum</span>
+      <span class="ark-footer-link" onclick="openModal('privacy')" data-i18n="footer.privacy">Datenschutz</span>
+    </div>
+  </div>
+  
+  <div class="ark-footer-bottom">
+    <div data-i18n="footer.copyright">© 2026 Arkneys Agency · Alle Rechte vorbehalten</div>
+    <div>contact@arkneysagency.ch · arkneysagency.ch</div>
+  </div>
+</footer>
+
+<!-- COOKIES BANNER -->
+<div id="cookies-banner" class="ark-cookies hidden">
+  <div class="ark-cookies-text" data-i18n="cookies.text">Diese Website verwendet nur ein essenzielles Cookie, um Ihre Spracheinstellung zu speichern. Keine Dritt-Tracker.</div>
+  <button onclick="acceptCookies()" class="ark-cookies-btn" data-i18n="cookies.btn">Verstanden</button>
+</div>
+
+<!-- LEGAL MODAL -->
+<div id="modal-legal" class="ark-modal" onclick="if(event.target===this)closeModal('legal')">
+  <div class="ark-modal-box">
+    <button class="ark-modal-close" onclick="closeModal('legal')">✕</button>
+    <h2 data-i18n="legal.title">Impressum</h2>
+    <h3 data-i18n="legal.editor">Herausgeber</h3>
+    <p data-i18n="legal.editor_text">Arkneys Agency — Einzelunternehmen. Gründer: ibrahim Ghommiss. Sitz: Zürich, Schweiz. Gegründet am 9. Januar 2025. Geschäftstätigkeit: Romandie. UID: Eintrag ins Handelsregister läuft.</p>
+    <h3 data-i18n="legal.contact">Kontakt</h3>
+    <p data-i18n="legal.contact_text">contact@arkneysagency.ch · arkneysagency.ch</p>
+    <h3 data-i18n="legal.hosting">Hosting</h3>
+    <p data-i18n="legal.hosting_text">Marketing-Website gehostet bei Hostinger International Ltd. Die in den bei Kunden eingesetzten KI-Agenten verarbeiteten Daten werden in der Schweiz gehostet (Infomaniak).</p>
+    <h3 data-i18n="legal.ip">Geistiges Eigentum</h3>
+    <p data-i18n="legal.ip_text">Sämtliche Inhalte der Website (Texte, Bilder, Code) sind Eigentum der Arkneys Agency. Jede Vervielfältigung ohne schriftliche Zustimmung ist untersagt.</p>
+  </div>
+</div>
+
+<!-- PRIVACY MODAL -->
+<div id="modal-privacy" class="ark-modal" onclick="if(event.target===this)closeModal('privacy')">
+  <div class="ark-modal-box">
+    <button class="ark-modal-close" onclick="closeModal('privacy')">✕</button>
+    <h2 data-i18n="privacy.title">Datenschutzerklärung</h2>
+    <p data-i18n="privacy.intro">Arkneys Agency hält das revidierte DSG vom 1. September 2023 und die DSGVO (EU 2016/679) ein.</p>
+    <h3 data-i18n="privacy.collected">Auf dieser Website erhobene Daten</h3>
+    <p data-i18n="privacy.collected_text">Es werden keine Personendaten automatisch erhoben. Ein einziges technisches Cookie speichert Ihre Spracheinstellung (FR/EN/DE). Keine Dritt-Tracker, keine Analytics, keine Werbung.</p>
+    <h3 data-i18n="privacy.email">Wenn Sie uns kontaktieren</h3>
+    <p data-i18n="privacy.email_text">Ihre E-Mail-Adresse und der Inhalt Ihrer Nachricht gehen ausschliesslich an contact@arkneysagency.ch und werden höchstens 24 Monate aufbewahrt.</p>
+    <h3 data-i18n="privacy.rights">Ihre Rechte</h3>
+    <p data-i18n="privacy.rights_text">Sie haben das Recht auf Auskunft, Berichtigung, Löschung und Widerspruch. Schreiben Sie an contact@arkneysagency.ch. Antwort innert 30 Tagen.</p>
+  </div>
+</div>
+
+<script>
+const I18N = {
+  "brand":{fr:"Arkneys",en:"Arkneys",de:"Arkneys"},
+  "nav.home":{fr:"Accueil",en:"Home",de:"Start"},
+  "nav.agents":{fr:"Agents IA",en:"AI Agents",de:"KI-Agenten"},
+  "nav.sectors":{fr:"Secteurs",en:"Sectors",de:"Branchen"},
+  "nav.about":{fr:"À propos",en:"About",de:"Über uns"},
+  "nav.contact":{fr:"Contact",en:"Contact",de:"Kontakt"},
+  "nav.cta":{fr:"Réserver un Audit",en:"Book an Audit",de:"Audit buchen"},
+  "mega.agents_title":{fr:"Les 7 familles d'agents IA",en:"The 7 AI agent families",de:"Die 7 KI-Agent-Familien"},
+  "mega.more_title":{fr:"Pour aller plus loin",en:"Learn more",de:"Mehr erfahren"},
+  "mega.overview":{fr:"Vue d'ensemble",en:"Overview",de:"Übersicht"},
+  "mega.overview_desc":{fr:"Les 7 familles + méthode",en:"The 7 families + method",de:"Die 7 Familien + Methode"},
+  "mega.method":{fr:"Notre méthode",en:"Our method",de:"Unsere Methode"},
+  "mega.method_desc":{fr:"Audit → Cadrage → Déploiement → Suivi",en:"Audit → Scoping → Deployment → Follow-up",de:"Audit → Scoping → Einsatz → Nachverfolgung"},
+  "mega.book":{fr:"Réserver un Audit",en:"Book an Audit",de:"Audit buchen"},
+  "mega.book_desc":{fr:"En visio ou sur place, livrable clair",en:"3 days on-site, paper deliverable",de:"3 Tage vor Ort, Papier-Deliverable"},
+  "agent.conversation.label":{fr:"Conversation",en:"Conversation",de:"Konversation"},
+  "agent.conversation.sub":{fr:"Avis · Conciergerie · Support",en:"Reviews · Concierge · Support",de:"Bewertungen · Concierge · Support"},
+  "agent.documents.label":{fr:"Documents",en:"Documents",de:"Dokumente"},
+  "agent.documents.sub":{fr:"Factures · Contrats · KYC",en:"Invoices · Contracts · KYC",de:"Rechnungen · Verträge · KYC"},
+  "agent.veille.label":{fr:"Veille",en:"Monitoring",de:"Beobachtung"},
+  "agent.veille.sub":{fr:"Produits · Concurrence · Sourcing",en:"Products · Competition · Sourcing",de:"Produkte · Konkurrenz · Beschaffung"},
+  "agent.commerciaux.label":{fr:"Commerciaux",en:"Sales",de:"Vertrieb"},
+  "agent.commerciaux.sub":{fr:"Leads · Relances · Pipeline",en:"Leads · Follow-ups · Pipeline",de:"Leads · Follow-ups · Pipeline"},
+  "agent.analytiques.label":{fr:"Analytiques",en:"Analytics",de:"Analytik"},
+  "agent.analytiques.sub":{fr:"Reporting · KPI · Tableaux de bord",en:"Reporting · KPI · Dashboards",de:"Reporting · KPI · Dashboards"},
+  "agent.traduction.label":{fr:"Traduction",en:"Translation",de:"Übersetzung"},
+  "agent.traduction.sub":{fr:"Contenu · Documents · Web",en:"Content · Documents · Web",de:"Inhalte · Dokumente · Web"},
+  "agent.surmesure.label":{fr:"Sur mesure",en:"Custom",de:"Maßgeschneidert"},
+  "agent.surmesure.sub":{fr:"Cas atypiques · Intégrations",en:"Atypical cases · Integrations",de:"Sonderfälle · Integrationen"},
+  "sector.hotellerie.label":{fr:"Hôtellerie 4-5★",en:"Hospitality 4-5★",de:"Hotellerie 4-5★"},
+  "sector.hotellerie.sub":{fr:"Tri avis multilingues, conciergerie",en:"Multilingual reviews, concierge",de:"Mehrsprachige Bewertungen, Concierge"},
+  "sector.fiduciaires.label":{fr:"Fiduciaires 15-50p",en:"Trust firms 15-50p",de:"Treuhandfirmen 15-50p"},
+  "sector.fiduciaires.sub":{fr:"Saisie factures Bexio / Abacus",en:"Invoice entry Bexio / Abacus",de:"Rechnungserfassung Bexio / Abacus"},
+  "sector.autres.label":{fr:"Autres secteurs",en:"Other sectors",de:"Andere Branchen"},
+  "sector.autres.sub":{fr:"Juridique, santé, immobilier, retail",en:"Legal, health, real estate, retail",de:"Recht, Gesundheit, Immobilien, Einzelhandel"},
+  "home.hero.h1_part1":{fr:"L'IA souveraine",en:"Sovereign AI",de:"Souveräne KI"},
+  "home.hero.h1_part2":{fr:"pour les",en:"for",de:"für"},
+  "home.hero.h1_part3":{fr:"PME suisses",en:"Swiss SMEs",de:"Schweizer KMU"},
+  "home.hero.lead":{fr:"Nous déployons des agents IA calibrés sur votre métier en quatre semaines. Hébergement Suisse, conformité nLPD documentée, méthode mesurable. Sans verrou propriétaire, sortie possible chaque trimestre.",en:"We deploy AI agents calibrated to your business in four weeks. Swiss hosting, documented Swiss FADP compliance, measurable methodology. No vendor lock-in, quarterly exit possible.",de:"Wir setzen in vier Wochen KI-Agenten ein, die auf Ihr Geschäft kalibriert sind. Schweizer Hosting, dokumentierte DSG-Konformität, messbare Methodik. Keine Anbieterbindung, vierteljährlicher Ausstieg möglich."},
+  "home.hero.cta1":{fr:"Réserver un audit",en:"Book an audit",de:"Audit buchen"},
+  "home.hero.cta2":{fr:"Voir les 7 agents",en:"See the 7 agents",de:"Die 7 Agenten sehen"},
+  "home.agents.h2_part1":{fr:"Sept familles d'agents.",en:"Seven families of agents.",de:"Sieben Agentenfamilien."},
+  "home.agents.h2_part2":{fr:"Une méthode unique.",en:"One unique method.",de:"Eine einzigartige Methode."},
+  "home.agents.lead":{fr:"Quel que soit votre métier, chaque agent partage les mêmes principes : calibration sur votre activité, hébergement Suisse, validation humaine systématique au démarrage.",en:"Whatever your business, each agent shares the same principles: calibration to your activity, Swiss hosting, systematic human validation at start.",de:"Unabhängig von Ihrem Geschäft teilen alle Agenten dieselben Prinzipien: Kalibrierung auf Ihre Aktivität, Schweizer Hosting, systematische menschliche Validierung beim Start."},
+  "home.sectors.h2_part1":{fr:"Calibré pour",en:"Calibrated for",de:"Kalibriert für"},
+  "home.sectors.h2_part2":{fr:"votre secteur.",en:"your sector.",de:"Ihre Branche."},
+  "home.sectors.lead":{fr:"Nous nous concentrons sur deux secteurs où nos méthodes ont déjà fait leurs preuves. Mais nous accompagnons toute PME premium romande qui ne se permet pas l'à-peu-près.",en:"We focus on two sectors where our methods have proven themselves. But we support any premium SME that does not allow approximation.",de:"Wir konzentrieren uns auf zwei Branchen, in denen sich unsere Methoden bewährt haben. Aber wir unterstützen jedes Premium-KMU, das keine Annäherung zulässt."},
+  "home.engagements.h2_part1":{fr:"Quatre engagements",en:"Four commitments",de:"Vier Verpflichtungen"},
+  "home.engagements.h2_part2":{fr:"qui vous protègent.",en:"that protect you.",de:"die Sie schützen."},
+  "engagement.sovereignty":{fr:"Souveraineté",en:"Sovereignty",de:"Souveränität"},
+  "engagement.sovereignty_desc":{fr:"Hébergement Infomaniak Suisse exclusif. Vos données ne quittent pas le territoire.",en:"Exclusive Infomaniak Swiss hosting. Your data does not leave the territory.",de:"Exklusives Infomaniak-Hosting in der Schweiz. Ihre Daten verlassen das Land nicht."},
+  "engagement.compliance":{fr:"Conformité",en:"Compliance",de:"Konformität"},
+  "engagement.compliance_desc":{fr:"DPA signé avant tout démarrage. nLPD + RGPD. Auditable par le PFPDT.",en:"DPA signed before any start. FADP + GDPR. Auditable by the FDPIC.",de:"DPA vor jedem Start unterzeichnet. DSG + DSGVO. Vom EDÖB überprüfbar."},
+  "engagement.discretion":{fr:"Discrétion",en:"Discretion",de:"Diskretion"},
+  "engagement.discretion_desc":{fr:"Confidentialité bancaire. Aucun client cité sans accord écrit.",en:"Banking confidentiality. No client mentioned without written agreement.",de:"Bankvertraulichkeit. Kein Kunde wird ohne schriftliche Vereinbarung erwähnt."},
+  "engagement.measurable":{fr:"Mesurable",en:"Measurable",de:"Messbar"},
+  "engagement.measurable_desc":{fr:"ROI mesuré dès le 2e mois. Rapport trimestriel chiffré.",en:"ROI measured from the 2nd month. Quantified quarterly report.",de:"ROI ab dem 2. Monat gemessen. Quantifizierter Quartalsbericht."},
+  "home.cta.tag":{fr:"Démarrer",en:"Start",de:"Starten"},
+  "home.cta.h2":{fr:"Démarrer une conversation.",en:"Start a conversation.",de:"Ein Gespräch beginnen."},
+  "home.cta.lead":{fr:"Décrivez-nous votre activité et la difficulté que vous cherchez à résoudre. Réponse sous 24 heures avec une proposition de RDV de cadrage de 30 minutes.",en:"Describe your activity and the problem you want to solve. Response within 24 hours with a 30-minute scoping meeting proposal.",de:"Beschreiben Sie Ihre Aktivität und das Problem, das Sie lösen möchten. Antwort innerhalb von 24 Stunden mit einem 30-minütigen Scoping-Meeting-Vorschlag."},
+  "home.cta.book":{fr:"Réserver un échange",en:"Book a call",de:"Gespräch buchen"},
+  "agents.hero.tag":{fr:"Vue d'ensemble",en:"Overview",de:"Übersicht"},
+  "agents.hero.h1_part1":{fr:"Sept familles d'agents.",en:"Seven families of agents.",de:"Sieben Agentenfamilien."},
+  "agents.hero.h1_part2":{fr:"Une méthode commune.",en:"A common method.",de:"Eine gemeinsame Methode."},
+  "agents.hero.lead":{fr:"Chaque agent partage les mêmes principes : calibration sur votre activité, hébergement Suisse exclusif, validation humaine systématique au démarrage, sortie possible chaque trimestre. Cliquez sur une famille pour voir la page dédiée.",en:"Each agent shares the same principles: calibration to your activity, exclusive Swiss hosting, systematic human validation at start, quarterly exit option. Click on a family to see the dedicated page.",de:"Jeder Agent teilt dieselben Prinzipien: Kalibrierung auf Ihre Aktivität, exklusives Schweizer Hosting, systematische menschliche Validierung beim Start, vierteljährliche Austrittsoption. Klicken Sie auf eine Familie, um die spezielle Seite zu sehen."},
+  "agents.method.tag":{fr:"Méthode",en:"Method",de:"Methode"},
+  "agents.method.h2_part1":{fr:"Quatre étapes,",en:"Four steps,",de:"Vier Schritte,"},
+  "agents.method.h2_part2":{fr:"aucun raccourci.",en:"no shortcuts.",de:"keine Abkürzungen."},
+  "agents.method.audit":{fr:"Audit",en:"Audit",de:"Audit"},
+  "agents.method.scoping":{fr:"Cadrage",en:"Scoping",de:"Scoping"},
+  "agents.method.deploy":{fr:"Déploiement",en:"Deployment",de:"Einsatz"},
+  "agents.method.followup":{fr:"Suivi",en:"Follow-up",de:"Nachverfolgung"},
+  "agents.cta.h2":{fr:"Lequel correspond à votre besoin ?",en:"Which fits your need?",de:"Welcher entspricht Ihrem Bedarf?"},
+  "footer.about":{fr:"Studio IA Suisse pour PME premium romandes — hôtellerie, fiduciaires, services. Constituée le 9 janvier 2025 · Siège Zurich.",en:"Swiss AI studio for premium French-speaking SMEs — hospitality, trust firms, services. Founded January 9, 2025 · Zurich HQ.",de:"Schweizer KI-Studio für Premium-KMU in der Romandie — Hotellerie, Treuhand, Dienstleistungen. Gegründet am 9. Januar 2025 · Hauptsitz Zürich."},
+  "footer.solution":{fr:"Solution",en:"Solution",de:"Lösung"},
+  "footer.sectors":{fr:"Secteurs",en:"Sectors",de:"Branchen"},
+  "footer.company":{fr:"Entreprise",en:"Company",de:"Unternehmen"},
+  "footer.legal":{fr:"Légal",en:"Legal",de:"Rechtliches"},
+  "footer.mentions":{fr:"Mentions légales",en:"Legal notice",de:"Impressum"},
+  "footer.privacy":{fr:"Confidentialité",en:"Privacy",de:"Datenschutz"},
+  "footer.copyright":{fr:"© 2026 Arkneys Agency · Tous droits réservés",en:"© 2026 Arkneys Agency · All rights reserved",de:"© 2026 Arkneys Agency · Alle Rechte vorbehalten"},
+  "cookies.text":{fr:"Ce site utilise uniquement un cookie essentiel pour mémoriser votre préférence de langue. Aucun tracker tiers.",en:"This site uses only one essential cookie to remember your language preference. No third-party trackers.",de:"Diese Website verwendet nur ein essentielles Cookie zur Speicherung Ihrer Sprachpräferenz. Keine Tracker von Drittanbietern."},
+  "cookies.btn":{fr:"Compris",en:"Got it",de:"Verstanden"},
+  "legal.title":{fr:"Mentions légales",en:"Legal notice",de:"Impressum"},
+  "legal.editor":{fr:"Éditeur du site",en:"Site editor",de:"Site-Editor"},
+  "legal.editor_text":{fr:"Arkneys Agency — Raison individuelle. Fondateur : ibrahim Ghommiss. Siège : Zurich, Suisse. Constituée le 9 janvier 2025. Activité commerciale : Romandie.",en:"Arkneys Agency — Sole proprietorship. Founder: ibrahim Ghommiss. HQ: Zurich, Switzerland. Founded January 9, 2025.",de:"Arkneys Agency — Einzelunternehmen. Gründer: ibrahim Ghommiss. Hauptsitz: Zürich, Schweiz."},
+  "legal.contact":{fr:"Contact",en:"Contact",de:"Kontakt"},
+  "legal.contact_text":{fr:"contact@arkneysagency.ch · arkneysagency.ch",en:"contact@arkneysagency.ch · arkneysagency.ch",de:"contact@arkneysagency.ch · arkneysagency.ch"},
+  "legal.hosting":{fr:"Hébergement",en:"Hosting",de:"Hosting"},
+  "legal.hosting_text":{fr:"Site marketing hébergé chez Vercel. Les données traitées dans les agents IA déployés chez les clients sont hébergées en Suisse (Infomaniak).",en:"Marketing site hosted at Vercel. Client AI agent data hosted in Switzerland (Infomaniak).",de:"Marketing-Site bei Vercel gehostet. Kunden-KI-Agent-Daten in der Schweiz (Infomaniak) gehostet."},
+  "legal.ip":{fr:"Propriété intellectuelle",en:"Intellectual property",de:"Geistiges Eigentum"},
+  "legal.ip_text":{fr:"L'ensemble du contenu du site est la propriété d'Arkneys Agency. Toute reproduction sans accord écrit est interdite.",en:"All site content is the property of Arkneys Agency. Any reproduction without written agreement is prohibited.",de:"Alle Site-Inhalte sind Eigentum von Arkneys Agency."},
+  "privacy.title":{fr:"Politique de confidentialité",en:"Privacy policy",de:"Datenschutzrichtlinie"},
+  "privacy.intro":{fr:"Arkneys Agency respecte la nLPD révisée du 1er septembre 2023 et le RGPD (UE 2016/679).",en:"Arkneys Agency complies with the revised Swiss FADP of September 1, 2023 and the EU GDPR (2016/679).",de:"Arkneys Agency hält sich an das revidierte DSG vom 1. September 2023 und die EU-DSGVO (2016/679)."},
+  "privacy.collected":{fr:"Données collectées sur ce site",en:"Data collected on this site",de:"Auf dieser Site erfasste Daten"},
+  "privacy.collected_text":{fr:"Aucune donnée personnelle n'est collectée automatiquement. Seul un cookie technique mémorise votre préférence de langue. Aucun tracker tiers.",en:"No personal data is collected automatically. Only one technical cookie stores your language preference. No third-party trackers.",de:"Es werden keine personenbezogenen Daten automatisch erfasst."},
+  "privacy.email":{fr:"Si vous nous contactez",en:"If you contact us",de:"Wenn Sie uns kontaktieren"},
+  "privacy.email_text":{fr:"Votre email et le contenu de votre message sont reçus uniquement par contact@arkneysagency.ch et conservés au plus 24 mois.",en:"Your email and message content are received only by contact@arkneysagency.ch and kept for a maximum of 24 months.",de:"Ihre E-Mail wird nur von contact@arkneysagency.ch empfangen und maximal 24 Monate aufbewahrt."},
+  "privacy.rights":{fr:"Vos droits",en:"Your rights",de:"Ihre Rechte"},
+  "privacy.rights_text":{fr:"Vous disposez d'un droit d'accès, de rectification, de suppression et d'opposition. Écrivez à contact@arkneysagency.ch.",en:"You have the right to access, correct, delete and oppose. Write to contact@arkneysagency.ch.",de:"Sie haben das Recht auf Zugriff, Korrektur, Löschung und Widerspruch."},
+  "common.see_detail":{fr:"Voir le détail →",en:"See details →",de:"Details ansehen →"},
+  "common.dedicated_page":{fr:"Page dédiée →",en:"Dedicated page →",de:"Spezielle Seite →"},
+  "common.start_agent":{fr:"Démarrer avec cet agent",en:"Start with this agent",de:"Mit diesem Agenten starten"},
+  "common.book_audit":{fr:"Réserver un Audit",en:"Book an Audit",de:"Audit buchen"},
+  "common.discuss_first":{fr:"Discuter d'abord",en:"Talk first",de:"Erst sprechen"},
+  "common.other_agents":{fr:"Voir les autres agents",en:"See other agents",de:"Andere Agenten ansehen"},
+  "common.previous":{fr:"Précédent",en:"Previous",de:"Zurück"},
+  "common.next":{fr:"Suivant",en:"Next",de:"Weiter"},
+  "common.discuss":{fr:"Discuter d'abord",en:"Talk first",de:"Erst sprechen"},
+  "common.start_with_agent":{fr:"Démarrer avec cet agent",en:"Start with this agent",de:"Mit diesem Agenten starten"},
+  "common.all_agents":{fr:"Tous les agents",en:"All agents",de:"Alle Agenten"},
+  "sectors.hero.h1_part1":{fr:"Deux secteurs cœur.",en:"Two core sectors.",de:"Zwei Kernbranchen."},
+  "sectors.hero.h1_part2":{fr:"Ouverts à d'autres.",en:"Open to others.",de:"Offen für andere."},
+  "sectors.hero.lead":{fr:"Nous nous concentrons sur l'hôtellerie 4-5★ et les fiduciaires de 15 à 50 personnes — là où nos méthodes ont fait leurs preuves. Mais nous accompagnons toute PME premium romande dont le sujet rentre dans nos compétences.",en:"We focus on 4-5★ hospitality and 15-50 person trust firms — where our methods have proven themselves. But we support any premium French-speaking SME whose topic fits our skills.",de:"Wir konzentrieren uns auf 4-5★ Hotellerie und Treuhandfirmen mit 15-50 Personen — wo sich unsere Methoden bewährt haben."},
+  "sectors.hotellerie.wave":{fr:"Cible Wave 1 · 54 prospects",en:"Wave 1 target · 54 prospects",de:"Wave 1 Ziel · 54 Prospects"},
+  "sectors.hotellerie.lead":{fr:"Vos équipes de réception passent 1 à 2 heures par jour à trier et répondre aux avis Booking, Google et TripAdvisor — souvent en 3 langues. Temps qui pourrait aller à l'accueil, au surclassement intelligent, au service.",en:"Your reception teams spend 1 to 2 hours daily sorting and responding to Booking, Google and TripAdvisor reviews — often in 3 languages. Time that could go to welcoming, smart upgrades, service.",de:"Ihr Empfangsteam verbringt täglich 1 bis 2 Stunden mit der Bearbeitung von Booking-, Google- und TripAdvisor-Bewertungen — oft in 3 Sprachen. Zeit, die für den Empfang oder Service besser genutzt würde."},
+  "sectors.hotellerie.h2":{fr:"Hôtellerie 4-5★",en:"4-5★ Hospitality",de:"4-5★ Hotellerie"},
+  "sectors.fiduciaires.wave":{fr:"Cible Wave 1 · 35 prospects",en:"Wave 1 target · 35 prospects",de:"Wave 1 Ziel · 35 Prospects"},
+  "sectors.fiduciaires.h2":{fr:"Fiduciaires 15 à 50 personnes",en:"Trust firms 15 to 50 people",de:"Treuhandfirmen 15 bis 50 Personen"},
+  "sectors.autres.h2":{fr:"Autres secteurs.",en:"Other sectors.",de:"Andere Branchen."},
+  "sectors.autres.h2b":{fr:"Sur étude.",en:"On request.",de:"Auf Anfrage."},
+  "about.hero.h1_part1":{fr:"Seize mois",en:"Sixteen months",de:"Sechzehn Monate"},
+  "about.hero.h1_part2":{fr:"de préparation",en:"of preparation",de:"der Vorbereitung"},
+  "about.hero.h1_part3":{fr:"en silence.",en:"in silence.",de:"in Stille."},
+  "about.hero.lead":{fr:"Arkneys Agency a été constituée le 9 janvier 2025 et lancée publiquement seize mois plus tard, en mai 2026. Cette discrétion volontaire n'est pas un caprice : elle est le reflet de la méthode qu'on impose aux mandats que l'on accepte.",en:"Arkneys Agency was founded on January 9, 2025 and publicly launched sixteen months later, in May 2026. This deliberate discretion is not a whim: it reflects the method we impose on the mandates we accept.",de:"Arkneys Agency wurde am 9. Januar 2025 gegründet und sechzehn Monate später, im Mai 2026, öffentlich gestartet."},
+  "about.parcours.tag":{fr:"Parcours",en:"Career path",de:"Werdegang"},
+  "about.parcours.h2":{fr:"ibrahim,",en:"ibrahim,",de:"ibrahim,"},
+  "about.parcours.h2b":{fr:"fondateur.",en:"founder.",de:"Gründer."},
+  "about.engagements.h2":{fr:"Quatre engagements",en:"Four commitments",de:"Vier Verpflichtungen"},
+  "about.engagements.h2b":{fr:"opposables.",en:"binding.",de:"verbindlich."},
+  "contact.hero.h1_part1":{fr:"Démarrer",en:"Start",de:"Beginnen"},
+  "contact.hero.h1_part2":{fr:"une",en:"a",de:"ein"},
+  "contact.hero.h1_part3":{fr:"conversation",en:"conversation",de:"Gespräch"},
+  "contact.hero.lead":{fr:"Décrivez-nous votre activité et la difficulté que vous cherchez à résoudre. Réponse sous 24 heures avec une proposition de RDV de cadrage de 30 minutes.",en:"Describe your activity and the problem you want to solve. Response within 24 hours with a 30-minute scoping meeting proposal.",de:"Beschreiben Sie Ihre Aktivität und das Problem, das Sie lösen möchten."},
+  "contact.voie1.tag":{fr:"Voie 1",en:"Option 1",de:"Option 1"},
+  "contact.voie1.title":{fr:"Par email",en:"By email",de:"Per E-Mail"},
+  "contact.voie1.desc":{fr:"Envoyez-nous quelques lignes sur votre contexte et la difficulté que vous cherchez à résoudre. Réponse sous 24 heures.",en:"Send us a few lines about your context and the problem you want to solve. Response within 24 hours.",de:"Senden Sie uns einige Zeilen über Ihren Kontext."},
+  "contact.voie1.note":{fr:"Email reçu directement par ibrahim. Conservé au maximum 24 mois.",en:"Email received directly by ibrahim. Kept for max 24 months.",de:"E-Mail direkt von ibrahim empfangen. Max. 24 Monate aufbewahrt."},
+  "contact.voie2.tag":{fr:"Voie 2",en:"Option 2",de:"Option 2"},
+  "contact.voie2.title":{fr:"Sur WhatsApp",en:"On WhatsApp",de:"Auf WhatsApp"},
+  "contact.voie2.desc":{fr:"Pour un échange direct et immédiat. Réponse personnelle d'ibrahim sous quelques heures.",en:"For a direct and immediate exchange. Personal response from ibrahim within a few hours.",de:"Für einen direkten Austausch. Persönliche Antwort von ibrahim innerhalb weniger Stunden."},
+  "contact.voie2.btn":{fr:"Ouvrir WhatsApp",en:"Open WhatsApp",de:"WhatsApp öffnen"},
+  "contact.voie2.note":{fr:"Message déjà rédigé. Vous le relisez, vous envoyez.",en:"Pre-written message. You review it, you send.",de:"Vorgefertigte Nachricht. Sie überprüfen, Sie senden."},
+  "contact.deroulement.h2":{fr:"Voici ce qui vous attend.",en:"Here is what to expect.",de:"Das erwartet Sie."},
+  "contact.step1.title":{fr:"Réponse sous 24h",en:"Response within 24h",de:"Antwort innerhalb von 24h"},
+  "contact.step2.title":{fr:"Visio de cadrage",en:"Scoping video call",de:"Scoping-Videogespräch"},
+  "contact.step3.title":{fr:"Proposition d'Audit",en:"Audit proposal",de:"Audit-Vorschlag"},
+  "contact.location.title":{fr:"Localisation",en:"Location",de:"Standort"},
+  "contact.availability.title":{fr:"Disponibilité",en:"Availability",de:"Verfügbarkeit"},
+  "contact.faq.h2":{fr:"Questions fréquentes.",en:"Frequently asked questions.",de:"Häufige Fragen."},
+  "faq.audit.q":{fr:"Combien coûte un Audit Express ?",en:"How much is an Express Audit?",de:"Was kostet ein Express-Audit?"},
+  "faq.roi.q":{fr:"Combien de temps avant le ROI ?",en:"How long until ROI?",de:"Wie lange bis zum ROI?"},
+  "faq.data.q":{fr:"Où sont hébergées mes données ?",en:"Where is my data hosted?",de:"Wo werden meine Daten gehostet?"},
+  "faq.exit.q":{fr:"Que se passe-t-il si je veux arrêter ?",en:"What if I want to stop?",de:"Was, wenn ich aufhören möchte?"},
+  "agent.method.h2":{fr:"Méthode Arkneys",en:"Arkneys Method",de:"Arkneys-Methode"},
+  "agent.method.h2b":{fr:"pour cet agent.",en:"for this agent.",de:"für diesen Agenten."},
+  "agent.usecases.h2":{fr:"Huit cas d'usage",en:"Eight use cases",de:"Acht Anwendungsfälle"},
+  "agent.usecases.h2b":{fr:"concrets.",en:"concrete.",de:"konkrete."},
+  "agent.avant.label":{fr:"Sans agent",en:"Without agent",de:"Ohne Agent"},
+  "agent.avec.label":{fr:"Avec l'agent Arkneys",en:"With Arkneys agent",de:"Mit Arkneys-Agent"},
+  "agent.exemple.label":{fr:"Exemple terrain",en:"Field example",de:"Praxisbeispiel"},
+  "agent.cta.h2":{fr:"Et pour vous,",en:"And for you,",de:"Und für Sie,"},
+  "agent.cta.h2b":{fr:"concrètement ?",en:"concretely?",de:"konkret?"},
+  "agent.cta.lead":{fr:"L'Audit Express vous remet en main propre un livrable papier de 8 à 12 pages avec les cas d'usage spécifiques à votre activité, chiffrés.",en:"The Express Audit hands you a printed 8-12 page deliverable with quantified use cases specific to your activity.",de:"Das Express-Audit übergibt Ihnen ein gedrucktes Deliverable."},
+  "agent.tariff.title":{fr:"Tarification",en:"Pricing",de:"Preise"},
+  "common.on_quote":{fr:"Sur devis",en:"Quote on request",de:"Auf Anfrage"},
+  "sectors.hotellerie.card1.title":{fr:"Tri d'avis multilingues",en:"Multilingual review sorting",de:"Mehrsprachige Bewertungssortierung"},
+  "sectors.hotellerie.card1.desc":{fr:"Booking, Google, TripAdvisor. Quatre langues. Réponses calibrées sur votre Brand Bible, validées par votre équipe.",en:"Booking, Google, TripAdvisor. Four languages. Responses calibrated on your Brand Bible, validated by your team.",de:"Booking, Google, TripAdvisor. Vier Sprachen. Antworten kalibriert auf Ihre Brand Bible, von Ihrem Team validiert."},
+  "sectors.hotellerie.card2.title":{fr:"Conciergerie 24/7",en:"24/7 Concierge",de:"24/7-Concierge"},
+  "sectors.hotellerie.card2.desc":{fr:"Chat multilingue sur votre site. Escalade humaine intelligente pour les demandes complexes. Aucune donnée hors Suisse.",en:"Multilingual chat on your site. Smart human escalation for complex requests. No data outside Switzerland.",de:"Mehrsprachiger Chat auf Ihrer Website. Intelligente menschliche Eskalation für komplexe Anfragen. Keine Daten außerhalb der Schweiz."},
+  "sectors.hotellerie.card3.title":{fr:"FAQ collaborateurs",en:"Staff FAQ",de:"Mitarbeiter-FAQ"},
+  "sectors.hotellerie.card3.desc":{fr:"Procédures, RH, fournisseurs. Vos managers gagnent 30 % du temps consacré aux questions répétitives.",en:"Procedures, HR, suppliers. Your managers gain 30% of time spent on repetitive questions.",de:"Verfahren, HR, Lieferanten. Ihre Manager sparen 30 % der Zeit für wiederkehrende Fragen."},
+  "sectors.hotellerie.obs.label":{fr:"Une observation terrain :",en:"A field observation:",de:"Eine Praxisbeobachtung:"},
+  "sectors.hotellerie.obs.text":{fr:"sur les hôtels romands que j'ai approchés, le tri des avis multilingues consomme l'équivalent d'un demi-poste à temps plein. C'est du travail qui n'apporte rien à l'expérience client mais qui ne peut pas être ignoré.",en:"on the French-speaking Swiss hotels I have approached, sorting multilingual reviews consumes the equivalent of a half-time position. Work that adds nothing to the customer experience but cannot be ignored.",de:"Bei den von mir kontaktierten Hotels in der Romandie verbraucht das Sortieren mehrsprachiger Bewertungen das Äquivalent einer Halbtagsstelle. Arbeit, die nichts zum Kundenerlebnis beiträgt, aber nicht ignoriert werden kann."},
+  "sectors.hotellerie.cta":{fr:"Réserver un Audit Hôtellerie",en:"Book a Hospitality Audit",de:"Hotellerie-Audit buchen"},
+  "sectors.fiduciaires.lead":{fr:"800 à 1'200 heures par mois consacrées à la saisie de factures fournisseurs. Pour un cabinet à 25 collaborateurs, cela représente 5 à 7 postes équivalents temps plein qui font du recopiage. Conforme nLPD documenté.",en:"800 to 1'200 hours per month on supplier invoice entry. For a 25-person firm, that's 5-7 full-time equivalents doing data entry. FADP-compliant documented.",de:"800 bis 1'200 Stunden pro Monat für Lieferantenrechnungserfassung. Für eine 25-Personen-Firma 5-7 Vollzeitstellen. DSG-konform."},
+  "sectors.fiduciaires.card1.title":{fr:"Factures fournisseurs",en:"Supplier invoices",de:"Lieferantenrechnungen"},
+  "sectors.fiduciaires.card1.desc":{fr:"Extraction TVA, IBAN, échéances. Export Bexio ou Abacus. Journal d'audit complet, conforme registre des traitements.",en:"VAT, IBAN, due date extraction. Export to Bexio or Abacus. Full audit log, compliant with processing register.",de:"Extraktion von MwSt., IBAN, Fälligkeiten. Export zu Bexio oder Abacus. Vollständiges Audit-Log."},
+  "sectors.fiduciaires.card2.title":{fr:"Contrats clients",en:"Client contracts",de:"Kundenverträge"},
+  "sectors.fiduciaires.card2.desc":{fr:"Lecture, classification, extraction des parties, dates, clauses. Indexation automatique pour recherche rapide.",en:"Reading, classification, extraction of parties, dates, clauses. Automatic indexing for fast search.",de:"Lesen, Klassifizierung, Extraktion von Parteien, Daten, Klauseln. Automatische Indizierung."},
+  "sectors.fiduciaires.card3.title":{fr:"KYC & dossiers",en:"KYC & files",de:"KYC & Akten"},
+  "sectors.fiduciaires.card3.desc":{fr:"Formulaires KYC, déclarations fiscales, dossiers d'assurance. Pas d'entraînement de modèle tiers sur vos données.",en:"KYC forms, tax declarations, insurance files. No third-party model training on your data.",de:"KYC-Formulare, Steuererklärungen, Versicherungsakten. Kein Drittmodelltraining auf Ihren Daten."},
+  "sectors.fiduciaires.obs.text":{fr:"les associés des fiduciaires romandes que je rencontre me décrivent souvent la même réalité — ils savent que 5 à 7 ETP de saisie pure peuvent être économisés, mais la conformité nLPD les retient. C'est précisément ce blocage que nous levons avec un DPA signé avant tout démarrage.",en:"the partners of French-speaking Swiss trust firms I meet often describe the same reality — they know 5 to 7 FTE of pure data entry could be saved, but FADP compliance holds them back. That's precisely the blocker we lift with a DPA signed before any start.",de:"Die Partner von Treuhandfirmen in der Romandie beschreiben mir oft dieselbe Realität — sie wissen, dass 5 bis 7 VZÄ reiner Dateneingabe eingespart werden könnten, aber die DSG-Konformität hält sie zurück."},
+  "sectors.fiduciaires.cta":{fr:"Réserver un Audit Fiduciaire",en:"Book a Trust Firm Audit",de:"Treuhand-Audit buchen"},
+  "sectors.autres.lead":{fr:"Nous étudions toute demande émanant d'une PME premium romande de 5 à 100 collaborateurs, dans un secteur où la qualité prime sur le volume.",en:"We study any request from a 5-100 person premium SME in a sector where quality matters more than volume.",de:"Wir prüfen jede Anfrage von Premium-KMU mit 5-100 Mitarbeitenden in qualitätsorientierten Branchen."},
+  "sectors.autres.card1.title":{fr:"Juridique",en:"Legal",de:"Recht"},
+  "sectors.autres.card1.desc":{fr:"Études d'avocats premium. Lecture contrats, indexation jurisprudence.",en:"Premium law firms. Contract reading, case law indexing.",de:"Premium-Anwaltskanzleien. Vertragsanalyse, Rechtsprechungsindex."},
+  "sectors.autres.card2.title":{fr:"Santé",en:"Health",de:"Gesundheit"},
+  "sectors.autres.card2.desc":{fr:"Cliniques privées, médecins indépendants. Gestion rendez-vous, secret médical respecté.",en:"Private clinics, independent doctors. Appointment management, medical secrecy respected.",de:"Privatkliniken, unabhängige Ärzte. Terminverwaltung, ärztliche Schweigepflicht."},
+  "sectors.autres.card3.title":{fr:"Immobilier",en:"Real estate",de:"Immobilien"},
+  "sectors.autres.card3.desc":{fr:"Régies, courtiers haut de gamme. Suivi mandats, rédaction baux.",en:"Property management, high-end brokers. Mandate tracking, lease drafting.",de:"Verwaltungen, gehobene Makler. Mandatverfolgung, Mietvertragserstellung."},
+  "sectors.autres.card4.title":{fr:"Retail premium",en:"Premium retail",de:"Premium-Einzelhandel"},
+  "sectors.autres.card4.desc":{fr:"Horlogerie, joaillerie, gastronomie. Veille produits, conciergerie multilingue.",en:"Watchmaking, jewelry, gastronomy. Product monitoring, multilingual concierge.",de:"Uhrmacherei, Schmuck, Gastronomie. Produktüberwachung, mehrsprachiger Concierge."},
+  "sectors.autres.cta":{fr:"Mon secteur n'est pas listé",en:"My sector is not listed",de:"Meine Branche ist nicht aufgeführt"},
+};
+
+function applyLang(lang){
+  document.documentElement.lang=lang;
+  document.querySelectorAll('[data-i18n]').forEach(el=>{
+    const key=el.dataset.i18n;
+    if(I18N[key]&&I18N[key][lang]){
+      if(el.children.length===0){el.textContent=I18N[key][lang]}
+      else if(el.tagName==='BUTTON'||el.tagName==='A'){el.textContent=I18N[key][lang]}
+    }
+  });
+  document.querySelectorAll('.ark-lang button').forEach(b=>b.classList.remove('active'));
+  document.getElementById('lang-'+lang).classList.add('active');
+}
+function setLang(lang){localStorage.setItem('ark_lang',lang);applyLang(lang)}
+function openModal(name){document.getElementById('modal-'+name).classList.add('show');document.body.style.overflow='hidden'}
+function closeModal(name){document.getElementById('modal-'+name).classList.remove('show');document.body.style.overflow=''}
+function acceptCookies(){localStorage.setItem('ark_cookies','1');document.getElementById('cookies-banner').classList.add('hidden')}
+
+// Mega menu
+let megaTimeout;
+document.querySelectorAll('[data-megamenu]').forEach(trigger=>{
+  const menu=document.getElementById('megamenu-'+trigger.dataset.megamenu);
+  if(!menu)return;
+  const open=()=>{clearTimeout(megaTimeout);document.querySelectorAll('.ark-megamenu').forEach(m=>m.classList.remove('open'));menu.classList.add('open')};
+  const close=()=>{megaTimeout=setTimeout(()=>menu.classList.remove('open'),200)};
+  trigger.addEventListener('mouseenter',open);
+  trigger.addEventListener('mouseleave',close);
+  menu.addEventListener('mouseenter',()=>clearTimeout(megaTimeout));
+  menu.addEventListener('mouseleave',close);
+});
+
+// Fade-up
+const fadeObs=new IntersectionObserver(entries=>{
+  entries.forEach(e=>{if(e.isIntersecting){e.target.classList.add('visible');fadeObs.unobserve(e.target)}});
+},{threshold:0.12});
+document.querySelectorAll('.fade-up').forEach(el=>fadeObs.observe(el));
+
+// Init
+const savedLang='fr';
+localStorage.setItem('ark_lang','fr');
+applyLang('fr');
+document.querySelectorAll('.ark-lang').forEach(e=>e.style.display='none');
+if(!localStorage.getItem('ark_cookies'))setTimeout(()=>document.getElementById('cookies-banner').classList.remove('hidden'),1000);
+
+document.addEventListener('keydown',e=>{
+  if(e.key==='Escape'){
+    document.querySelectorAll('.ark-modal.show').forEach(m=>m.classList.remove('show'));
+    document.body.style.overflow='';
+  }
+});
+</script>
+</body>
+</html>
