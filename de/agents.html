@@ -1126,9 +1126,7 @@ const fadeObs=new IntersectionObserver(entries=>{
 document.querySelectorAll('.fade-up').forEach(el=>fadeObs.observe(el));
 
 // Init
-const savedLang='fr';
-localStorage.setItem('ark_lang','fr');
-applyLang('fr');
+localStorage.setItem('ark_lang','de');
 document.querySelectorAll('.ark-lang').forEach(e=>e.style.display='none');
 if(!localStorage.getItem('ark_cookies'))setTimeout(()=>document.getElementById('cookies-banner').classList.remove('hidden'),1000);
 
