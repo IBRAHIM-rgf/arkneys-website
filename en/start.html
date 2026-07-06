@@ -1,0 +1,307 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Start — Arkneys Agency</title>
+<meta name="description" content="Start with an Arkneys AI agent. Swiss AI studio for premium SMEs in French-speaking Switzerland.">
+
+<link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
+<link rel="icon" type="image/png" sizes="16x16" href="../favicon-16.png">
+<link rel="icon" type="image/png" sizes="192x192" href="../favicon-192.png">
+<link rel="icon" type="image/png" sizes="512x512" href="../favicon-512.png">
+<link rel="apple-touch-icon" sizes="180x180" href="../apple-touch-icon.png">
+
+<script src="https://code.iconify.design/iconify-icon/2.1.0/iconify-icon.min.js"></script>
+
+<style>
+:root{
+  --ark-bg:#080c14; --ark-bg-alt:#0c1320;
+  --ark-cyan:#22d3ee; --ark-cyan-light:#67e8f9; --ark-cyan-bright:#a5f3fc;
+  --ark-text:#e7eef7; --ark-text-mid:rgba(231,238,247,0.72); --ark-text-dim:rgba(231,238,247,0.5);
+  --ark-border:rgba(125,211,252,0.18); --ark-border-strong:rgba(125,211,252,0.35);
+  --ark-emerald:#4ade80;
+}
+*{box-sizing:border-box}
+html,body{margin:0;padding:0;font-family:-apple-system,BlinkMacSystemFont,'Helvetica Now Var','Inter','Segoe UI',sans-serif;background:var(--ark-bg);color:var(--ark-text);min-height:100vh;line-height:1.5;-webkit-font-smoothing:antialiased}
+a{color:inherit;text-decoration:none}
+
+.ark-bg-video{position:fixed;inset:0;width:100%;height:100%;object-fit:cover;z-index:0;opacity:0.35}
+.ark-bg-overlay{position:fixed;inset:0;background:linear-gradient(180deg,rgba(8,12,20,0.6),rgba(8,12,20,0.85));z-index:1;pointer-events:none}
+
+.ark-nav{position:fixed;top:0;left:0;right:0;z-index:60;display:flex;align-items:center;justify-content:space-between;padding:20px 32px;background:rgba(8,12,20,0.4);backdrop-filter:blur(12px);border-bottom:1px solid var(--ark-border)}
+.ark-brand{display:inline-flex;align-items:center;gap:10px;font-size:13px;font-weight:700;letter-spacing:0.12em;text-transform:uppercase;color:var(--ark-text)}
+.ark-brand svg{width:28px;height:28px;color:var(--ark-text)}
+.ark-nav-back{font-size:11px;color:var(--ark-text-mid);letter-spacing:0.08em;text-transform:uppercase;display:inline-flex;align-items:center;gap:6px;cursor:pointer}
+.ark-nav-back:hover{color:var(--ark-cyan-light)}
+
+.page{position:relative;z-index:2;min-height:100vh;display:flex;align-items:center;justify-content:center;padding:120px 24px 60px}
+.container{max-width:640px;width:100%}
+
+.tag{font-size:10px;font-weight:600;letter-spacing:0.16em;text-transform:uppercase;color:var(--ark-cyan-light);padding:5px 14px;border:1px solid var(--ark-cyan);border-radius:999px;background:rgba(34,211,238,0.05);display:inline-flex;align-items:center;gap:8px}
+
+.agent-icon{width:80px;height:80px;border-radius:20px;background:rgba(34,211,238,0.1);border:1px solid var(--ark-border);display:flex;align-items:center;justify-content:center;color:var(--ark-cyan-light);margin-bottom:24px}
+
+h1{font-size:42px;font-weight:700;line-height:1.1;letter-spacing:-0.025em;margin:0 0 16px}
+.subtitle{color:var(--ark-text-mid);font-size:17px;line-height:1.6;margin:0 0 32px}
+
+.card{background:linear-gradient(180deg,rgba(15,24,40,0.85),rgba(12,19,32,0.85));border:1px solid var(--ark-border);border-radius:18px;padding:36px;backdrop-filter:blur(12px);box-shadow:0 24px 80px rgba(0,0,0,0.4)}
+
+label{display:block;font-size:11px;color:var(--ark-cyan-light);font-weight:600;letter-spacing:0.12em;text-transform:uppercase;margin:18px 0 8px}
+label:first-of-type{margin-top:0}
+
+input,textarea,select{width:100%;padding:14px 16px;background:rgba(8,12,20,0.6);border:1px solid var(--ark-border);border-radius:10px;color:var(--ark-text);font-family:inherit;font-size:14px;transition:border-color 0.2s}
+input:focus,textarea:focus,select:focus{outline:none;border-color:var(--ark-cyan)}
+textarea{resize:vertical;min-height:90px}
+
+.btn{display:inline-flex;align-items:center;gap:8px;background:var(--ark-cyan-bright);color:#050b16;padding:14px 28px;border-radius:999px;font-weight:700;font-size:13px;letter-spacing:0.06em;text-transform:uppercase;cursor:pointer;border:none;transition:all 0.2s;font-family:inherit;width:100%;justify-content:center;margin-top:24px}
+.btn:hover{background:var(--ark-cyan-light);transform:translateY(-2px);box-shadow:0 12px 32px rgba(34,211,238,0.3)}
+.btn:disabled{background:rgba(125,211,252,0.2);color:rgba(231,238,247,0.4);cursor:not-allowed;transform:none;box-shadow:none}
+
+.note{margin-top:18px;padding:14px 16px;background:rgba(34,211,238,0.05);border-left:3px solid var(--ark-cyan);border-radius:0 8px 8px 0;font-size:13px;color:var(--ark-text-mid);line-height:1.5}
+
+.engagements{display:grid;grid-template-columns:repeat(4,1fr);gap:12px;margin-top:32px}
+.engagement{padding:14px 12px;text-align:center;border-radius:10px;background:rgba(8,12,20,0.4);border:1px solid var(--ark-border)}
+.engagement iconify-icon{color:var(--ark-cyan-light);margin-bottom:6px}
+.engagement-label{font-size:9px;font-weight:700;letter-spacing:0.1em;text-transform:uppercase;color:var(--ark-text-mid)}
+
+@media (max-width:600px){
+  h1{font-size:32px}
+  .card{padding:24px}
+  .engagements{grid-template-columns:repeat(2,1fr)}
+}
+</style>
+<link rel="alternate" hreflang="fr-CH" href="https://arkneysagency.ch/start.html">
+<link rel="alternate" hreflang="en" href="https://arkneysagency.ch/en/start.html">
+<link rel="alternate" hreflang="de-CH" href="https://arkneysagency.ch/de/start.html">
+<link rel="alternate" hreflang="x-default" href="https://arkneysagency.ch/start.html">
+</head>
+<body>
+
+<!-- BACKGROUND VIDEO -->
+<video class="ark-bg-video" autoplay muted loop playsinline preload="auto">
+  <source src="https://d8j0ntlcm91z4.cloudfront.net/user_38xzZboKViGWJOttwIXH07lWA1P/hf_20260514_135830_bb6491d1-9b66-4aec-9722-13b4dfe3fb46.mp4" type="video/mp4">
+</video>
+<div class="ark-bg-overlay"></div>
+
+<!-- NAV -->
+<nav class="ark-nav">
+  <a href="index.html" class="ark-brand">
+    <svg viewBox="0 0 100 100" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+      <image href="../logo-arkneys.png" x="0" y="0" width="100" height="100"/>
+    </svg>
+    <span>Arkneys<span style="color:var(--ark-cyan-light);margin-left:4px">Agency</span></span>
+  </a>
+  <a id="backLink" href="agents.html" class="ark-nav-back">
+    <iconify-icon icon="lucide:arrow-left" width="12"></iconify-icon>
+    Back to the agent page
+  </a>
+</nav>
+
+<!-- MAIN -->
+<div class="page">
+  <div class="container">
+    
+    <div style="margin-bottom:32px">
+      <div class="tag" id="agentTag">
+        <iconify-icon icon="lucide:sparkles" width="11"></iconify-icon>
+        <span id="agentTagText">Start</span>
+      </div>
+    </div>
+    
+    <div class="agent-icon">
+      <iconify-icon id="agentIcon" icon="lucide:sparkles" width="40"></iconify-icon>
+    </div>
+    
+    <h1 id="agentTitle">Start with Arkneys</h1>
+    <p class="subtitle" id="agentSubtitle">Tell us about your context. We get back to you within 24 hours with a proposed scoping call.</p>
+    
+    <div class="card">
+      <form id="startForm" onsubmit="return handleSubmit(event)">
+        
+        <label for="email">Your business email</label>
+        <input type="email" id="email" name="email" required placeholder="firstname@your-company.ch">
+        
+        <label for="fullname">Your name</label>
+        <input type="text" id="fullname" name="fullname" required placeholder="First name Last name">
+        
+        <label for="company">Your company</label>
+        <input type="text" id="company" name="company" required placeholder="Your company name">
+        
+        <label for="role">Your role</label>
+        <select id="role" name="role">
+          <option value="">Select…</option>
+          <option value="Directeur / DG">Director / CEO</option>
+          <option value="Associé / Fondateur">Partner / Founder</option>
+          <option value="Responsable opérations">Head of Operations</option>
+          <option value="Responsable IT / Digital">Head of IT / Digital</option>
+          <option value="Responsable marketing / CRM">Head of Marketing / CRM</option>
+          <option value="Manager / Chef de service">Manager / Department head</option>
+          <option value="Autre">Other</option>
+        </select>
+        
+        <label for="context">Your context in 2–3 sentences <span style="text-transform:none;color:var(--ark-text-dim);font-weight:400;letter-spacing:normal">(optional but recommended)</span></label>
+        <textarea id="context" name="context" placeholder="E.g.: 25 staff, fiduciary sector, main problem: 800 hrs/month on invoice entry…"></textarea>
+        
+        <button type="submit" class="btn" id="submitBtn">
+          <iconify-icon icon="lucide:mail" width="14"></iconify-icon>
+          Send my request
+        </button>
+        
+        <div class="note">
+          <strong style="color:var(--ark-cyan-light)">How does it work?</strong> When you click, your email client opens with a pre-drafted message. You review it, you send it. ibrahim replies to you personally within 24 business hours.
+        </div>
+        
+      </form>
+    </div>
+    
+    <div class="engagements">
+      <div class="engagement">
+        <iconify-icon icon="lucide:shield-check" width="22"></iconify-icon>
+        <div class="engagement-label">Sovereignty</div>
+      </div>
+      <div class="engagement">
+        <iconify-icon icon="lucide:scale" width="22"></iconify-icon>
+        <div class="engagement-label">Compliance</div>
+      </div>
+      <div class="engagement">
+        <iconify-icon icon="lucide:lock" width="22"></iconify-icon>
+        <div class="engagement-label">Discretion</div>
+      </div>
+      <div class="engagement">
+        <iconify-icon icon="lucide:bar-chart-3" width="22"></iconify-icon>
+        <div class="engagement-label">Measurable</div>
+      </div>
+    </div>
+    
+    <p style="text-align:center;margin-top:32px;color:var(--ark-text-dim);font-size:12px;line-height:1.6">
+      Your information remains confidential. No third parties, no analytics, no advertising.<br>
+      Kept for a maximum of 24 months. <a href="index.html" style="color:var(--ark-cyan-light)">Privacy policy</a>
+    </p>
+    
+  </div>
+</div>
+
+<script>
+// Configuration des 7 agents
+const AGENTS = {
+  "conversation": {
+    label: "Conversation",
+    icon: "lucide:messages-square",
+    title: "Démarrer avec un agent Conversation",
+    subtitle: "Tri d'avis multilingues, conciergerie 24/7, FAQ interne, support N1. Calibré sur votre Brand Bible.",
+    backUrl: "agent-conversation.html"
+  },
+  "documents": {
+    label: "Documents",
+    icon: "lucide:scan-text",
+    title: "Démarrer avec un agent Documents",
+    subtitle: "Extraction de factures fournisseurs, lecture de contrats, KYC, formulaires. Journal d'audit complet, conforme nLPD.",
+    backUrl: "agent-documents.html"
+  },
+  "veille": {
+    label: "Veille",
+    icon: "lucide:radar",
+    title: "Démarrer avec un agent Veille",
+    subtitle: "Détection de produits, veille concurrentielle, sourcing fournisseurs. Alertes temps réel calibrées sur votre niche.",
+    backUrl: "agent-veille.html"
+  },
+  "commerciaux": {
+    label: "Commerciaux",
+    icon: "lucide:briefcase",
+    title: "Démarrer avec un agent Commercial",
+    subtitle: "Qualification leads, relances personnalisées, suivi pipeline. Pas de mail-blast, chaque message est validé.",
+    backUrl: "agent-commerciaux.html"
+  },
+  "analytiques": {
+    label: "Analytiques",
+    icon: "lucide:line-chart",
+    title: "Démarrer avec un agent Analytiques",
+    subtitle: "Rapports automatiques en français, tableaux de bord, alertes KPI. Vos décisions deviennent factuelles.",
+    backUrl: "agent-analytiques.html"
+  },
+  "traduction": {
+    label: "Traduction",
+    icon: "lucide:languages",
+    title: "Démarrer avec un agent Traduction",
+    subtitle: "Traduction de contenus marketing et techniques en 4 langues, dans votre voix de marque. Hébergement Suisse exclusif.",
+    backUrl: "agent-traduction.html"
+  },
+  "sur-mesure": {
+    label: "Sur mesure",
+    icon: "lucide:wrench",
+    title: "Démarrer un projet sur mesure",
+    subtitle: "Pour les cas où aucune famille d'agent ne couvre votre besoin précisément. Audit Express obligatoire avant chiffrage.",
+    backUrl: "agent-sur-mesure.html"
+  }
+};
+
+// Récupère le paramètre ?agent= dans l'URL
+function getAgentFromURL() {
+  const params = new URLSearchParams(window.location.search);
+  return params.get('agent') || null;
+}
+
+// Initialise la page selon l'agent
+function initPage() {
+  const agentId = getAgentFromURL();
+  const agent = AGENTS[agentId];
+  
+  if (agent) {
+    document.getElementById('agentTagText').textContent = `Agent ${agent.label}`;
+    document.getElementById('agentIcon').setAttribute('icon', agent.icon);
+    document.getElementById('agentTitle').textContent = agent.title;
+    document.getElementById('agentSubtitle').textContent = agent.subtitle;
+    document.getElementById('backLink').href = agent.backUrl;
+    document.title = `${agent.title} — Arkneys Agency`;
+  } else {
+    // Agent inconnu : page générique
+    document.getElementById('agentTagText').textContent = 'Démarrer';
+    document.getElementById('agentIcon').setAttribute('icon', 'lucide:sparkles');
+    document.getElementById('agentTitle').textContent = 'Démarrer avec Arkneys';
+    document.getElementById('agentSubtitle').textContent = 'Décrivez-nous votre contexte. Nous revenons vers vous sous 24 heures avec une proposition de RDV de cadrage.';
+    document.getElementById('backLink').href = 'agents.html';
+  }
+}
+
+// Soumission du formulaire : ouvre un mailto pré-rempli
+function handleSubmit(e) {
+  e.preventDefault();
+  
+  const agentId = getAgentFromURL();
+  const agent = AGENTS[agentId];
+  const agentLabel = agent ? agent.label : 'votre offre';
+  
+  const email = document.getElementById('email').value.trim();
+  const name = document.getElementById('fullname').value.trim();
+  const company = document.getElementById('company').value.trim();
+  const role = document.getElementById('role').value.trim();
+  const context = document.getElementById('context').value.trim();
+  
+  const subject = `Démarrer avec un agent ${agentLabel} — ${company}`;
+  
+  let body = `Bonjour ibrahim,\n\n`;
+  body += `Je souhaite démarrer avec un agent ${agentLabel}.\n\n`;
+  body += `Mes informations :\n`;
+  body += `— Nom : ${name}\n`;
+  body += `— Société : ${company}\n`;
+  body += `— Email : ${email}\n`;
+  if (role) body += `— Rôle : ${role}\n`;
+  body += `\n`;
+  if (context) {
+    body += `Contexte :\n${context}\n\n`;
+  }
+  body += `Disponibilités RDV visio 30 minutes :\n— [créneau 1]\n— [créneau 2]\n\n`;
+  body += `Bien à vous,\n${name}`;
+  
+  const mailtoUrl = `mailto:contact@arkneysagency.ch?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+  
+  window.location.href = mailtoUrl;
+  return false;
+}
+
+initPage();
+</script>
+
+</body>
+</html>
