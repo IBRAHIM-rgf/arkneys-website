@@ -173,14 +173,11 @@ a{color:inherit;text-decoration:none}
 .ark-exemple p{margin:0;font-size:15px;line-height:1.65;color:var(--ark-text)}
 </style>
 <link rel="canonical" href="https://arkneysagency.ch/hotellerie">
+<link rel="alternate" hreflang="fr-CH" href="https://arkneysagency.ch/hotellerie">
 <script type="application/ld+json">
 {"@context": "https://schema.org", "@graph": [{"@type": "WebPage", "url": "https://arkneysagency.ch/hotellerie", "name": "Agent IA pour l'hôtellerie 4-5★ en Suisse romande", "isPartOf": {"@id": "https://arkneysagency.ch/#website"}, "about": {"@id": "https://arkneysagency.ch/#organization"}}, {"@type": "Service", "name": "Agent IA pour l'hôtellerie 4-5★ en Suisse romande", "provider": {"@id": "https://arkneysagency.ch/#organization"}, "areaServed": {"@type": "AdministrativeArea", "name": "Suisse romande"}, "url": "https://arkneysagency.ch/hotellerie"}, {"@type": "FAQPage", "mainEntity": [{"@type": "Question", "name": "Quels avis l'agent traite-t-il ?", "acceptedAnswer": {"@type": "Answer", "text": "L'agent trie et rédige des réponses pour les avis Booking, Google et TripAdvisor, en quatre langues (FR, DE, IT, EN), toujours avec validation humaine de votre équipe avant publication."}}, {"@type": "Question", "name": "Les données de mes clients restent-elles en Suisse ?", "acceptedAnswer": {"@type": "Answer", "text": "Oui. L'hébergement est exclusivement suisse (Infomaniak). Aucune donnée ne transite par les États-Unis. Un DPA est signé avant tout démarrage, conforme nLPD et RGPD."}}, {"@type": "Question", "name": "Mon équipe garde-t-elle le contrôle ?", "acceptedAnswer": {"@type": "Answer", "text": "Toujours. L'agent propose, l'humain valide. Au démarrage, la validation est systématique ; elle s'allège ensuite selon votre niveau de confiance."}}, {"@type": "Question", "name": "En combien de temps est-ce déployé ?", "acceptedAnswer": {"@type": "Answer", "text": "Quatre semaines en moyenne entre le cadrage et la mise en production, après un audit de 3 jours (en visio ou sur place)."}}]}]}
 </script>
 <script src="/mobile-nav.js" defer></script>
-<link rel="alternate" hreflang="fr-CH" href="https://arkneysagency.ch/hotellerie.html">
-<link rel="alternate" hreflang="en" href="https://arkneysagency.ch/en/hotellerie.html">
-<link rel="alternate" hreflang="de-CH" href="https://arkneysagency.ch/de/hotellerie.html">
-<link rel="alternate" hreflang="x-default" href="https://arkneysagency.ch/hotellerie.html">
 </head>
 <body>
 
@@ -210,7 +207,6 @@ a{color:inherit;text-decoration:none}
   </div>
   
   <div class="ark-nav-right">
-    <div class="ark-lang-switch" style="display:flex;align-items:center;gap:7px;margin-right:14px"><span style="color:#22d3ee;text-decoration:none;font-size:12px;letter-spacing:1px;font-weight:700">FR</span><span style="color:#3a4a63;font-size:12px">/</span><a href="en/hotellerie.html" style="color:#8b9bb4;text-decoration:none;font-size:12px;letter-spacing:1px" hreflang="en">EN</a><span style="color:#3a4a63;font-size:12px">/</span><a href="de/hotellerie.html" style="color:#8b9bb4;text-decoration:none;font-size:12px;letter-spacing:1px" hreflang="de">DE</a></div>
     <a href="contact.html" class="ark-btn-primary" data-i18n="nav.cta">Réserver un Audit</a>
   </div>
 </nav>
@@ -345,7 +341,7 @@ a{color:inherit;text-decoration:none}
         </svg>
         <span class="ark-brand-text">Arkneys<span style="color:var(--ark-cyan-light);margin-left:4px">Agency</span></span>
       </a>
-      <p style="font-size:13px;color:var(--ark-text-mid);line-height:1.6;margin:16px 0 0;max-width:300px" data-i18n="footer.about">Studio IA Suisse pour PME premium romandes — hôtellerie, fiduciaires, services. Constituée le 9 janvier 2025 · Siège Zurich.</p>
+      <p style="font-size:13px;color:var(--ark-text-mid);line-height:1.6;margin:16px 0 0;max-width:300px" data-i18n="footer.about">Studio IA Suisse pour PME premium romandes — hôtellerie, fiduciaires, cabinets dentaires. Constituée le 9 janvier 2025 · Siège Zurich.</p>
     </div>
     
     <div>
@@ -360,6 +356,7 @@ a{color:inherit;text-decoration:none}
       <div class="ark-footer-col-title" data-i18n="footer.sectors">Secteurs</div>
       <a href="secteurs.html#hotellerie" class="ark-footer-link">Hôtellerie 4-5★</a>
       <a href="secteurs.html#fiduciaires" class="ark-footer-link">Fiduciaires</a>
+      <a href="secteurs.html#dentaire" class="ark-footer-link">Cabinets dentaires</a>
       <a href="secteurs.html#autres" class="ark-footer-link">Autres secteurs</a>
     </div>
     
@@ -373,9 +370,8 @@ a{color:inherit;text-decoration:none}
     
     <div>
       <div class="ark-footer-col-title" data-i18n="footer.legal">Légal</div>
-      <a href="mentions-legales.html" class="ark-footer-link">Mentions légales</a>
-      <a href="confidentialite.html" class="ark-footer-link">Confidentialité</a>
-      <a href="cgv.html" class="ark-footer-link">CGV</a>
+      <span class="ark-footer-link" onclick="openModal('legal')" data-i18n="footer.mentions">Mentions légales</span>
+      <span class="ark-footer-link" onclick="openModal('privacy')" data-i18n="footer.privacy">Confidentialité</span>
     </div>
   </div>
   
@@ -497,7 +493,7 @@ const I18N = {
   "agents.method.deploy":{fr:"Déploiement",en:"Deployment",de:"Einsatz"},
   "agents.method.followup":{fr:"Suivi",en:"Follow-up",de:"Nachverfolgung"},
   "agents.cta.h2":{fr:"Lequel correspond à votre besoin ?",en:"Which fits your need?",de:"Welcher entspricht Ihrem Bedarf?"},
-  "footer.about":{fr:"Studio IA Suisse pour PME premium romandes — hôtellerie, fiduciaires, services. Constituée le 9 janvier 2025 · Siège Zurich.",en:"Swiss AI studio for premium French-speaking SMEs — hospitality, trust firms, services. Founded January 9, 2025 · Zurich HQ.",de:"Schweizer KI-Studio für Premium-KMU in der Romandie — Hotellerie, Treuhand, Dienstleistungen. Gegründet am 9. Januar 2025 · Hauptsitz Zürich."},
+  "footer.about":{fr:"Studio IA Suisse pour PME premium romandes — hôtellerie, fiduciaires, cabinets dentaires. Constituée le 9 janvier 2025 · Siège Zurich.",en:"Swiss AI studio for premium French-speaking SMEs — hospitality, trust firms, services. Founded January 9, 2025 · Zurich HQ.",de:"Schweizer KI-Studio für Premium-KMU in der Romandie — Hotellerie, Treuhand, Dienstleistungen. Gegründet am 9. Januar 2025 · Hauptsitz Zürich."},
   "footer.solution":{fr:"Solution",en:"Solution",de:"Lösung"},
   "footer.sectors":{fr:"Secteurs",en:"Sectors",de:"Branchen"},
   "footer.company":{fr:"Entreprise",en:"Company",de:"Unternehmen"},
@@ -535,7 +531,7 @@ const I18N = {
   "common.discuss":{fr:"Discuter d'abord",en:"Talk first",de:"Erst sprechen"},
   "common.start_with_agent":{fr:"Démarrer avec cet agent",en:"Start with this agent",de:"Mit diesem Agenten starten"},
   "common.all_agents":{fr:"Tous les agents",en:"All agents",de:"Alle Agenten"},
-  "sectors.hero.h1_part1":{fr:"Deux secteurs cœur.",en:"Two core sectors.",de:"Zwei Kernbranchen."},
+  "sectors.hero.h1_part1":{fr:"Trois secteurs cœur.",en:"Two core sectors.",de:"Zwei Kernbranchen."},
   "sectors.hero.h1_part2":{fr:"Ouverts à d'autres.",en:"Open to others.",de:"Offen für andere."},
   "sectors.hero.lead":{fr:"Nous nous concentrons sur l'hôtellerie 4-5★ et les fiduciaires de 15 à 50 personnes — là où nos méthodes ont fait leurs preuves. Mais nous accompagnons toute PME premium romande dont le sujet rentre dans nos compétences.",en:"We focus on 4-5★ hospitality and 15-50 person trust firms — where our methods have proven themselves. But we support any premium French-speaking SME whose topic fits our skills.",de:"Wir konzentrieren uns auf 4-5★ Hotellerie und Treuhandfirmen mit 15-50 Personen — wo sich unsere Methoden bewährt haben."},
   "sectors.hotellerie.wave":{fr:"Cible Wave 1 · 54 prospects",en:"Wave 1 target · 54 prospects",de:"Wave 1 Ziel · 54 Prospects"},
