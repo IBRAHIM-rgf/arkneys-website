@@ -1,6 +1,6 @@
 # Arkneys Agency
 
-> Studio IA suisse pour PME premium romandes (hôtellerie 4-5★, fiduciaires 15-50 personnes, services premium). Agents IA calibrés sur votre métier, déployés en 4 semaines, hébergés exclusivement en Suisse (Infomaniak), conformes nLPD et RGPD. DPA signé avant tout démarrage. Sortie possible chaque trimestre, sans verrou propriétaire. Fondée par ibrahim Ghommiss, constituée le 9 janvier 2025, siège à Zurich, activité commerciale en Suisse romande.
+> Studio IA suisse pour PME premium romandes (hôtellerie 4-5★, fiduciaires 15-50 personnes, cabinets dentaires, horlogerie et maisons de luxe, gestion de fortune et family offices). Agents IA calibrés sur votre métier, déployés en 4 semaines, hébergés exclusivement en Suisse (Infomaniak), conformes nLPD et RGPD. DPA signé avant tout démarrage. Sortie possible chaque trimestre, sans verrou propriétaire. Fondée par ibrahim Ghommiss, constituée le 9 janvier 2025, siège à Zurich, activité commerciale en Suisse romande.
 
 ## Offre
 - 7 familles d'agents IA : Conversation (avis, conciergerie, support), Documents (factures, contrats, KYC), Veille, Commerciaux, Analytiques, Traduction, Sur mesure.
@@ -13,10 +13,18 @@
 - [Secteurs](https://arkneysagency.ch/secteurs) : hôtellerie 4-5★, fiduciaires 15-50p, autres secteurs premium
 - [À propos](https://arkneysagency.ch/a-propos) : parcours du fondateur et engagements
 - [Contact](https://arkneysagency.ch/contact) : réserver un audit, RDV de cadrage 30 min, FAQ
+- [Horlogerie & luxe](https://arkneysagency.ch/horlogerie) : agents IA pour maisons horlogères et marques de luxe
+- [Gestion de fortune](https://arkneysagency.ch/gestion-fortune) : agents IA pour GFI et family offices
 
 ## Secteurs cœur
 - Hôtellerie 4-5★ : tri et réponse aux avis Booking/Google/TripAdvisor en 4 langues, conciergerie 24/7, FAQ collaborateurs.
 - Fiduciaires : extraction de factures fournisseurs (TVA, IBAN, échéances) vers Bexio ou Abacus, classification de contrats, KYC, conforme nLPD.
+
+- Horlogerie et maisons de luxe : service client multilingue (FR/DE/IT/EN/mandarin/japonais) avec terminologie horlogère validée, suivi SAV et atelier, support du réseau de détaillants, recherche dans les archives techniques. Propriété intellectuelle protégée : hébergement suisse, aucun transit américain, aucun entraînement de modèle tiers sur vos données. Page dédiée : https://arkneysagency.ch/horlogerie
+- Gestion de fortune et family offices : préparation du reporting client, dossiers d'onboarding et KYC, traitement documentaire multi-dépositaires, veille réglementaire LSFin/LEFin. Périmètre strictement administratif et documentaire — Arkneys n'automatise aucune décision d'investissement, aucune recommandation et aucun conseil financier. Page dédiée : https://arkneysagency.ch/gestion-fortune
+
+## Analyses publiées
+- [IA et banque privée suisse](https://arkneysagency.ch/ia-banque-privee-suisse) : ce qu'imposent la circulaire FINMA 2018/3 « Outsourcing – banques et assureurs » et la communication FINMA sur la surveillance 08/2024 (18 décembre 2024) lorsqu'une banque met de l'IA dans ses processus — auto-évaluation, inventaire des fonctions externalisées, accord préalable sur les sous-traitants, droit de regard de la FINMA, secret bancaire art. 47 LB. Analyse de cadre réglementaire ; Arkneys n'intervient pas auprès d'établissements bancaires et s'adresse aux gérants de fortune indépendants et family offices soumis à la LEFin.
 
 ## Contact
 contact@arkneysagency.ch · WhatsApp +41 78 352 06 97 · Suisse romande
