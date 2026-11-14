@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Branchen — Arkneys Agency</title>
-<meta name="description" content="Arkneys begleitet die 4–5★-Hotellerie und Treuhandbüros mit 15–50 Personen in der Romandie. Offen für jedes Schweizer Premium-KMU.">
-<meta property="og:title" content="Branchen — Arkneys Agency">
-<meta property="og:description" content="Arkneys begleitet die 4–5★-Hotellerie und Treuhandbüros mit 15–50 Personen in der Romandie. Offen für jedes Schweizer Premium-KMU.">
+<title>Privatbanken, Vermögensverwalter, Family Offices | Arkneys</title>
+<meta name="description" content="Privatbanken, unabhängige Vermögensverwalter, Multi-Family Offices: Arkneys Agency strukturiert und klassifiziert Ihre Kundenbasis, bei Ihnen installiert.">
+<meta property="og:title" content="Privatbanken, Vermögensverwalter, Family Offices | Arkneys">
+<meta property="og:description" content="Privatbanken, unabhängige Vermögensverwalter, Multi-Family Offices: Arkneys Agency strukturiert und klassifiziert Ihre Kundenbasis, bei Ihnen installiert.">
 <meta property="og:type" content="website">
 
 <link rel="icon" type="image/png" sizes="32x32" href="../favicon-32.png">
@@ -203,7 +203,7 @@ a{color:inherit;text-decoration:none}
   
   <div class="ark-nav-links">
     <a class="ark-nav-link" href="index.html" data-i18n="nav.home">Startseite</a>
-    <span class="ark-nav-link" data-megamenu="agents" data-i18n="nav.agents">KI-Agenten</span>
+    <a class="ark-nav-link" href="offre.html" data-i18n="nav.agents">Angebot</a>
     <a class="ark-nav-link active" href="secteurs.html" data-i18n="nav.sectors">Branchen</a>
     <a class="ark-nav-link" href="a-propos.html" data-i18n="nav.about">Über uns</a>
     <a class="ark-nav-link" href="contact.html" data-i18n="nav.contact">Kontakt</a>
@@ -215,264 +215,91 @@ a{color:inherit;text-decoration:none}
   </div>
 </nav>
 
-<!-- MEGA MENU AGENTS (7 familles) -->
-<div class="ark-megamenu" id="megamenu-agents">
-  <div class="ark-megamenu-inner" style="grid-template-columns:repeat(4,1fr)">
-    
-    <div class="ark-megamenu-section" style="grid-column:1 / span 3">
-      <div class="ark-megamenu-title" data-i18n="mega.agents_title">Die 7 Familien von KI-Agenten</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 -12px">
-        
-      <a href="agent-conversation.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:messages-square" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.conversation.label">Konversation</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.conversation.sub">Bewertungen · Concierge · Support</span>
-        </div>
-      </a>
-      <a href="agent-documents.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:scan-text" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.documents.label">Dokumente</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.documents.sub">Rechnungen · Verträge · KYC</span>
-        </div>
-      </a>
-      <a href="agent-veille.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:radar" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.veille.label">Monitoring</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.veille.sub">Produkte · Konkurrenz · Sourcing</span>
-        </div>
-      </a>
-      <a href="agent-commerciaux.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:briefcase" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.commerciaux.label">Vertrieb</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.commerciaux.sub">Leads · Nachfassen · Pipeline</span>
-        </div>
-      </a>
-      <a href="agent-analytiques.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:line-chart" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.analytiques.label">Analytik</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.analytiques.sub">Reporting · KPI · Dashboards</span>
-        </div>
-      </a>
-      <a href="agent-traduction.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:languages" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.traduction.label">Übersetzung</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.traduction.sub">Content · Dokumente · Web</span>
-        </div>
-      </a>
-      <a href="agent-sur-mesure.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:wrench" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.surmesure.label">Massgeschneidert</span>
-          <span class="ark-megamenu-desc">Sonderfälle · Komplexe Integrationen</span>
-        </div>
-      </a>
-      </div>
-    </div>
-    
-    <div class="ark-megamenu-section">
-      <div class="ark-megamenu-title" data-i18n="mega.more_title">Mehr erfahren</div>
-      
-      <a href="agents.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:layout-grid" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="mega.overview">Übersicht</span>
-          <span class="ark-megamenu-desc" data-i18n="mega.overview_desc">Die 7 Familien + Methode</span>
-        </div>
-      </a>
-      
-      <a href="agents.html#methode" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:map" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="mega.method">Unsere Methode</span>
-          <span class="ark-megamenu-desc" data-i18n="mega.method_desc">Audit → Konzeption → Umsetzung → Begleitung</span>
-        </div>
-      </a>
-      
-      <a href="contact.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:calendar-plus" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="mega.book">Audit buchen</span>
-          <span class="ark-megamenu-desc" data-i18n="mega.book_desc">Per Video oder vor Ort, klares Ergebnis</span>
-        </div>
-      </a>
-    </div>
-    
-  </div>
-</div>
 
 
 <main class="ark-page">
 
-
 <section class="ark-section-pad" style="padding-top:120px">
   <div class="ark-container">
-    <h1 class="ark-h1 fade-up" style="margin:32px 0 24px;max-width:920px">
-      <span data-i18n="sectors.hero.h1_part1">Fünf Kernbranchen.</span><br><span style="color:var(--ark-cyan-light)" data-i18n="sectors.hero.h1_part2">Offen für weitere.</span>
+    <h1 class="ark-h1 fade-up" style="margin:32px 0 24px;max-width:920px;text-wrap:balance">
+      <span data-i18n="sectors.hero.h1_part1">Drei Zielgruppen.</span><br><span style="color:var(--ark-cyan-light)" data-i18n="sectors.hero.h1_part2">Eine gemeinsame Herausforderung.</span>
     </h1>
-    <p class="ark-lead fade-up" data-i18n="sectors.hero.lead">Wir konzentrieren uns auf die 4–5★-Hotellerie, Treuhandbüros, Zahnarztpraxen, Uhren &amp; Luxus sowie Vermögensverwaltung — dort, wo sich unsere Methoden bewährt haben. Wir begleiten aber jedes Premium-KMU der Romandie, dessen Thema in unsere Kompetenz fällt.</p>
+    <p class="ark-lead fade-up" data-i18n="sectors.hero.lead">Privatbanken, unabhängige Vermögensverwalter, Multi-Family Offices: über Jahre gewachsene Kundendaten, die neu geordnet werden müssen — ohne dass etwas Ihr Haus verlässt.</p>
   </div>
 </section>
 
-<!-- HÔTELLERIE -->
-<section id="hotellerie" class="ark-section-pad" style="background:rgba(8,12,20,0.55);border-top:1px solid var(--ark-border);border-bottom:1px solid var(--ark-border)">
+<!-- BANQUES PRIVÉES -->
+<section id="banques" class="ark-section-pad" style="background:rgba(8,12,20,0.55);border-top:1px solid var(--ark-border);border-bottom:1px solid var(--ark-border)">
+  <div class="ark-container">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:start" class="ark-services-grid">
+      <div class="fade-up" style="width:96px;height:96px;border-radius:24px;background:rgba(34,211,238,0.1);border:1px solid var(--ark-border);display:flex;align-items:center;justify-content:center">
+        <iconify-icon icon="lucide:landmark" width="48" style="color:var(--ark-cyan-light)"></iconify-icon>
+      </div>
+      <div class="fade-up">
+        <h2 class="ark-h2" style="margin-bottom:16px;text-wrap:balance">Privatbanken</h2>
+        <p class="ark-lead">Über Jahre gewachsene Kundenbasen, neu geordnet — unter Wahrung des Bankgeheimnisses.</p>
+      </div>
+    </div>
+    <div style="margin-top:32px;display:flex;gap:10px;flex-wrap:wrap" class="fade-up">
+      <a href="contact.html" class="ark-btn-primary">Audit buchen</a>
+      <a href="../ia-banque-privee-suisse.html" class="ark-btn-secondary" hreflang="fr">FINMA-Anforderungen (auf Französisch) &rarr;</a>
+    </div>
+  </div>
+</section>
+
+<!-- GÉRANTS DE FORTUNE INDÉPENDANTS -->
+<section id="gerants" class="ark-section-pad">
   <div class="ark-container">
     <div style="display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:start;margin-bottom:48px" class="ark-services-grid">
       <div class="fade-up" style="width:96px;height:96px;border-radius:24px;background:rgba(34,211,238,0.1);border:1px solid var(--ark-border);display:flex;align-items:center;justify-content:center">
-        <iconify-icon icon="lucide:hotel" width="48" style="color:var(--ark-cyan-light)"></iconify-icon>
+        <iconify-icon icon="lucide:briefcase" width="48" style="color:var(--ark-cyan-light)"></iconify-icon>
       </div>
       <div class="fade-up">
-        <div class="ark-tag" style="margin-bottom:18px" data-i18n="sectors.hotellerie.wave">Ziel Wave 1 · 54 Prospects</div>
-        <h2 class="ark-h2" style="margin-bottom:16px" data-i18n="sectors.hotellerie.h2">Hotellerie 4–5★</h2>
-        <p class="ark-lead" data-i18n="sectors.hotellerie.lead">Ihre Empfangsteams verbringen 1 bis 2 Stunden pro Tag mit dem Sortieren und Beantworten von Booking-, Google- und TripAdvisor-Bewertungen — oft in 3 Sprachen. Zeit, die in Empfang, intelligentes Upgrading und Service fliessen könnte.</p>
+        <h2 class="ark-h2" style="margin-bottom:16px;text-wrap:balance">Unabhängige Vermögensverwalter</h2>
+        <p class="ark-lead">Quartalsreporting, Onboarding-Dossiers, Auszüge mehrerer Depotbanken. Die Agenten übernehmen die administrative und dokumentarische Arbeit — nie den Anlageentscheid, der vollständig bei Ihnen bleibt.</p>
       </div>
     </div>
-    
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" class="ark-services-grid">
-      
       <div class="ark-card fade-up" style="padding:28px">
-        <iconify-icon icon="lucide:message-circle" width="28" style="color:var(--ark-cyan-light);margin-bottom:14px"></iconify-icon>
-        <h3 style="font-size:15px;font-weight:700;color:var(--ark-text);margin:0 0 10px" data-i18n="sectors.hotellerie.card1.title">Mehrsprachiges Bewertungs-Sortieren</h3>
-        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0" data-i18n="sectors.hotellerie.card1.desc">Booking, Google, TripAdvisor. Vier Sprachen. Antworten kalibriert auf Ihre Brand Bible, validiert durch Ihr Team.</p>
+        <iconify-icon icon="lucide:file-bar-chart" width="28" style="color:var(--ark-cyan-light);margin-bottom:14px"></iconify-icon>
+        <h3 style="font-size:15px;font-weight:700;color:var(--ark-text);margin:0 0 10px">Vorbereitung des Reportings</h3>
+        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">Performance, Bewegungen, Allokation und ein erster Entwurf des Kommentars. Sie prüfen und zeichnen ab.</p>
       </div>
-      
       <div class="ark-card fade-up" style="padding:28px">
-        <iconify-icon icon="lucide:concierge-bell" width="28" style="color:var(--ark-cyan-light);margin-bottom:14px"></iconify-icon>
-        <h3 style="font-size:15px;font-weight:700;color:var(--ark-text);margin:0 0 10px" data-i18n="sectors.hotellerie.card2.title">24/7-Concierge</h3>
-        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0" data-i18n="sectors.hotellerie.card2.desc">Mehrsprachiger Chat auf Ihrer Website. Intelligente menschliche Eskalation bei komplexen Anfragen. Keine Daten ausserhalb der Schweiz.</p>
+        <iconify-icon icon="lucide:user-plus" width="28" style="color:var(--ark-cyan-light);margin-bottom:14px"></iconify-icon>
+        <h3 style="font-size:15px;font-weight:700;color:var(--ark-text);margin:0 0 10px">Onboarding &amp; KYC</h3>
+        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">Einholen der Unterlagen, Vollständigkeitsprüfung, Nachfassen und Hinweis auf Unstimmigkeiten.</p>
       </div>
-      
       <div class="ark-card fade-up" style="padding:28px">
-        <iconify-icon icon="lucide:book-open" width="28" style="color:var(--ark-cyan-light);margin-bottom:14px"></iconify-icon>
-        <h3 style="font-size:15px;font-weight:700;color:var(--ark-text);margin:0 0 10px" data-i18n="sectors.hotellerie.card3.title">Mitarbeiter-FAQ</h3>
-        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0" data-i18n="sectors.hotellerie.card3.desc">Prozesse, HR, Lieferanten. Ihre Führungskräfte sparen 30% der Zeit für repetitive Fragen.</p>
+        <iconify-icon icon="lucide:scale" width="28" style="color:var(--ark-cyan-light);margin-bottom:14px"></iconify-icon>
+        <h3 style="font-size:15px;font-weight:700;color:var(--ark-text);margin:0 0 10px">FIDLEG / FINIG-Monitoring</h3>
+        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">Publikationen der FINMA und der Aufsichtsorganisation, gefiltert nach dem, was Ihr Institut betrifft.</p>
       </div>
-      
     </div>
-    
-    <div style="margin-top:48px;padding:24px 28px;background:rgba(34,211,238,0.04);border-left:3px solid var(--ark-cyan);border-radius:0 12px 12px 0" class="fade-up">
-      <p style="color:var(--ark-text-mid);font-size:14px;line-height:1.65;margin:0"><strong style="color:var(--ark-cyan-light)" data-i18n="sectors.hotellerie.obs.label">Eine Beobachtung aus der Praxis:</strong> <span data-i18n="sectors.hotellerie.obs.text">in den Hotels der Romandie, die ich angesprochen habe, verschlingt das Sortieren mehrsprachiger Bewertungen das Äquivalent einer halben Vollzeitstelle. Arbeit, die dem Gästeerlebnis nichts bringt, aber nicht ignoriert werden kann.</span></p>
-    </div>
-    
-    <div style="margin-top:32px" class="fade-up">
-      <a href="contact.html" class="ark-btn-primary" data-i18n="sectors.hotellerie.cta">Hotellerie-Audit buchen</a>
-      <a href="hotellerie.html" class="ark-btn-secondary" style="margin-left:10px">Zur Hotellerie-Seite →</a>
+    <div style="margin-top:32px;display:flex;gap:10px;flex-wrap:wrap" class="fade-up">
+      <a href="contact.html" class="ark-btn-primary">Audit Vermögensverwaltung buchen</a>
+      <a href="gestion-fortune.html" class="ark-btn-secondary">Seite Vermögensverwaltung &rarr;</a>
     </div>
   </div>
 </section>
 
-<!-- FIDUCIAIRES -->
-<section id="fiduciaires" class="ark-section-pad">
+<!-- MULTI-FAMILY OFFICES -->
+<section id="family-offices" class="ark-section-pad" style="background:rgba(8,12,20,0.55);border-top:1px solid var(--ark-border);border-bottom:1px solid var(--ark-border)">
   <div class="ark-container">
-    <div style="display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:start;margin-bottom:48px" class="ark-services-grid">
+    <div style="display:grid;grid-template-columns:auto 1fr;gap:64px;align-items:start" class="ark-services-grid">
       <div class="fade-up" style="width:96px;height:96px;border-radius:24px;background:rgba(34,211,238,0.1);border:1px solid var(--ark-border);display:flex;align-items:center;justify-content:center">
-        <iconify-icon icon="lucide:calculator" width="48" style="color:var(--ark-cyan-light)"></iconify-icon>
+        <iconify-icon icon="lucide:users" width="48" style="color:var(--ark-cyan-light)"></iconify-icon>
       </div>
       <div class="fade-up">
-        <div class="ark-tag" style="margin-bottom:18px" data-i18n="sectors.fiduciaires.wave">Ziel Wave 1 · 35 Prospects</div>
-        <h2 class="ark-h2" style="margin-bottom:16px" data-i18n="sectors.fiduciaires.h2">Treuhandbüros mit 15 bis 50 Personen</h2>
-        <p class="ark-lead" data-i18n="sectors.fiduciaires.lead">800 bis 1'200 Stunden pro Monat für die Erfassung von Lieferantenrechnungen. Für ein Büro mit 25 Mitarbeitenden entspricht das 5 bis 7 Vollzeitstellen, die abtippen. Dokumentiert revDSG-konform.</p>
+        <h2 class="ark-h2" style="margin-bottom:16px;text-wrap:balance">Multi-Family Offices</h2>
+        <p class="ark-lead">Ein klarer Überblick über jede Familie, ihre Gesellschaften und ihre Dokumente.</p>
       </div>
     </div>
-    
-    <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px" class="ark-services-grid">
-      
-      <div class="ark-card fade-up" style="padding:28px">
-        <iconify-icon icon="lucide:receipt" width="28" style="color:var(--ark-cyan-light);margin-bottom:14px"></iconify-icon>
-        <h3 style="font-size:15px;font-weight:700;color:var(--ark-text);margin:0 0 10px" data-i18n="sectors.fiduciaires.card1.title">Lieferantenrechnungen</h3>
-        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0" data-i18n="sectors.fiduciaires.card1.desc">Extraktion von MWST, IBAN, Fälligkeiten. Export nach Bexio oder Abacus. Vollständiges Audit-Protokoll, konform mit dem Bearbeitungsverzeichnis.</p>
-      </div>
-      
-      <div class="ark-card fade-up" style="padding:28px">
-        <iconify-icon icon="lucide:file-text" width="28" style="color:var(--ark-cyan-light);margin-bottom:14px"></iconify-icon>
-        <h3 style="font-size:15px;font-weight:700;color:var(--ark-text);margin:0 0 10px" data-i18n="sectors.fiduciaires.card2.title">Kundenverträge</h3>
-        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0" data-i18n="sectors.fiduciaires.card2.desc">Lesen, Klassifizieren, Extrahieren von Parteien, Daten, Klauseln. Automatische Indexierung für schnelle Suche.</p>
-      </div>
-      
-      <div class="ark-card fade-up" style="padding:28px">
-        <iconify-icon icon="lucide:shield-alert" width="28" style="color:var(--ark-cyan-light);margin-bottom:14px"></iconify-icon>
-        <h3 style="font-size:15px;font-weight:700;color:var(--ark-text);margin:0 0 10px" data-i18n="sectors.fiduciaires.card3.title">KYC & dossiers</h3>
-        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0" data-i18n="sectors.fiduciaires.card3.desc">KYC-Formulare, Steuererklärungen, Versicherungsdossiers. Kein Training von Drittmodellen mit Ihren Daten.</p>
-      </div>
-      
-    </div>
-    
-    <div style="margin-top:48px;padding:24px 28px;background:rgba(34,211,238,0.04);border-left:3px solid var(--ark-cyan);border-radius:0 12px 12px 0" class="fade-up">
-      <p style="color:var(--ark-text-mid);font-size:14px;line-height:1.65;margin:0"><strong style="color:var(--ark-cyan-light)" data-i18n="sectors.hotellerie.obs.label">Eine Beobachtung aus der Praxis:</strong> <span data-i18n="sectors.fiduciaires.obs.text">die Partner der Westschweizer Treuhandbüros, die ich treffe, beschreiben mir oft dieselbe Realität — sie wissen, dass 5 bis 7 Vollzeitstellen reiner Erfassung eingespart werden könnten, aber der Datenschutz hält sie zurück. Genau diese Blockade lösen wir mit einem DPA, der vor jedem Projektstart unterzeichnet wird.</span></p>
-    </div>
-    
     <div style="margin-top:32px" class="fade-up">
-      <a href="contact.html" class="ark-btn-primary" data-i18n="sectors.fiduciaires.cta">Treuhand-Audit buchen</a>
-      <a href="fiduciaire.html" class="ark-btn-secondary" style="margin-left:10px">Zur Treuhand-Seite →</a>
+      <a href="contact.html" class="ark-btn-primary">Audit buchen</a>
     </div>
   </div>
 </section>
-
-<!-- AUTRES SECTEURS -->
-<section id="autres" class="ark-section-pad" style="background:rgba(8,12,20,0.55);border-top:1px solid var(--ark-border)">
-  <div class="ark-container">
-    <h2 class="ark-h2 fade-up" style="max-width:680px"><span data-i18n="sectors.autres.h2">Weitere Branchen.</span><br><span data-i18n="sectors.autres.h2b">Nach Prüfung.</span></h2>
-    <p class="ark-lead fade-up" style="margin-bottom:48px" data-i18n="sectors.autres.lead">Wir prüfen jede Anfrage eines Premium-KMU der Romandie mit 5 bis 100 Mitarbeitenden, in einer Branche, in der Qualität vor Volumen kommt.</p>
-    
-    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:20px" class="ark-services-grid">
-      
-      <div class="ark-card fade-up" style="padding:24px">
-        <iconify-icon icon="lucide:gavel" width="28" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
-        <h3 style="font-size:14px;font-weight:700;color:var(--ark-text);margin:0 0 8px" data-i18n="sectors.autres.card1.title">Recht</h3>
-        <p style="color:var(--ark-text-mid);font-size:12px;line-height:1.55;margin:0" data-i18n="sectors.autres.card1.desc">Premium-Anwaltskanzleien. Vertragslektüre, Indexierung der Rechtsprechung.</p>
-      </div>
-      
-      <div class="ark-card fade-up" style="padding:24px">
-        <iconify-icon icon="lucide:stethoscope" width="28" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
-        <h3 style="font-size:14px;font-weight:700;color:var(--ark-text);margin:0 0 8px" data-i18n="sectors.autres.card2.title">Gesundheit</h3>
-        <p style="color:var(--ark-text-mid);font-size:12px;line-height:1.55;margin:0" data-i18n="sectors.autres.card2.desc">Privatkliniken, unabhängige Ärzte. Terminverwaltung, ärztliche Schweigepflicht gewahrt.</p>
-      </div>
-      
-      <div class="ark-card fade-up" style="padding:24px">
-        <iconify-icon icon="lucide:home" width="28" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
-        <h3 style="font-size:14px;font-weight:700;color:var(--ark-text);margin:0 0 8px" data-i18n="sectors.autres.card3.title">Immobilien</h3>
-        <p style="color:var(--ark-text-mid);font-size:12px;line-height:1.55;margin:0" data-i18n="sectors.autres.card3.desc">Verwaltungen, High-End-Makler. Mandatsverfolgung, Erstellung von Mietverträgen.</p>
-      </div>
-      
-      <div class="ark-card fade-up" style="padding:24px">
-        <iconify-icon icon="lucide:shopping-bag" width="28" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
-        <h3 style="font-size:14px;font-weight:700;color:var(--ark-text);margin:0 0 8px" data-i18n="sectors.autres.card4.title">Premium-Retail</h3>
-        <p style="color:var(--ark-text-mid);font-size:12px;line-height:1.55;margin:0" data-i18n="sectors.autres.card4.desc">Uhren, Schmuck, Gastronomie. Produkt-Monitoring, mehrsprachiger Concierge.</p>
-      </div>
-      
-    </div>
-    
-    <div style="margin-top:48px;text-align:center" class="fade-up">
-      <a href="contact.html" class="ark-btn-secondary" data-i18n="sectors.autres.cta">Meine Branche ist nicht aufgeführt</a>
-    </div>
-  </div>
-</section>
-
 
 </main>
 
@@ -485,24 +312,20 @@ a{color:inherit;text-decoration:none}
         </svg>
         <span class="ark-brand-text">Arkneys<span style="color:var(--ark-cyan-light);margin-left:4px">Agency</span></span>
       </a>
-      <p style="font-size:13px;color:var(--ark-text-mid);line-height:1.6;margin:16px 0 0;max-width:300px" data-i18n="footer.about">Schweizer KI-Studio für Premium-KMU der Romandie — Hotellerie, Treuhand, Dienstleistungen. Gegründet am 9. Januar 2025 · Sitz Zürich.</p>
+      <p style="font-size:13px;color:var(--ark-text-mid);line-height:1.6;margin:16px 0 0;max-width:300px" data-i18n="footer.about">Schweizer KI-Studio für die Vermögensverwaltung — Privatbanken, unabhängige Vermögensverwalter, Family Offices. Gegründet am 9. Januar 2025 · Sitz Zürich.</p>
     </div>
     
     <div>
-      <div class="ark-footer-col-title" data-i18n="footer.solution">Lösung</div>
-      <a href="agents.html#conversationnels" class="ark-footer-link">Konversations-Agenten</a>
-      <a href="agents.html#documentaires" class="ark-footer-link">Dokumenten-Agenten</a>
-      <a href="agents.html#sourcing" class="ark-footer-link">Audit & sourcing IA</a>
-      <a href="agents.html#methode" class="ark-footer-link">Methode</a>
+      <div class="ark-footer-col-title" data-i18n="footer.solution">Angebot</div>
+      <a href="offre.html" class="ark-footer-link">Das Angebot</a>
+      <a href="offre.html#methode" class="ark-footer-link">Methode</a>
     </div>
     
     <div>
       <div class="ark-footer-col-title" data-i18n="footer.sectors">Branchen</div>
-      <a href="secteurs.html#hotellerie" class="ark-footer-link">Hotellerie 4–5★</a>
-      <a href="secteurs.html#fiduciaires" class="ark-footer-link">Treuhand</a>
-      <a href="horlogerie.html" class="ark-footer-link">Uhren &amp; Luxus</a>
-      <a href="gestion-fortune.html" class="ark-footer-link">Vermögensverwaltung</a>
-      <a href="secteurs.html#autres" class="ark-footer-link">Weitere Branchen</a>
+      <a href="secteurs.html#banques" class="ark-footer-link">Privatbanken</a>
+      <a href="gestion-fortune.html" class="ark-footer-link">Unabhängige Vermögensverwalter</a>
+      <a href="secteurs.html#family-offices" class="ark-footer-link">Family Offices</a>
     </div>
     
     <div>

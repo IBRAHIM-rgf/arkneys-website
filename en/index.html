@@ -3,10 +3,10 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>Sovereign AI for Swiss SMEs — Arkneys Agency</title>
-<meta name="description" content="Arkneys Agency — Swiss AI studio for premium SMEs in French-speaking Switzerland. 7 families of AI agents. Infomaniak Swiss hosting, documented compliance with the revised Swiss FADP.">
-<meta property="og:title" content="Sovereign AI for Swiss SMEs — Arkneys Agency">
-<meta property="og:description" content="Arkneys Agency — Swiss AI studio for premium SMEs in French-speaking Switzerland. 7 families of AI agents. Infomaniak Swiss hosting, documented compliance with the revised Swiss FADP.">
+<title>AI for Wealth Management in Switzerland | Arkneys Agency</title>
+<meta name="description" content="Arkneys Agency structures and classifies the client base of private banks, independent asset managers and family offices. On-premise, DPA signed.">
+<meta property="og:title" content="AI for Wealth Management in Switzerland | Arkneys Agency">
+<meta property="og:description" content="Arkneys Agency structures and classifies the client base of private banks, independent asset managers and family offices. On-premise, DPA signed.">
 <meta property="og:type" content="website">
 <meta property="og:url" content="https://arkneysagency.ch/en/">
 <meta property="og:site_name" content="Arkneys Agency">
@@ -21,7 +21,7 @@
       "@type": "ProfessionalService",
       "@id": "https://arkneysagency.ch/#organization",
       "name": "Arkneys Agency",
-      "description": "Swiss AI studio for premium SMEs in French-speaking Switzerland: AI agents calibrated on your business, deployed in 4 weeks, hosted in Switzerland (Infomaniak), compliant with the revised Swiss FADP and GDPR.",
+      "description": "Swiss AI studio for wealth management: structuring and classification of the client base of private banks, independent asset managers and family offices. Deployed within the client's infrastructure, DPA signed before any work begins.",
       "url": "https://arkneysagency.ch/",
       "email": "contact@arkneysagency.ch",
       "telephone": "+41783520697",
@@ -29,7 +29,7 @@
       "foundingDate": "2025-01-09",
       "areaServed": { "@type": "AdministrativeArea", "name": "French-speaking Switzerland" },
       "address": { "@type": "PostalAddress", "addressRegion": "Zurich", "addressCountry": "CH" },
-      "knowsAbout": ["Intelligence artificielle", "AI Agents", "Hôtellerie", "Fiduciaire", "Compliance with the revised Swiss FADP", "Data sovereignty"],
+      "knowsAbout": ["Intelligence artificielle", "AI Agents", "Private banking", "Wealth management", "Family offices", "Compliance with the revised Swiss FADP", "Data sovereignty"],
       "sameAs": ["https://www.linkedin.com/in/ibrahim-ghommiss-856b37213/"]
     },
     {
@@ -234,7 +234,7 @@ a{color:inherit;text-decoration:none}
   
   <div class="ark-nav-links">
     <a class="ark-nav-link active" href="index.html" data-i18n="nav.home">Home</a>
-    <span class="ark-nav-link" data-megamenu="agents" data-i18n="nav.agents">AI Agents</span>
+    <a class="ark-nav-link" href="offre.html" data-i18n="nav.agents">Offering</a>
     <a class="ark-nav-link" href="secteurs.html" data-i18n="nav.sectors">Sectors</a>
     <a class="ark-nav-link" href="a-propos.html" data-i18n="nav.about">About</a>
     <a class="ark-nav-link" href="contact.html" data-i18n="nav.contact">Contact</a>
@@ -246,251 +246,75 @@ a{color:inherit;text-decoration:none}
   </div>
 </nav>
 
-<!-- MEGA MENU AGENTS (7 familles) -->
-<div class="ark-megamenu" id="megamenu-agents">
-  <div class="ark-megamenu-inner" style="grid-template-columns:repeat(4,1fr)">
-    
-    <div class="ark-megamenu-section" style="grid-column:1 / span 3">
-      <div class="ark-megamenu-title" data-i18n="mega.agents_title">The 7 families of AI agents</div>
-      <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:6px;margin:0 -12px">
-        
-      <a href="agent-conversation.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:messages-square" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.conversation.label">Conversation</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.conversation.sub">Reviews · Concierge · Support</span>
-        </div>
-      </a>
-      <a href="agent-documents.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:scan-text" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.documents.label">Documents</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.documents.sub">Invoices · Contracts · KYC</span>
-        </div>
-      </a>
-      <a href="agent-veille.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:radar" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.veille.label">Monitoring</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.veille.sub">Products · Competition · Sourcing</span>
-        </div>
-      </a>
-      <a href="agent-commerciaux.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:briefcase" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.commerciaux.label">Sales</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.commerciaux.sub">Leads · Follow-ups · Pipeline</span>
-        </div>
-      </a>
-      <a href="agent-analytiques.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:line-chart" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.analytiques.label">Analytics</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.analytiques.sub">Reporting · KPIs · Dashboards</span>
-        </div>
-      </a>
-      <a href="agent-traduction.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:languages" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.traduction.label">Translation</span>
-          <span class="ark-megamenu-desc" data-i18n="agent.traduction.sub">Content · Documents · Web</span>
-        </div>
-      </a>
-      <a href="agent-sur-mesure.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:wrench" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="agent.surmesure.label">Custom</span>
-          <span class="ark-megamenu-desc">Atypical cases · Complex integrations</span>
-        </div>
-      </a>
-      </div>
-    </div>
-    
-    <div class="ark-megamenu-section">
-      <div class="ark-megamenu-title" data-i18n="mega.more_title">Go further</div>
-      
-      <a href="agents.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:layout-grid" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="mega.overview">Overview</span>
-          <span class="ark-megamenu-desc" data-i18n="mega.overview_desc">The 7 families + method</span>
-        </div>
-      </a>
-      
-      <a href="agents.html#methode" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:map" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="mega.method">Our method</span>
-          <span class="ark-megamenu-desc" data-i18n="mega.method_desc">Audit → Scoping → Deployment → Follow-up</span>
-        </div>
-      </a>
-      
-      <a href="contact.html" class="ark-megamenu-item">
-        <div class="ark-megamenu-icon">
-          <iconify-icon icon="lucide:calendar-plus" width="16"></iconify-icon>
-        </div>
-        <div class="ark-megamenu-content">
-          <span class="ark-megamenu-label" data-i18n="mega.book">Book an Audit</span>
-          <span class="ark-megamenu-desc" data-i18n="mega.book_desc">Remote or on site, clear deliverable</span>
-        </div>
-      </a>
-    </div>
-    
-  </div>
-</div>
 
 
 <main class="ark-page">
 
 <section class="ark-section-pad" style="padding-top:120px;padding-bottom:60px">
   <div class="ark-container">
-    <h1 class="ark-h1 fade-up" style="margin:32px 0 24px;max-width:880px">
-      <span data-i18n="home.hero.h1_part1">Sovereign AI agents</span><br><span data-i18n="home.hero.h1_part2">for premium SMEs in</span> <span style="color:var(--ark-cyan-light)" data-i18n="home.hero.h1_part3">French-speaking Switzerland</span>.
+    <h1 class="ark-h1 fade-up" style="margin:32px 0 24px;max-width:880px;text-wrap:balance">
+      <span data-i18n="home.hero.h1_part1">Your client base.</span><br><span data-i18n="home.hero.h1_part2">Structured, clean,</span> <span style="color:var(--ark-cyan-light)" data-i18n="home.hero.h1_part3">actionable</span>.
     </h1>
-    <p class="ark-lead fade-up" data-i18n="home.hero.lead" style="margin-bottom:20px">We deploy AI agents calibrated on your business in four weeks. Swiss hosting, documented compliance with the revised Swiss FADP, measurable method. No proprietary lock-in, exit possible every quarter.</p>
-    <p class="ark-lead fade-up" data-i18n="home.hero.answer" style="margin-bottom:36px;font-size:15px;color:var(--ark-text-dim)">Arkneys Agency is a Swiss AI studio specialised in 4–5★ hospitality and fiduciaries in French-speaking Switzerland. Your data stays 100% in Switzerland (Infomaniak), a DPA is signed before any project starts (revised Swiss FADP + GDPR), and you can exit every quarter, with no proprietary lock-in.</p>
+    <p class="ark-lead fade-up" data-i18n="home.hero.lead" style="margin-bottom:20px">Years of client records — scattered, duplicated or incomplete. We consolidate them, classify them according to your criteria and flag what is missing. Your teams validate every step. Everything remains within your infrastructure, with a DPA signed before any work begins.</p>
+    <p class="ark-lead fade-up" data-i18n="home.hero.answer" style="margin-bottom:36px;font-size:15px;color:var(--ark-text-dim)">Arkneys Agency is a Swiss AI studio that structures and classifies the client base of private banks, independent asset managers and family offices. Arkneys makes no investment or compliance decisions: the agent prepares, your teams decide.</p>
     <div class="fade-up" style="display:flex;gap:12px;flex-wrap:wrap">
       <a href="contact.html" class="ark-btn-primary" data-i18n="home.hero.cta1">Book an audit</a>
-      <a href="agents.html" class="ark-btn-secondary" data-i18n="home.hero.cta2">See the 7 agents</a>
+      <a href="offre.html" class="ark-btn-secondary" data-i18n="home.hero.cta2">View the offering</a>
     </div>
   </div>
 </section>
 
-<!-- 7 AGENTS -->
+<!-- OFFRE : 4 ÉTAPES -->
 <section class="ark-section-pad" style="padding-top:40px">
   <div class="ark-container">
-    <h2 class="ark-h2 fade-up" style="max-width:680px"><span data-i18n="home.agents.h2_part1">Seven agent families.</span><br><span data-i18n="home.agents.h2_part2">One single method.</span></h2>
-    <p class="ark-lead fade-up" style="margin-bottom:48px"><span data-i18n="home.agents.lead">Whatever your business, every agent shares the same principles: calibration on your activity, Swiss hosting, systematic human validation at the start.</span></p>
-    
-    <div class="ark-grid-7">
-      
-      <a href="agent-conversation.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
-        <div class="ark-agent-card-icon">
-          <iconify-icon icon="lucide:messages-square" width="22"></iconify-icon>
-        </div>
-        <div class="ark-tag" style="align-self:flex-start">
-          <iconify-icon icon="lucide:shield-check" width="9"></iconify-icon>
-          Sovereignty
-        </div>
-        <h3 data-i18n="agent.conversation.label">Conversation</h3>
-        <p data-i18n="agent.conversation.sub">Reviews · Concierge · Support</p>
-        <span class="ark-agent-card-link" data-i18n="common.see_detail">See details →</span>
-      </a>
-      <a href="agent-documents.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
-        <div class="ark-agent-card-icon">
-          <iconify-icon icon="lucide:scan-text" width="22"></iconify-icon>
-        </div>
-        <div class="ark-tag" style="align-self:flex-start">
-          <iconify-icon icon="lucide:file-check-2" width="9"></iconify-icon>
-          Compliance
-        </div>
-        <h3 data-i18n="agent.documents.label">Documents</h3>
-        <p data-i18n="agent.documents.sub">Invoices · Contracts · KYC</p>
-        <span class="ark-agent-card-link" data-i18n="common.see_detail">See details →</span>
-      </a>
-      <a href="agent-veille.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
-        <div class="ark-agent-card-icon">
-          <iconify-icon icon="lucide:radar" width="22"></iconify-icon>
-        </div>
-        <div class="ark-tag" style="align-self:flex-start">
-          <iconify-icon icon="lucide:bar-chart-3" width="9"></iconify-icon>
-          Measurable
-        </div>
-        <h3 data-i18n="agent.veille.label">Monitoring</h3>
-        <p data-i18n="agent.veille.sub">Products · Competition · Sourcing</p>
-        <span class="ark-agent-card-link" data-i18n="common.see_detail">See details →</span>
-      </a>
-      <a href="agent-commerciaux.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
-        <div class="ark-agent-card-icon">
-          <iconify-icon icon="lucide:briefcase" width="22"></iconify-icon>
-        </div>
-        <div class="ark-tag" style="align-self:flex-start">
-          <iconify-icon icon="lucide:trending-up" width="9"></iconify-icon>
-          Measurable
-        </div>
-        <h3 data-i18n="agent.commerciaux.label">Sales</h3>
-        <p data-i18n="agent.commerciaux.sub">Leads · Follow-ups · Pipeline</p>
-        <span class="ark-agent-card-link" data-i18n="common.see_detail">See details →</span>
-      </a>
-      <a href="agent-analytiques.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
-        <div class="ark-agent-card-icon">
-          <iconify-icon icon="lucide:line-chart" width="22"></iconify-icon>
-        </div>
-        <div class="ark-tag" style="align-self:flex-start">
-          <iconify-icon icon="lucide:bar-chart-3" width="9"></iconify-icon>
-          Measurable
-        </div>
-        <h3 data-i18n="agent.analytiques.label">Analytics</h3>
-        <p data-i18n="agent.analytiques.sub">Reporting · KPIs · Dashboards</p>
-        <span class="ark-agent-card-link" data-i18n="common.see_detail">See details →</span>
-      </a>
-      <a href="agent-traduction.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
-        <div class="ark-agent-card-icon">
-          <iconify-icon icon="lucide:languages" width="22"></iconify-icon>
-        </div>
-        <div class="ark-tag" style="align-self:flex-start">
-          <iconify-icon icon="lucide:lock" width="9"></iconify-icon>
-          Discretion
-        </div>
-        <h3 data-i18n="agent.traduction.label">Translation</h3>
-        <p data-i18n="agent.traduction.sub">Content · Documents · Web</p>
-        <span class="ark-agent-card-link" data-i18n="common.see_detail">See details →</span>
-      </a>
-      <a href="agent-sur-mesure.html" class="ark-card ark-card-clickable ark-agent-card fade-up">
-        <div class="ark-agent-card-icon">
-          <iconify-icon icon="lucide:wrench" width="22"></iconify-icon>
-        </div>
-        <div class="ark-tag" style="align-self:flex-start">
-          <iconify-icon icon="lucide:shield-check" width="9"></iconify-icon>
-          Sovereignty
-        </div>
-        <h3 data-i18n="agent.surmesure.label">Custom</h3>
-        <p>Atypical cases · Complex integrations</p>
-        <span class="ark-agent-card-link" data-i18n="common.see_detail">See details →</span>
-      </a>
+    <h2 class="ark-h2 fade-up" style="max-width:680px;margin-bottom:48px;text-wrap:balance"><span data-i18n="home.agents.h2_part1">One offering.</span><br><span data-i18n="home.agents.h2_part2">Four steps.</span></h2>
+
+    <div style="display:grid;grid-template-columns:repeat(4,1fr);gap:24px" class="ark-services-grid">
+      <div class="fade-up">
+        <div style="font-size:48px;font-weight:800;color:var(--ark-cyan-light);letter-spacing:-0.03em;line-height:1;margin-bottom:16px">01</div>
+        <h3 class="ark-h3" style="font-size:18px">Client base audit</h3>
+        <p style="color:var(--ark-text-mid);font-size:14px;line-height:1.6">We assess the actual state of your data: duplicates, incomplete records, information spread across multiple systems.</p>
+      </div>
+      <div class="fade-up">
+        <div style="font-size:48px;font-weight:800;color:var(--ark-cyan-light);letter-spacing:-0.03em;line-height:1;margin-bottom:16px">02</div>
+        <h3 class="ark-h3" style="font-size:18px">Scoping</h3>
+        <p style="color:var(--ark-text-mid);font-size:14px;line-height:1.6">We define the classification criteria with you, in line with your compliance requirements.</p>
+      </div>
+      <div class="fade-up">
+        <div style="font-size:48px;font-weight:800;color:var(--ark-cyan-light);letter-spacing:-0.03em;line-height:1;margin-bottom:16px">03</div>
+        <h3 class="ark-h3" style="font-size:18px">Structuring</h3>
+        <p style="color:var(--ark-text-mid);font-size:14px;line-height:1.6">The agent classifies the client base; your teams validate.</p>
+      </div>
+      <div class="fade-up">
+        <div style="font-size:48px;font-weight:800;color:var(--ark-cyan-light);letter-spacing:-0.03em;line-height:1;margin-bottom:16px">04</div>
+        <h3 class="ark-h3" style="font-size:18px">Ongoing support</h3>
+        <p style="color:var(--ark-text-mid);font-size:14px;line-height:1.6">Every new record is classified as it comes in, keeping your client base clean.</p>
+      </div>
     </div>
+    <p class="ark-lead fade-up" style="margin-top:40px">A first batch of your client base structured within four weeks. The full timeline is set during the audit, based on the size of your client base.</p>
   </div>
 </section>
 
 <!-- SECTEURS -->
 <section class="ark-section-pad">
   <div class="ark-container">
-    <h2 class="ark-h2 fade-up" style="max-width:640px"><span data-i18n="home.sectors.h2_part1">Calibrated for</span><br><span data-i18n="home.sectors.h2_part2">your sector.</span></h2>
-    <p class="ark-lead fade-up" style="margin-bottom:48px">We focus on two sectors where our methods have already proven themselves. But we support any premium SME in French-speaking Switzerland that does not settle for approximation.</p>
-    
+    <h2 class="ark-h2 fade-up" style="max-width:640px;margin-bottom:48px"><span data-i18n="home.sectors.h2_part1">Calibrated for</span><br><span data-i18n="home.sectors.h2_part2">your sector.</span></h2>
+
     <div style="display:grid;grid-template-columns:repeat(3,1fr);gap:24px">
-      <a href="secteurs.html#hotellerie" class="ark-card ark-card-clickable fade-up" style="padding:28px">
-        <iconify-icon icon="lucide:hotel" width="32" style="color:var(--ark-cyan-light);margin-bottom:16px"></iconify-icon>
-        <h3 class="ark-h3" style="font-size:18px">4–5★ hospitality</h3>
-        <p style="color:var(--ark-text-mid);line-height:1.6;font-size:13px">Multilingual review sorting, 24/7 concierge, staff FAQ.</p>
+      <a href="secteurs.html#banques" class="ark-card ark-card-clickable fade-up" style="padding:28px">
+        <iconify-icon icon="lucide:landmark" width="32" style="color:var(--ark-cyan-light);margin-bottom:16px"></iconify-icon>
+        <h3 class="ark-h3" style="font-size:18px">Private banks</h3>
+        <p style="color:var(--ark-text-mid);line-height:1.6;font-size:13px">Client bases built up over many years, brought back into order without compromising banking secrecy.</p>
       </a>
-      <a href="secteurs.html#fiduciaires" class="ark-card ark-card-clickable fade-up" style="padding:28px">
-        <iconify-icon icon="lucide:calculator" width="32" style="color:var(--ark-cyan-light);margin-bottom:16px"></iconify-icon>
-        <h3 class="ark-h3" style="font-size:18px">Fiduciaries 15–50 people</h3>
-        <p style="color:var(--ark-text-mid);line-height:1.6;font-size:13px">Automatic supplier invoice entry, Bexio, Abacus.</p>
+      <a href="gestion-fortune.html" class="ark-card ark-card-clickable fade-up" style="padding:28px">
+        <iconify-icon icon="lucide:briefcase" width="32" style="color:var(--ark-cyan-light);margin-bottom:16px"></iconify-icon>
+        <h3 class="ark-h3" style="font-size:18px">Independent asset managers</h3>
+        <p style="color:var(--ark-text-mid);line-height:1.6;font-size:13px">Less time on administration, complete files ahead of every audit.</p>
       </a>
-      <a href="secteurs.html#autres" class="ark-card ark-card-clickable fade-up" style="padding:28px">
-        <iconify-icon icon="lucide:building-2" width="32" style="color:var(--ark-cyan-light);margin-bottom:16px"></iconify-icon>
-        <h3 class="ark-h3" style="font-size:18px">Other sectors</h3>
-        <p style="color:var(--ark-text-mid);line-height:1.6;font-size:13px">Legal, healthcare, real estate, premium retail. On review.</p>
+      <a href="secteurs.html#family-offices" class="ark-card ark-card-clickable fade-up" style="padding:28px">
+        <iconify-icon icon="lucide:users" width="32" style="color:var(--ark-cyan-light);margin-bottom:16px"></iconify-icon>
+        <h3 class="ark-h3" style="font-size:18px">Multi-family offices</h3>
+        <p style="color:var(--ark-text-mid);line-height:1.6;font-size:13px">A clear view of each family, its entities and its documents.</p>
       </a>
     </div>
   </div>
@@ -505,7 +329,7 @@ a{color:inherit;text-decoration:none}
       <div class="fade-up">
         <iconify-icon icon="lucide:shield-check" width="24" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
         <h3 style="font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ark-text);margin:0 0 8px" data-i18n="engagement.sovereignty">Sovereignty</h3>
-        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">Exclusive Infomaniak Swiss hosting. Your data does not leave the country.</p>
+        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">Deployment within your own infrastructure. Your data never leaves your servers.</p>
       </div>
       <div class="fade-up">
         <iconify-icon icon="lucide:scale" width="24" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
@@ -520,7 +344,7 @@ a{color:inherit;text-decoration:none}
       <div class="fade-up">
         <iconify-icon icon="lucide:bar-chart-3" width="24" style="color:var(--ark-cyan-light);margin-bottom:12px"></iconify-icon>
         <h3 style="font-size:14px;font-weight:700;letter-spacing:0.04em;text-transform:uppercase;color:var(--ark-text);margin:0 0 8px" data-i18n="engagement.measurable">Measurable</h3>
-        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">ROI measured from month 2. Quarterly report with figures.</p>
+        <p style="color:var(--ark-text-mid);font-size:13px;line-height:1.6;margin:0">A quantified before-and-after assessment of your client base: duplicates, incomplete records, classified records. Quarterly reporting.</p>
       </div>
     </div>
   </div>
@@ -530,7 +354,7 @@ a{color:inherit;text-decoration:none}
 <section class="ark-section-pad" style="text-align:center">
   <div class="ark-container" style="max-width:720px">
     <h2 class="ark-h2 fade-up" data-i18n="home.cta.h2">Start a conversation.</h2>
-    <p class="ark-lead fade-up" style="margin:24px auto 40px">Tell us about your business and the difficulty you are trying to solve. Reply within 24 hours with a proposed 30-minute scoping call.</p>
+    <p class="ark-lead fade-up" style="margin:24px auto 40px">Tell us about the current state of your client base and what you want to achieve. We reply within 24 hours with a proposed 30-minute scoping call.</p>
     <div class="fade-up" style="display:flex;gap:12px;justify-content:center;flex-wrap:wrap">
       <a href="contact.html" class="ark-btn-primary">Book a conversation</a>
       <a href="https://wa.me/41783520697?text=Bonjour%20ibrahim%2C" target="_blank" rel="noopener" class="ark-btn-secondary">
@@ -552,24 +376,20 @@ a{color:inherit;text-decoration:none}
         </svg>
         <span class="ark-brand-text">Arkneys<span style="color:var(--ark-cyan-light);margin-left:4px">Agency</span></span>
       </a>
-      <p style="font-size:13px;color:var(--ark-text-mid);line-height:1.6;margin:16px 0 0;max-width:300px" data-i18n="footer.about">Swiss AI studio for premium SMEs in French-speaking Switzerland — hospitality, fiduciaries, services. Incorporated 9 January 2025 · Based in Zurich.</p>
+      <p style="font-size:13px;color:var(--ark-text-mid);line-height:1.6;margin:16px 0 0;max-width:300px" data-i18n="footer.about">Swiss AI studio for wealth management — private banks, independent asset managers, family offices. Founded 9 January 2025 · Headquartered in Zurich.</p>
     </div>
     
     <div>
-      <div class="ark-footer-col-title" data-i18n="footer.solution">Solution</div>
-      <a href="agents.html#conversationnels" class="ark-footer-link">Conversational agents</a>
-      <a href="agents.html#documentaires" class="ark-footer-link">Document agents</a>
-      <a href="agents.html#sourcing" class="ark-footer-link">Audit & sourcing IA</a>
-      <a href="agents.html#methode" class="ark-footer-link">Method</a>
+      <div class="ark-footer-col-title" data-i18n="footer.solution">Offering</div>
+      <a href="offre.html" class="ark-footer-link">The offering</a>
+      <a href="offre.html#methode" class="ark-footer-link">Method</a>
     </div>
     
     <div>
       <div class="ark-footer-col-title" data-i18n="footer.sectors">Sectors</div>
-      <a href="secteurs.html#hotellerie" class="ark-footer-link">4–5★ hospitality</a>
-      <a href="secteurs.html#fiduciaires" class="ark-footer-link">Fiduciaries</a>
-      <a href="horlogerie.html" class="ark-footer-link">Watchmaking &amp; luxury</a>
-      <a href="gestion-fortune.html" class="ark-footer-link">Wealth management</a>
-      <a href="secteurs.html#autres" class="ark-footer-link">Other sectors</a>
+      <a href="secteurs.html#banques" class="ark-footer-link">Private banks</a>
+      <a href="gestion-fortune.html" class="ark-footer-link">Independent asset managers</a>
+      <a href="secteurs.html#family-offices" class="ark-footer-link">Family offices</a>
     </div>
     
     <div>
