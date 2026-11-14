@@ -4,7 +4,7 @@
 
 ## Offre
 - Une offre en quatre étapes : Audit de votre base (doublons, fiches incomplètes, données dispersées entre plusieurs outils) → Cadrage (critères de classement fixés avec votre conformité) → Structuration (l'agent classe la base, vos équipes valident) → Suivi (chaque nouvelle fiche est classée au fil de l'eau).
-- Un premier lot de votre base structuré en quatre semaines. Le calendrier complet est fixé à l'audit, selon la taille de votre base.
+- Un premier lot de votre base client structuré en quatre semaines. Le calendrier complet est arrêté lors de l'audit, en fonction du volume de votre base.
 - Quatre engagements : Souveraineté, Conformité, Discrétion, Mesurable.
 
 ## Pages prioritaires
