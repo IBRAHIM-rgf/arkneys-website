@@ -22,6 +22,21 @@
   ],
   "redirects": [
     { "source": "/home", "destination": "/", "permanent": true },
-    { "source": "/accueil", "destination": "/", "permanent": true }
+    { "source": "/accueil", "destination": "/", "permanent": true },
+    { "source": "/hotellerie", "destination": "/", "permanent": true },
+    { "source": "/fiduciaire", "destination": "/", "permanent": true },
+    { "source": "/dentaire", "destination": "/", "permanent": true },
+    { "source": "/horlogerie", "destination": "/", "permanent": true },
+    { "source": "/ia-hotellerie-suisse-romande", "destination": "/", "permanent": true },
+    { "source": "/ia-suisse-vs-americaine-pme", "destination": "/", "permanent": true },
+    { "source": "/choisir-agence-ia-nlpd-suisse-romande", "destination": "/", "permanent": true },
+    { "source": "/agents", "destination": "/offre", "permanent": true },
+    { "source": "/agent-conversation", "destination": "/offre", "permanent": true },
+    { "source": "/agent-documents", "destination": "/offre", "permanent": true },
+    { "source": "/agent-veille", "destination": "/offre", "permanent": true },
+    { "source": "/agent-commerciaux", "destination": "/offre", "permanent": true },
+    { "source": "/agent-analytiques", "destination": "/offre", "permanent": true },
+    { "source": "/agent-traduction", "destination": "/offre", "permanent": true },
+    { "source": "/agent-sur-mesure", "destination": "/offre", "permanent": true }
   ]
 }
