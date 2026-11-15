@@ -601,7 +601,7 @@ function applyLang(lang){
     }
   });
   document.querySelectorAll('.ark-lang button').forEach(b=>b.classList.remove('active'));
-  document.getElementById('lang-'+lang).classList.add('active');
+  const langBtn=document.getElementById('lang-'+lang);if(langBtn)langBtn.classList.add('active');
 }
 function setLang(lang){localStorage.setItem('ark_lang',lang);applyLang(lang)}
 function openModal(name){document.getElementById('modal-'+name).classList.add('show');document.body.style.overflow='hidden'}

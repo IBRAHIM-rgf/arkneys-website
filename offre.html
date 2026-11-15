@@ -210,6 +210,7 @@ a{color:inherit;text-decoration:none}
   </div>
   
   <div class="ark-nav-right">
+    <div class="ark-lang-switch" style="display:flex;align-items:center;gap:7px;margin-right:14px"><span style="color:#b8925a;text-decoration:none;font-size:12px;letter-spacing:1px;font-weight:700">FR</span><span style="color:#4a463f;font-size:12px">/</span><a href="en/offre.html" style="color:#9a958b;text-decoration:none;font-size:12px;letter-spacing:1px" hreflang="en">EN</a><span style="color:#4a463f;font-size:12px">/</span><a href="de/offre.html" style="color:#9a958b;text-decoration:none;font-size:12px;letter-spacing:1px" hreflang="de">DE</a></div>
     <a href="contact.html" class="ark-btn-primary" data-i18n="nav.cta">Réserver un Audit</a>
   </div>
 </nav>
@@ -564,7 +565,7 @@ function applyLang(lang){
     }
   });
   document.querySelectorAll('.ark-lang button').forEach(b=>b.classList.remove('active'));
-  document.getElementById('lang-'+lang).classList.add('active');
+  const langBtn=document.getElementById('lang-'+lang);if(langBtn)langBtn.classList.add('active');
 }
 function setLang(lang){localStorage.setItem('ark_lang',lang);applyLang(lang)}
 function openModal(name){document.getElementById('modal-'+name).classList.add('show');document.body.style.overflow='hidden'}
